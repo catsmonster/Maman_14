@@ -37,21 +37,6 @@ struct codeNode {
     }data;
 };
 
-struct incompleteCodeNode {
-    long address;
-    int type;
-    char *label;
-    long currentLine;
-    incompleteCodeNode *next;
-    union {
-        struct {
-            long immed:16;
-        }I;
-        struct {
-            long address:25;
-        }J;
-    }data;
-};
 
 codeNode *initializeCodeImage() {
     codeNode *p = calloc(1, sizeof(codeNode));

@@ -13,7 +13,6 @@ enum {
 };
 
 typedef struct codeNode codeNode;
-typedef struct incompleteCodeNode incompleteCodeNode;
 
 codeNode *initializeCodeImage();
 codeNode *insertRWord(int *error, int opcode, int funct, int rs, int rt, int rd, long *IC, codeNode *codeImageTail, long line);
