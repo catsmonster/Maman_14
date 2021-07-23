@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Maman_14"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/user/CLionProjects/Maman14/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/user/CLionProjects/Maman14/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/user/CLionProjects/Maman14/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Maman_14">
+				<Option output="/home/user/CLionProjects/Maman14/cmake-build-debug/Maman_14" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/user/CLionProjects/Maman14/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 Maman_14"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Maman_14/fast">
+				<Option output="/home/user/CLionProjects/Maman14/cmake-build-debug/Maman_14" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/user/CLionProjects/Maman14/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 Maman_14/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/user/CLionProjects/Maman14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/user/CLionProjects/Maman14/codeImage.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/codeImage.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/commands.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/commands.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/dataImage.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/dataImage.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/dataTable.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/dataTable.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/directiveFunctions.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/directiveFunctions.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/entriesOrExternList.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/entriesOrExternList.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/fileContentProcessing.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/fileContentProcessing.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/fileErrors.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/fileErrors.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/fileNameProcessing.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/fileNameProcessing.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/firstIteration.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/firstIteration.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/inputUtils.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/inputUtils.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/listOfCommands.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/listOfCommands.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/main.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/printOutput.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/printOutput.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/secondIteration.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/secondIteration.h">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

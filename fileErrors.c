@@ -1,0 +1,192 @@
+#include "fileErrors.h"
+#include <stdio.h>
+#include <stdarg.h>
+
+/*
+ * Printing file opening related errors
+ */
+void printFileError(int errorCode, char * errorCause) {
+    switch (errorCode) {
+        case ERROR_INVALID_FILE_EXTENSION:
+            printf("The file %s is not supported, please provide a valid .as file.\n", errorCause);
+            break;
+        case ERROR_MISSING_AS_FILE:
+            printf("Missing assembly file, please provide a valid assembly file.\n");
+            break;
+        case ERROR_FILE_DOES_NOT_EXIST:
+            printf("The file %s couldn't open, please make sure the file name was entered correctly.\n", errorCause);
+            break;
+        case ERROR_FILE_IS_EMPTY:
+            printf("The requested file %s is empty.\n", errorCause);
+            break;
+        case ERROR_FILE_PERMISSIONS:
+            printf("The requested file couldn't be generated. Possible permissions related error.\n");
+            break;
+        default:
+            printf("An unknown error has occurred");
+    }
+}
+
+
+/*
+ * Printing file content related errors
+ */
+void printInputError(int errorCode, char * errorCause, long line, int pos) {
+    switch (errorCode) {
+        case ERROR_INVALID_CHARACTER:
+            printf("Line %ld in position %d: The character '%s' is not valid here.\n", line, pos, errorCause);
+            break;
+        case ERROR_DIRECTIVE_CMD_TOO_LONG:
+            printf("Line %ld in position %d: The command was too long.\n", line, pos);
+            break;
+        case ERROR_DIRECTIVE_CMD_NOT_FOUND:
+            printf("Line %ld in position %d: The directive \".%s\" does not exist\n", line, pos, errorCause);
+            break;
+        case ERROR_LABEL_NAME_CONFLICT:
+            printf("Line %ld in position %d: The label \"%s\" conflicts with an existing label name\n", line, pos, errorCause);
+            break;
+        case ERROR_LABEL_COMMAND_CONFLICT:
+            printf("Line %ld in position %d: The label \"%s\" conflicts with an existing command name\n", line, pos, errorCause);
+            break;
+        case ERROR_COMMAND_NOT_FOUND:
+            printf("Line %ld in position %d: The command \"%s\" doesn't exist\n", line, pos, errorCause);
+            break;
+        case ERROR_MISSING_WHITESPACE:
+            printf("Line %ld in position %d: expected a whitespace\n", line, pos);
+            break;
+        case ERROR_MAX_LENGTH:
+            printf("Line %ld in position %d: label/command name too long.\n", line, pos);
+            break;
+        case ERROR_INTEGER_OUT_OF_RANGE:
+            printf("line %ld in position %d: given number is out of range\n", line, pos);
+            break;
+        case ERROR_MULTIPLE_CONSECUTIVE_COMMAS:
+            printf("line %ld in position %d: encountered multiple consecutive commas.\n", line, pos);
+            break;
+        case ERROR_MISSING_COMMA:
+            printf("line %ld in position %d: missing expected comma\n", line, pos);
+            break;
+        case ERROR_MISSING_DATA:
+            printf("line %ld in position %d: no data was given.\n", line, pos);
+            break;
+        case ERROR_MISSING_QUOTATION:
+            printf("line %ld in position %d: missing quotation mark, invalid string.\n", line, pos);
+            break;
+        case ERROR_MISSING_ARGUMENT:
+            printf("line %ld in position %d: missing arguments.\n", line, pos);
+            break;
+        case ERROR_EXCESSIVE_ARGUMENT:
+            printf("line %ld in position %d: excessive arguments\n", line, pos);
+            break;
+        case ERROR_SYMBOL_NOT_FOUND:
+            printf("line %ld: The symbol \"%s\" doesn't exist.\n", line, errorCause);
+            break;
+        case WARNING_LABEL_IGNORED:
+            printf("line %ld: a label \"%s\" before an entry/extern directive will be ignored.\n", line, errorCause);
+            break;
+        case ERROR_EXTERN_IS_ENTRY:
+            printf("line %ld: the label \"%s\" can't be both an external value and an entry.\n", line, errorCause);
+            break;
+        case ERROR_EXTERN_IN_CONDITIONAL:
+            printf("line %ld: external variable \"%s\" cannot be used together with a conditional command.\n", line, errorCause);
+            break;
+        default:
+            printf("An unknown error has occurred\n");
+    }
+}
+
+/*
+ * Printing memory related errors
+ */
+void printMemoryError(int errorCode) {
+    if (errorCode == ERROR_MEMORY_ALLOCATION)
+        printf("Memory allocation failed! terminating program\n");
+    else if (errorCode == ERROR_MEMORY_LIMIT)
+        printf("Memory limit reached! terminating program\n");
+}
+
+/*
+ * generalized error printing function, expects different input parameters for different error types.
+ * a more in depth description can be found in the header file.
+ */
+void printError(int errorCode, int errorType, int arguments, ...) {
+    int line, pos;
+    va_list input = {0};
+    char * errorCause = NULL;
+    if (arguments != 0) {
+        va_start(input, arguments);
+        errorCause = va_arg(input, char *);
+        if (errorType == ERROR_TYPE_INPUT) {
+            line = va_arg(input, long);
+            pos = va_arg(input, int);
+        }
+        va_end(input);
+    }
+    if (errorType == ERROR_TYPE_FILE) {
+        printFileError(errorCode, errorCause);
+    }
+    else if (errorType == ERROR_TYPE_INPUT) {
+        printInputError(errorCode, errorCause, line, pos);
+    }
+    else if (errorType == ERROR_TYPE_MEMORY) {
+        printMemoryError(errorCode);
+    }
+}
+
+
+/*
+ * returns 1 for any known error given
+ */
+int isFileError(int errorCode) {
+    int error;
+    switch (errorCode) {
+        case ERROR_INVALID_FILE_EXTENSION:
+        case ERROR_MISSING_AS_FILE:
+        case ERROR_FILE_DOES_NOT_EXIST:
+        case ERROR_INVALID_CHARACTER:
+        case ERROR_DIRECTIVE_CMD_TOO_LONG:
+        case ERROR_DIRECTIVE_CMD_NOT_FOUND:
+        case ERROR_MEMORY_ALLOCATION:
+        case ERROR_MEMORY_LIMIT:
+        case ERROR_LABEL_COMMAND_CONFLICT:
+        case ERROR_LABEL_NAME_CONFLICT:
+        case ERROR_COMMAND_NOT_FOUND:
+        case ERROR_FILE_IS_EMPTY:
+        case ERROR_MISSING_WHITESPACE:
+        case ERROR_MAX_LENGTH:
+        case ERROR_INTEGER_OUT_OF_RANGE:
+        case ERROR_MULTIPLE_CONSECUTIVE_COMMAS:
+        case ERROR_MISSING_COMMA:
+        case ERROR_MISSING_DATA:
+        case ERROR_MISSING_QUOTATION:
+        case ERROR_MISSING_ARGUMENT:
+        case ERROR_EXCESSIVE_ARGUMENT:
+        case ERROR_SYMBOL_NOT_FOUND:
+        case ERROR_EXTERN_IS_ENTRY:
+        case ERROR_EXTERN_IN_CONDITIONAL:
+        case ERROR_FILE_PERMISSIONS:
+            error = 1;
+            break;
+        default:
+            error = 0;
+    }
+    return error;
+}
+
+/*
+ * edits an array of 2 chars to pass as string argument to printError
+ */
+void stringFromChar(char c, char s[]) {
+    s[0] = c;
+    s[1] = 0;
+}
+
+/*
+ * shows an invalid character error message
+ */
+void handleInvalidCharacterError(char errorChar, long currentLine, int *error, const int *pos) {
+    char errorString[2];
+    stringFromChar(errorChar, errorString);
+    printError(ERROR_INVALID_CHARACTER, ERROR_TYPE_INPUT, 3, errorString, currentLine, *pos);
+    *error = ERROR_INVALID_CHARACTER;
+}

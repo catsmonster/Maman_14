@@ -1,0 +1,94 @@
+#include "fileNameProcessing.h"
+#include "fileErrors.h"
+#include "fileContentProcessing.h"
+#include "listOfCommands.h"
+#include "directiveFunctions.h"
+#include "dataTable.h"
+#include <string.h>
+#include <stdlib.h>
+#include "dataImage.h"
+#include "entriesOrExternList.h"
+
+/*
+ * checks for a valid .as file extension
+ */
+int isValidExtension(char fileName[]) {
+    int isError = 0;
+    unsigned int i = strlen(fileName) - 1, j = 1;
+    char extension[] = "as";
+    for (; !isError && fileName[i] != '.'; i--, j--) {
+        if (i == 0 || j < 0 || fileName[i] != extension[j])
+            isError = ERROR_INVALID_FILE_EXTENSION;
+    }
+    return isError;
+}
+
+/*
+ * attempts to read the file in r mode to start the reading process
+ */
+int openFile(char * fileName, void (*directivesArr[])(int *, const char[], long *, int*,dataNode**, long),
+             CMD *listOfCommands) {
+    dataTable *listOfSymbols = initializeDataTable();
+    dataNode *dataImageHead = initializeDataImage();
+    codeNode *codeImageHead = initializeCodeImage();
+    entriesOrExtern *entriesOrExternHead = initializeEntriesOrExtern();
+    int errorCode = 0;
+    if (!listOfSymbols || !dataImageHead || !codeImageHead || !entriesOrExternHead) {
+        printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+    }
+    else {
+        FILE *fp = fopen(fileName, "r");
+        if (!fp)
+            errorCode = ERROR_FILE_DOES_NOT_EXIST;
+        if (!errorCode) {
+            int c = fgetc(fp);
+            if (c == EOF) {
+                errorCode = ERROR_FILE_IS_EMPTY;
+            } else {
+                ungetc(c, fp);
+                readFile(fp, directivesArr, listOfCommands, listOfSymbols, dataImageHead, codeImageHead,
+                         entriesOrExternHead, fileName);
+                fclose(fp);
+            }
+        }
+    }
+    freeCodeImage(codeImageHead);
+    freeDataTable(listOfSymbols);
+    freeDataImage(dataImageHead);
+    freeEntriesOrExternList(entriesOrExternHead);
+    return errorCode;
+}
+
+
+/*
+ * orchestrates the file reading process. Attempts to read all the files given by the user, giving out file related
+ * errors if necessary.
+ */
+int inputFileHandler(int argc, char **argv) {
+    int isError = 0, i;
+    void (*directivesArr[NUM_OF_DIRECTIVE_CMDS - 2])(int *, const char[], long *, int*, dataNode**, long) = {db, dw, dh, asciz};
+    CMD *listOfCommands = getCommands();
+    if (!listOfCommands) {
+        printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+    }
+    else
+    {
+        if (argc < 2)
+            isError = ERROR_MISSING_AS_FILE;
+        if (!isError) {
+            for (i = 1; i < argc; i++) {
+                int error = isValidExtension(argv[i]);
+                if (isFileError(error)) {
+                    printError(error, ERROR_TYPE_FILE, 1, argv[i]);
+                } else {
+                    error = openFile(argv[i], directivesArr, listOfCommands);
+                    if (isFileError(error))
+                        printError(error, ERROR_TYPE_FILE, 1, argv[i]);
+                }
+            }
+        }
+        free(listOfCommands);
+    }
+    return isError;
+
+}
