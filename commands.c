@@ -26,12 +26,22 @@ int foundRegister(int *pos, const char *input, int *error, long currentLine) {
     return registerFound;
 }
 
+int isEndOfIntegerValid(int *pos, const char *input, int *error, long currentLine) {
+    int valid = 1;
+    if (!isspace(input[*pos]) && input[*pos] != ',' && !isdigit(input[*pos])) {
+        handleNANError(input[*pos], currentLine, error, pos);
+        valid = 0;
+    }
+    return valid;
+}
+
 
 int readRegNum(int *pos, const char input[], long currentLine, int *error, int *reg) {
     char numStr[MAX_NUM_LENGTH] = {0};
     int strIndex = 0, num, foundError = 0;
     if (!isdigit(input[*pos])) {
-        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
+        handleNANError(input[*pos], currentLine, error, pos);
+        foundError = LOCAL_ERROR;
     }
     else {
         while (isdigit(input[*pos]) && strIndex < MAX_NUM_LENGTH) {
@@ -44,7 +54,10 @@ int readRegNum(int *pos, const char input[], long currentLine, int *error, int *
             foundError = LOCAL_ERROR;
         }
         else {
-            *reg = num;
+            if (isEndOfIntegerValid(pos, input, error, currentLine))
+                *reg = num;
+            else
+                foundError = LOCAL_ERROR;
         }
     }
     return foundError;
@@ -79,29 +92,31 @@ int readInstantValue(int *pos, const char input[], int *error, long currentLine,
     int numStrIndex = 0, foundError = 0;
     long temp;
     if (!isdigit(input[*pos]) && input[*pos] != '-') {
-        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
+        handleNANError(input[*pos], currentLine, error, pos);
         foundError = LOCAL_ERROR;
     }
     else {
         do {
             num[numStrIndex++] = input[(*pos)++];
         } while (isdigit(input[*pos]) && numStrIndex < MAX_IMMED_NUM_LENGTH);
-        temp = strtol(num, &end, 10);
-        if (end[0]) {
-            handleInvalidCharacterError(end[0], currentLine, error, pos);
-            foundError = LOCAL_ERROR;
+        if (isEndOfIntegerValid(pos, input, error, currentLine)) {
+            temp = strtol(num, &end, 10);
+            if (end[0]) {
+                handleInvalidCharacterError(end[0], currentLine, error, pos);
+                foundError = LOCAL_ERROR;
+            } else {
+                if (isImmedTooBig(numStrIndex, pos, input, temp)) {
+                    *error = ERROR_INTEGER_OUT_OF_RANGE;
+                    printError(ERROR_INTEGER_OUT_OF_RANGE, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
+                    foundError = LOCAL_ERROR;
+                } else {
+                    *immed = temp;
+                }
+            }
         }
         else {
-            if (isImmedTooBig(numStrIndex, pos, input, temp)) {
-                *error = ERROR_INTEGER_OUT_OF_RANGE;
-                printError(ERROR_INTEGER_OUT_OF_RANGE, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
-                foundError = LOCAL_ERROR;
-            }
-            else {
-                *immed = temp;
-            }
+            foundError = LOCAL_ERROR;
         }
-
     }
 
     return foundError;

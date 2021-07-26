@@ -68,14 +68,15 @@ int isNumTooBig(int numArrIndex, int maxLength, const int *pos, const char input
 /*
  * reads one number from the input line and stores it in the list
  */
-void readNum(int *pos, const char input[],int *error, long currentLine, int type, long *list, int *listIndex) {
+int readNum(int *pos, const char input[],int *error, long currentLine, int type, long *list, int *listIndex) {
     char num[MAX_NUM_LENGTH] = {0};
-    int numArrIndex = 0;
+    int numArrIndex = 0, foundError = 0;
     long givenNum;
     char *end;
     int maxLength = determineMaxLength(type);
     if (!isdigit(input[*pos]) && input[*pos] != '-') {
         handleInvalidCharacterError(input[*pos], currentLine, error, pos);
+        foundError = LOCAL_ERROR;
     }
     else {
         do {
@@ -85,12 +86,14 @@ void readNum(int *pos, const char input[],int *error, long currentLine, int type
         if (isNumTooBig(numArrIndex, maxLength, pos, input, num, type)) {
             *error = ERROR_INTEGER_OUT_OF_RANGE;
             printError(ERROR_INTEGER_OUT_OF_RANGE, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
+            foundError = LOCAL_ERROR;
         }
         else {
             givenNum = strtol(num, &end, 10);
             list[(*listIndex)++] = givenNum;
         }
     }
+    return foundError;
 }
 
 
@@ -98,22 +101,23 @@ void readNum(int *pos, const char input[],int *error, long currentLine, int type
  * coordinates the process of adding numbers to the list
  */
 void readData(int *pos, const char input[], long *DC, int *error, dataNode **dataImageTail, long currentLine, int type) {
-    int listIndex = 0;
+    int listIndex = 0, localError = 0;
     long *list = initializeList(error);
     if (list) {
-        while (input[*pos] && input[*pos] != '\n') {
+        while (input[*pos] && input[*pos] != '\n' && !localError) {
             skipWhiteSpaces(pos, input);
-            readNum(pos, input, error, currentLine, type, list, &listIndex);
-            advanceToNextArgument(pos, input, currentLine, 0, error);
+            localError = readNum(pos, input, error, currentLine, type, list, &listIndex);
+            if (localError != LOCAL_ERROR)
+                advanceToNextArgument(pos, input, currentLine, 0, error);
         }
-        if (listIndex > 0) {
-            *dataImageTail = insertLongArrayToDataImage(error, DC, type, *dataImageTail, listIndex, list);
+        if (!localError) {
+            if (listIndex > 0) {
+                *dataImageTail = insertLongArrayToDataImage(error, DC, type, *dataImageTail, listIndex, list);
+            } else {
+                *error = ERROR_MISSING_DATA;
+                printError(ERROR_MISSING_DATA, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
+            }
         }
-        else {
-            *error = ERROR_MISSING_DATA;
-            printError(ERROR_MISSING_DATA, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
-        }
-
         free(list);
     }
 }
@@ -123,8 +127,10 @@ void readData(int *pos, const char input[], long *DC, int *error, dataNode **dat
  */
 void validateString(int *pos, const char input[], int *error, long *DC, long currentLine, long *list, dataNode **dataImageTail, int index) {
     if (input[*pos] == '"') {
-        if (isgraph(input[(*pos) + 1])) {
-            handleInvalidCharacterError(input[(*pos) + 1], currentLine, error, pos);
+        (*pos)++;
+        skipWhiteSpaces(pos, input);
+        if (isgraph(input[(*pos)])) {
+            handleInvalidCharacterError(input[*pos], currentLine, error, pos);
         }
         else {
             *dataImageTail = insertLongArrayToDataImage(error, DC, DB_ASCIZ, *dataImageTail, index + 1, list);

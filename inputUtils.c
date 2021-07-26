@@ -32,6 +32,14 @@ int advanceToNextArgument(int *pos, const char *input, long currentLine, int com
             }
         }
     }
+    else {
+        skipWhiteSpaces(pos, input);
+        if (commaDetected && (input[*pos] && !isgraph(input[*pos]) || !input[*pos])) {
+            *error = ERROR_MISSING_ARGUMENT;
+            printError(ERROR_MISSING_ARGUMENT, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
+            errorFound = LOCAL_ERROR;
+        }
+    }
     return errorFound;
 }
 

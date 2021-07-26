@@ -74,12 +74,16 @@ int getDirectiveCMD(int *pos, const char *inputLine, long currentLine) {
  * of the found command, or -1 if the command wasn't found
  */
 int getCommandName(int *pos, const char inputLine[], long currentLine, CMD *listOfCommands) {
-    int commandPos, i = 0;
+    int commandPos, i = 0, startPos = *pos;
     char commandName[MAX_COMMAND_LENGTH];
     while (isalpha(inputLine[*pos]) && i < MAX_COMMAND_LENGTH) {
         commandName[i++] = inputLine[(*pos)++];
     }
-    if (isFileError(isInvalidEndOfCommand(pos, inputLine, currentLine))) {
+    if (startPos == *pos) {
+        printError(ERROR_MISSING_ARGUMENT, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
+        commandPos = ERROR_MISSING_ARGUMENT;
+    }
+    else if (isFileError(isInvalidEndOfCommand(pos, inputLine, currentLine))) {
         commandPos = ERROR_INVALID_CHARACTER;
     }
     else {
@@ -229,14 +233,9 @@ void readLine(int *pos, const char inputLine[], long * DC, long * IC, long curre
     int selectedDirectiveCMD = -1, selectedCMD = -1;
     char *labelName = calloc(MAX_LABEL_LENGTH, sizeof(char));
     int validLabel = isValidLabel(pos, inputLine, currentLine, listOfCommands, labelName);
-    if (isFileError(validLabel)) {
-        *error = 1;
-    } else {
+    if (!isFileError(validLabel)) {
         readCommand(pos, inputLine, currentLine, listOfCommands, &selectedDirectiveCMD, &selectedCMD, error);
-        if (isFileError(*error) || isFileError(selectedDirectiveCMD) || isFileError(selectedCMD)) {
-            *error = 1;
-        }
-        else {
+        if (!isFileError(*error) && !isFileError(selectedDirectiveCMD) && !isFileError(selectedCMD)) {
             addLabelAndExecuteCommand(selectedDirectiveCMD, labelName, validLabel, selectedCMD, pos, inputLine, DC, IC,
                                       currentLine, directiveFuncArr, listOfCommands, listOfSymbols, error, dataImageTail,
                                       codeImageTail, entriesOrExternTail);

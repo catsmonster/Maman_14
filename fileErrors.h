@@ -35,7 +35,8 @@ enum errorCodes {
     WARNING_LABEL_IGNORED,
     ERROR_EXTERN_IS_ENTRY,
     ERROR_EXTERN_IN_CONDITIONAL,
-    ERROR_FILE_PERMISSIONS
+    ERROR_FILE_PERMISSIONS,
+    ERROR_NOT_AN_INTEGER
 };
 
 
@@ -55,4 +56,7 @@ int isFileError(int);
 void stringFromChar(char, char[]);
 
 void handleInvalidCharacterError(char errorChar, long currentLine, int *error, const int *pos);
+
+void handleNANError(char errorChar, long currentLine, int *error, const int *pos);
+
 #endif

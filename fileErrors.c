@@ -90,6 +90,9 @@ void printInputError(int errorCode, char * errorCause, long line, int pos) {
         case ERROR_EXTERN_IN_CONDITIONAL:
             printf("line %ld: external variable \"%s\" cannot be used together with a conditional command.\n", line, errorCause);
             break;
+        case ERROR_NOT_AN_INTEGER:
+            printf("line %ld in position %d: error, expected a digit, instead encountered the character \"%s\".\n", line, pos, errorCause);
+            break;
         default:
             printf("An unknown error has occurred\n");
     }
@@ -165,6 +168,7 @@ int isFileError(int errorCode) {
         case ERROR_EXTERN_IS_ENTRY:
         case ERROR_EXTERN_IN_CONDITIONAL:
         case ERROR_FILE_PERMISSIONS:
+        case ERROR_NOT_AN_INTEGER:
             error = 1;
             break;
         default:
@@ -189,4 +193,11 @@ void handleInvalidCharacterError(char errorChar, long currentLine, int *error, c
     stringFromChar(errorChar, errorString);
     printError(ERROR_INVALID_CHARACTER, ERROR_TYPE_INPUT, 3, errorString, currentLine, *pos);
     *error = ERROR_INVALID_CHARACTER;
+}
+
+void handleNANError(char errorChar, long currentLine, int *error, const int *pos) {
+    char errorString[2];
+    stringFromChar(errorChar, errorString);
+    printError(ERROR_NOT_AN_INTEGER, ERROR_TYPE_INPUT, 3, errorString, currentLine, *pos);
+    *error = ERROR_NOT_AN_INTEGER;
 }
