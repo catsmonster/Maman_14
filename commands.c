@@ -91,7 +91,7 @@ int readInstantValue(int *pos, const char input[], int *error, long currentLine,
     char *end;
     int numStrIndex = 0, foundError = 0;
     long temp;
-    if (!isdigit(input[*pos]) && input[*pos] != '-') {
+    if (!isdigit(input[*pos]) && input[*pos] != '-' && input[*pos] != '+') {
         handleNANError(input[*pos], currentLine, error, pos);
         foundError = LOCAL_ERROR;
     }

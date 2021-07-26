@@ -56,7 +56,8 @@ int isNumTooBig(int numArrIndex, int maxLength, const int *pos, const char input
     int tooBig = 0;
     int compareToLimitations = num[0] == '-' ? strcmp(num + 1, type == DB_ASCIZ ? MIN_SIZE_8_BITS
             : type == DH ? MIN_SIZE_16_BITS : MIN_SIZE_32_BITS)
-            : strcmp(num, type == DB_ASCIZ ? MAX_SIZE_8_BITS : type == DH ? MAX_SIZE_16_BITS : MAX_SIZE_32_BITS);
+            : strcmp(num[0] == '+' ? num + 1 : num, type == DB_ASCIZ ? MAX_SIZE_8_BITS : type == DH ? MAX_SIZE_16_BITS
+            : MAX_SIZE_32_BITS);
     if (numArrIndex > maxLength && isdigit(input[*pos]) || (numArrIndex >= maxLength - 1 && compareToLimitations == 1)) {
         tooBig = 1;
     }
@@ -74,7 +75,7 @@ int readNum(int *pos, const char input[],int *error, long currentLine, int type,
     long givenNum;
     char *end;
     int maxLength = determineMaxLength(type);
-    if (!isdigit(input[*pos]) && input[*pos] != '-') {
+    if (!isdigit(input[*pos]) && input[*pos] != '-' && input[*pos] != '+') {
         handleInvalidCharacterError(input[*pos], currentLine, error, pos);
         foundError = LOCAL_ERROR;
     }

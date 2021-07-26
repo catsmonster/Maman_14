@@ -6,6 +6,30 @@
 
 #IncludeRegexTransform: 
 
+/home/user/CLionProjects/Maman14/codeImage.h
+
+/home/user/CLionProjects/Maman14/commands.c
+commands.h
+/home/user/CLionProjects/Maman14/commands.h
+listOfCommands.h
+/home/user/CLionProjects/Maman14/listOfCommands.h
+inputUtils.h
+/home/user/CLionProjects/Maman14/inputUtils.h
+fileErrors.h
+/home/user/CLionProjects/Maman14/fileErrors.h
+ctype.h
+-
+stdlib.h
+-
+string.h
+-
+
+/home/user/CLionProjects/Maman14/commands.h
+codeImage.h
+/home/user/CLionProjects/Maman14/codeImage.h
+listOfCommands.h
+/home/user/CLionProjects/Maman14/listOfCommands.h
+
 /home/user/CLionProjects/Maman14/dataImage.h
 
 /home/user/CLionProjects/Maman14/dataTable.h
@@ -39,4 +63,8 @@ entriesOrExternList.h
 /home/user/CLionProjects/Maman14/fileErrors.h
 
 /home/user/CLionProjects/Maman14/inputUtils.h
+
+/home/user/CLionProjects/Maman14/listOfCommands.h
+codeImage.h
+/home/user/CLionProjects/Maman14/codeImage.h
 
