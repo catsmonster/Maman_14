@@ -7,44 +7,38 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27892bee-15bb-49b6-b18e-24094989a66e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/codeImage.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/codeImage.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/dataImage.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/dataImage.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/dataTable.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/dataTable.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/directiveFunctions.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/directiveFunctions.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileContentProcessing.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileContentProcessing.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileNameProcessing.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileNameProcessing.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/firstIteration.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/firstIteration.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/main.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/secondIteration.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/secondIteration.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeImage.c" beforeDir="false" afterPath="$PROJECT_DIR$/codeImage.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeImage.h" beforeDir="false" afterPath="$PROJECT_DIR$/codeImage.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands.c" beforeDir="false" afterPath="$PROJECT_DIR$/commands.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands.h" beforeDir="false" afterPath="$PROJECT_DIR$/commands.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataImage.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataImage.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataImage.h" beforeDir="false" afterPath="$PROJECT_DIR$/dataImage.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataTable.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataTable.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataTable.h" beforeDir="false" afterPath="$PROJECT_DIR$/dataTable.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/directiveFunctions.c" beforeDir="false" afterPath="$PROJECT_DIR$/directiveFunctions.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/directiveFunctions.h" beforeDir="false" afterPath="$PROJECT_DIR$/directiveFunctions.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entriesOrExternList.c" beforeDir="false" afterPath="$PROJECT_DIR$/entriesList.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entriesOrExternList.h" beforeDir="false" afterPath="$PROJECT_DIR$/entriesList.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileContentProcessing.c" beforeDir="false" afterPath="$PROJECT_DIR$/fileContentProcessing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileContentProcessing.h" beforeDir="false" afterPath="$PROJECT_DIR$/fileContentProcessing.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileErrors.c" beforeDir="false" afterPath="$PROJECT_DIR$/fileErrors.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileErrors.h" beforeDir="false" afterPath="$PROJECT_DIR$/fileErrors.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fileNameProcessing.c" beforeDir="false" afterPath="$PROJECT_DIR$/fileNameProcessing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/firstIteration.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstIteration.h" beforeDir="false" afterPath="$PROJECT_DIR$/firstIteration.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputUtils.c" beforeDir="false" afterPath="$PROJECT_DIR$/inputUtils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputUtils.h" beforeDir="false" afterPath="$PROJECT_DIR$/inputUtils.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/listOfCommands.c" beforeDir="false" afterPath="$PROJECT_DIR$/listOfCommands.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/listOfCommands.h" beforeDir="false" afterPath="$PROJECT_DIR$/listOfCommands.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/printOutput.h" beforeDir="false" afterPath="$PROJECT_DIR$/printOutput.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/secondIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/secondIteration.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/secondIteration.h" beforeDir="false" afterPath="$PROJECT_DIR$/secondIteration.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileNameProcessing.h" beforeDir="false" afterPath="$PROJECT_DIR$/fileNameProcessing.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +52,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Shakked Brand &lt;shaked.brand@gmail.com&gt;" />
         <option value="Shakked &lt;shaked.brand@gmail.com&gt;" />
         <option value="Shakked" />
       </list>
@@ -88,15 +83,15 @@
     <property name="cmake.loaded.for.project" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RunManager">
-    <configuration name="Maman_14" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="1.as 2 3.as 4.as 5.as as.as" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Maman_14" TARGET_NAME="Maman_14" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Maman_14" RUN_TARGET_NAME="Maman_14">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="Maman_14" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="1.as 2 3.as 4.as 5.as as.as" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Maman_14" TARGET_NAME="Maman_14" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Maman_14" RUN_TARGET_NAME="Maman_14">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -123,7 +118,8 @@
       <workItem from="1623099191933" duration="97556000" />
       <workItem from="1624365091427" duration="27807000" />
       <workItem from="1625936061906" duration="139581000" />
-      <workItem from="1626967086501" duration="40930000" />
+      <workItem from="1626967086501" duration="42255000" />
+      <workItem from="1627742540140" duration="14748000" />
     </task>
     <task id="LOCAL-00001" summary="first commit - project is working with valid input, before testing for invalid inputs and before optimizing dataTable.c deleted bloat">
       <created>1627043778177</created>
@@ -160,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627735621511</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updated all functions to use errorCodes enum typedef instead of int, and removed the general printError function to now use specific functions instead. Additionally, removed from listOfCommands the type field and its functionality, as it was redundant.">
+      <created>1627741309202</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1627741309202</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +179,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
@@ -184,17 +188,7 @@
     <MESSAGE value="fixed a few minor input error related bugs and added a new error. fixed bug with the &quot;advance to next argument&quot; function." />
     <MESSAGE value="added support for '+' in front of an integer" />
     <MESSAGE value="removed &quot;magic number&quot; from codeImage" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed &quot;magic number&quot; from codeImage" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/directiveFunctions.c</url>
-          <line>169</line>
-          <option name="timeStamp" value="116" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="updated all functions to use errorCodes enum typedef instead of int, and removed the general printError function to now use specific functions instead. Additionally, removed from listOfCommands the type field and its functionality, as it was redundant." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated all functions to use errorCodes enum typedef instead of int, and removed the general printError function to now use specific functions instead. Additionally, removed from listOfCommands the type field and its functionality, as it was redundant." />
   </component>
 </project>

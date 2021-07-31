@@ -9,6 +9,9 @@ enum {
     EXTERN
 };
 
+extern long currentTableSize;
+extern long numOfSymbols;
+
 typedef struct dataTable dataTable;
 
 int addItemToDataTable(char * labelName, long address, int firstAttribute, dataTable *listOfSymbols);
