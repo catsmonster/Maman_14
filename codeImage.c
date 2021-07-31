@@ -1,6 +1,7 @@
 #include "codeImage.h"
 #include "fileErrors.h"
 #include <stdlib.h>
+#define FIRST_INSTRUCTION_COUNTER_VALUE 100
 
 struct codeNode {
     long address;
@@ -101,7 +102,7 @@ unsigned char getCodeRepresentation(codeNode *node, int part) {
  * adds a new empty code node in case this isn't the head of the data image
  */
 codeNode *setCodeImageTail(codeNode *codeImageTail, int *error, long *IC, char *label, int type, long currentLine) {
-    int firstInput = *IC == 100 ? 1 : 0;
+    int firstInput = *IC == FIRST_INSTRUCTION_COUNTER_VALUE ? 1 : 0;
     if (!firstInput) {
         codeNode *p = calloc(1, sizeof(codeNode));
         if (!p) {
