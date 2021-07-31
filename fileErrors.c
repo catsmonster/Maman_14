@@ -5,7 +5,7 @@
 /*
  * Printing file opening related errors
  */
-void printFileError(int errorCode, char * errorCause) {
+void printFileError(errorCodes errorCode, char * errorCause) {
     switch (errorCode) {
         case ERROR_INVALID_FILE_EXTENSION:
             printf("The file %s is not supported, please provide a valid .as file.\n", errorCause);
@@ -31,7 +31,7 @@ void printFileError(int errorCode, char * errorCause) {
 /*
  * Printing file content related errors
  */
-void printInputError(int errorCode, char * errorCause, long line, int pos) {
+void printInputError(errorCodes errorCode, char * errorCause, long line, int pos) {
     switch (errorCode) {
         case ERROR_INVALID_CHARACTER:
             printf("Line %ld in position %d: The character '%s' is not valid here.\n", line, pos, errorCause);
@@ -101,46 +101,19 @@ void printInputError(int errorCode, char * errorCause, long line, int pos) {
 /*
  * Printing memory related errors
  */
-void printMemoryError(int errorCode) {
+void printMemoryError(errorCodes errorCode) {
     if (errorCode == ERROR_MEMORY_ALLOCATION)
         printf("Memory allocation failed! terminating program\n");
     else if (errorCode == ERROR_MEMORY_LIMIT)
         printf("Memory limit reached! terminating program\n");
 }
 
-/*
- * generalized error printing function, expects different input parameters for different error types.
- * a more in depth description can be found in the header file.
- */
-void printError(int errorCode, int errorType, int arguments, ...) {
-    int line, pos;
-    va_list input = {0};
-    char * errorCause = NULL;
-    if (arguments != 0) {
-        va_start(input, arguments);
-        errorCause = va_arg(input, char *);
-        if (errorType == ERROR_TYPE_INPUT) {
-            line = va_arg(input, long);
-            pos = va_arg(input, int);
-        }
-        va_end(input);
-    }
-    if (errorType == ERROR_TYPE_FILE) {
-        printFileError(errorCode, errorCause);
-    }
-    else if (errorType == ERROR_TYPE_INPUT) {
-        printInputError(errorCode, errorCause, line, pos);
-    }
-    else if (errorType == ERROR_TYPE_MEMORY) {
-        printMemoryError(errorCode);
-    }
-}
 
 
 /*
  * returns 1 for any known error given
  */
-int isFileError(int errorCode) {
+int isFileError(errorCodes errorCode) {
     int error;
     switch (errorCode) {
         case ERROR_INVALID_FILE_EXTENSION:
@@ -188,16 +161,16 @@ void stringFromChar(char c, char s[]) {
 /*
  * shows an invalid character error message
  */
-void handleInvalidCharacterError(char errorChar, long currentLine, int *error, const int *pos) {
+void handleInvalidCharacterError(char errorChar, long currentLine, errorCodes *error, const int *pos) {
     char errorString[2];
     stringFromChar(errorChar, errorString);
-    printError(ERROR_INVALID_CHARACTER, ERROR_TYPE_INPUT, 3, errorString, currentLine, *pos);
+    printInputError(ERROR_INVALID_CHARACTER, errorString, currentLine, *pos);
     *error = ERROR_INVALID_CHARACTER;
 }
 
-void handleNANError(char errorChar, long currentLine, int *error, const int *pos) {
+void handleNANError(char errorChar, long currentLine, errorCodes *error, const int *pos) {
     char errorString[2];
     stringFromChar(errorChar, errorString);
-    printError(ERROR_NOT_AN_INTEGER, ERROR_TYPE_INPUT, 3, errorString, currentLine, *pos);
+    printInputError(ERROR_NOT_AN_INTEGER, errorString, currentLine, *pos);
     *error = ERROR_NOT_AN_INTEGER;
 }

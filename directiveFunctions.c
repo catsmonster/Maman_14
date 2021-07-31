@@ -21,10 +21,10 @@
 /*
  * creates a list of type long to store the information for later conversion to the data image
  */
-long *initializeList(int *error) {
+long *initializeList(errorCodes *error) {
     long *list = calloc(LIST_MAX_LENGTH, sizeof(long));
     if (!list){
-        printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+        printMemoryError(ERROR_MEMORY_ALLOCATION);
         *error = ERROR_MEMORY_ALLOCATION;
     }
     return list;
@@ -69,7 +69,7 @@ int isNumTooBig(int numArrIndex, int maxLength, const int *pos, const char input
 /*
  * reads one number from the input line and stores it in the list
  */
-int readNum(int *pos, const char input[],int *error, long currentLine, int type, long *list, int *listIndex) {
+int readNum(int *pos, const char input[],errorCodes *error, long currentLine, int type, long *list, int *listIndex) {
     char num[MAX_NUM_LENGTH] = {0};
     int numArrIndex = 0, foundError = 0;
     long givenNum;
@@ -86,7 +86,7 @@ int readNum(int *pos, const char input[],int *error, long currentLine, int type,
         while (isdigit(input[*pos]) && numArrIndex <= maxLength);
         if (isNumTooBig(numArrIndex, maxLength, pos, input, num, type)) {
             *error = ERROR_INTEGER_OUT_OF_RANGE;
-            printError(ERROR_INTEGER_OUT_OF_RANGE, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
+            printInputError(ERROR_INTEGER_OUT_OF_RANGE, "", currentLine, *pos);
             foundError = LOCAL_ERROR;
         }
         else {
@@ -101,7 +101,7 @@ int readNum(int *pos, const char input[],int *error, long currentLine, int type,
 /*
  * coordinates the process of adding numbers to the list
  */
-void readData(int *pos, const char input[], long *DC, int *error, dataNode **dataImageTail, long currentLine, int type) {
+void readData(int *pos, const char input[], long *DC, errorCodes *error, dataNode **dataImageTail, long currentLine, int type) {
     int listIndex = 0, localError = 0;
     long *list = initializeList(error);
     if (list) {
@@ -116,7 +116,7 @@ void readData(int *pos, const char input[], long *DC, int *error, dataNode **dat
                 *dataImageTail = insertLongArrayToDataImage(error, DC, type, *dataImageTail, listIndex, list);
             } else {
                 *error = ERROR_MISSING_DATA;
-                printError(ERROR_MISSING_DATA, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
+                printInputError(ERROR_MISSING_DATA, "", currentLine, *pos);
             }
         }
         free(list);
@@ -126,7 +126,7 @@ void readData(int *pos, const char input[], long *DC, int *error, dataNode **dat
 /*
  * validates the string and sends the list to be inserted to the data image
  */
-void validateString(int *pos, const char input[], int *error, long *DC, long currentLine, long *list, dataNode **dataImageTail, int index) {
+void validateString(int *pos, const char input[], errorCodes *error, long *DC, long currentLine, long *list, dataNode **dataImageTail, int index) {
     if (input[*pos] == '"') {
         (*pos)++;
         skipWhiteSpaces(pos, input);
@@ -139,14 +139,14 @@ void validateString(int *pos, const char input[], int *error, long *DC, long cur
     }
     else {
         *error = ERROR_MISSING_QUOTATION;
-        printError(ERROR_MISSING_QUOTATION, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
+        printInputError(ERROR_MISSING_QUOTATION, "", currentLine, *pos);
     }
 }
 
 /*
  * stores a string as a list of type long
  */
-void readString(int *pos, const char input[], long currentLine, long *DC, dataNode **dataImageTail, int *error) {
+void readString(int *pos, const char input[], long currentLine, long *DC, dataNode **dataImageTail, errorCodes *error) {
     int index = 0, flag = 0;
     long *list = initializeList(error);
     if (list) {
@@ -167,28 +167,28 @@ void readString(int *pos, const char input[], long currentLine, long *DC, dataNo
 /*
  * handles .dh directives
  */
-void dh(int *pos, const char input[], long *DC, int *error, dataNode **dataImageTail, long currentLine) {
+void dh(int *pos, const char input[], long *DC, errorCodes *error, dataNode **dataImageTail, long currentLine) {
     readData(pos, input, DC, error, dataImageTail, currentLine, DH);
 }
 
 /*
  * handles .dw directives
  */
-void dw(int *pos, const char input[], long *DC, int *error, dataNode **dataImageTail, long currentLine) {
+void dw(int *pos, const char input[], long *DC, errorCodes *error, dataNode **dataImageTail, long currentLine) {
     readData(pos, input, DC, error, dataImageTail, currentLine, DW);
 }
 
 /*
  * handles .db directives
  */
-void db(int *pos, const char input[], long *DC, int *error, dataNode **dataImageTail, long currentLine){
+void db(int *pos, const char input[], long *DC, errorCodes *error, dataNode **dataImageTail, long currentLine){
     readData(pos, input, DC, error, dataImageTail, currentLine, DB_ASCIZ);
 }
 
 /*
  * handles .asciz directives
  */
-void asciz(int *pos, const char input[], long *DC, int *error, dataNode **dataImageTail, long currentLine){
+void asciz(int *pos, const char input[], long *DC, errorCodes *error, dataNode **dataImageTail, long currentLine){
     skipWhiteSpaces(pos, input);
     if (input[*pos] == '"') {
         (*pos)++;
@@ -197,7 +197,7 @@ void asciz(int *pos, const char input[], long *DC, int *error, dataNode **dataIm
     else {
         if (!input[*pos] || input[*pos] == '\n') {
             *error = ERROR_MISSING_DATA;
-            printError(ERROR_MISSING_DATA, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
+            printInputError(ERROR_MISSING_DATA, "", currentLine, *pos);
         }
         else {
             handleInvalidCharacterError(input[*pos], currentLine, error, pos);
@@ -208,10 +208,10 @@ void asciz(int *pos, const char input[], long *DC, int *error, dataNode **dataIm
 /*
  * checks whether the input argument for extern or entry is legal
  */
-void validateLabelName(int *pos, const char input[], int *error, long currentLine, int index) {
+void validateLabelName(int *pos, const char input[], errorCodes *error, long currentLine, int index) {
     if (index >= MAX_LABEL_LENGTH && isalnum(input[*pos])) {
         *error = ERROR_MAX_LENGTH;
-        printError(ERROR_MAX_LENGTH, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
+        printInputError(ERROR_MAX_LENGTH, "", currentLine, *pos);
     }
     else if (isgraph(input[*pos])) {
         handleInvalidCharacterError(input[*pos], currentLine, error, pos);
@@ -222,7 +222,7 @@ void validateLabelName(int *pos, const char input[], int *error, long currentLin
     }
 }
 
-void readInputLabel(int *pos, const char *input, long currentLine, int *error, char *labelName) {
+void readInputLabel(int *pos, const char *input, long currentLine, errorCodes *error, char *labelName) {
     skipWhiteSpaces(pos, input);
     if (!isalpha(input[*pos])) {
         handleInvalidCharacterError(input[*pos], currentLine, error, pos);
@@ -237,12 +237,12 @@ void readInputLabel(int *pos, const char *input, long currentLine, int *error, c
 }
 
 
-void entry(int *pos, const char input[], int *error, long currentLine,
-           entriesOrExtern **entriesOrExternTail){
+void entry(int *pos, const char input[], errorCodes *error, long currentLine,
+           entriesOrExternList **entriesOrExternTail){
     char* labelName = calloc(MAX_LABEL_LENGTH, sizeof(char ));
     readInputLabel(pos, input, currentLine, error, labelName);
     if (!isFileError(*error)) {
-        *entriesOrExternTail = setEntryOrExternTail(labelName, ENTRY, *entriesOrExternTail, error, currentLine);
+        *entriesOrExternTail = setEntryOrExternListTail(labelName, ENTRY, *entriesOrExternTail, error, currentLine);
     }
 }
 
@@ -250,7 +250,7 @@ void entry(int *pos, const char input[], int *error, long currentLine,
 /*
  * reads a label name as argument and adds it to the symbol list with the address 0 and the attribute external
  */
-void external(int *pos, const char input[], dataTable *table, int *error, long currentLine, entriesOrExtern **entriesOrExternTail){
+void external(int *pos, const char input[], dataTable *table, errorCodes *error, long currentLine, entriesOrExternList **entriesOrExternTail){
     char* labelName = calloc(MAX_LABEL_LENGTH, sizeof(char ));
     int labelExists;
     readInputLabel(pos, input, currentLine, error, labelName);
@@ -258,10 +258,10 @@ void external(int *pos, const char input[], dataTable *table, int *error, long c
         labelExists = addItemToDataTable(labelName, 0, EXTERN, table);
         if (labelExists && getSymbolType(labelName, table, error, currentLine) != EXTERN) {
             *error = ERROR_LABEL_NAME_CONFLICT;
-            printError(ERROR_LABEL_NAME_CONFLICT, ERROR_TYPE_INPUT, 3, labelName, currentLine, *pos);
+            printInputError(ERROR_LABEL_NAME_CONFLICT, labelName, currentLine, *pos);
         }
         else {
-            *entriesOrExternTail = setEntryOrExternTail(labelName, EXTERN, *entriesOrExternTail, error, currentLine);
+            *entriesOrExternTail = setEntryOrExternListTail(labelName, EXTERN, *entriesOrExternTail, error, currentLine);
         }
     }
 }

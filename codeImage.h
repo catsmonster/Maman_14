@@ -1,5 +1,6 @@
 #ifndef MAMAN_14_CODEIMAGE_H
 #define MAMAN_14_CODEIMAGE_H
+#include "fileErrors.h"
 
 enum {
     I_TYPE = 600,
@@ -15,10 +16,10 @@ enum {
 typedef struct codeNode codeNode;
 
 codeNode *initializeCodeImage();
-codeNode *insertRWord(int *error, int opcode, int funct, int rs, int rt, int rd, long *IC, codeNode *codeImageTail, long line);
-codeNode *insertIWord(int *error, int opcode, int rs, int rt, long immed, long *IC, codeNode *codeImageTail, char *label, int type, long line);
-codeNode *insertJWord(int *error, int opcode, short reg, long address, long *IC, codeNode *codeImageTail, char *label, int type, long line);
-void setMissingData(long data, codeNode *codeImageHead);
+codeNode *insertRWord(errorCodes *error, int opcode, int funct, int rs, int rt, int rd, long *IC, codeNode *codeImageTail, long line);
+codeNode *insertIWord(errorCodes *error, int opcode, int rs, int rt, long immed, long *IC, codeNode *codeImageTail, char *label, int type, long line);
+codeNode *insertJWord(errorCodes *error, int opcode, short reg, long address, long *IC, codeNode *codeImageTail, char *label, int type, long line);
+void adjustMissingAddressToCodeImage(long data, codeNode *codeImageHead);
 long getCodeNodeAddress(codeNode *node);
 char *getCodeNodeLabel(codeNode *node);
 long getCodeNodeLine(codeNode *node);

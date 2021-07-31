@@ -1,7 +1,6 @@
 
 #include "dataImage.h"
 #include <stdlib.h>
-#include "fileErrors.h"
 #define WORD 32
 
 
@@ -34,7 +33,7 @@ struct dataNode {
 dataNode * initializeDataImage() {
     dataNode *p = calloc(1, sizeof(dataNode));
     if (!p) {
-        printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+        printMemoryError(ERROR_MEMORY_ALLOCATION);
     }
     return p;
 }
@@ -42,11 +41,11 @@ dataNode * initializeDataImage() {
 /*
  * adds a new empty data node in case this isn't the head of the data image
  */
-dataNode *setDataImageTail(dataNode *dataImageTail, int firstInput, int *error) {
+dataNode *setDataImageTail(dataNode *dataImageTail, int firstInput, errorCodes *error) {
     if (!firstInput) {
         dataNode *p = calloc(1, sizeof(dataNode));
         if (!p) {
-            printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+            printMemoryError(ERROR_MEMORY_ALLOCATION);
             *error = ERROR_MEMORY_ALLOCATION;
         }
         else {
@@ -94,23 +93,23 @@ void advanceDC(int type, long *DC) {
 /*
  * populates the data image with data sent from the directive functions based on their type
  */
-dataNode *insertLongArrayToDataImage(int *error, long *DC, int type, dataNode *dataImageTail, int numberOfItems, long *numList) {
+dataNode *insertLongArrayToDataImage(errorCodes *error, long *DC, int type, dataNode *dataImageTail, int numberOfItems, long *numList) {
     int i;
     int firstInput = *DC == 0 ? 1 : 0;
-    dataImageTail = setDataImageTail(dataImageTail, firstInput, error);
+    dataNode *newDataTail = setDataImageTail(dataImageTail, firstInput, error);
 
     for (i = 0; i < numberOfItems; i++) {
         if (type == DB_ASCIZ)
-            addDBOrAsciz(dataImageTail, (char)numList[i]);
+            addDBOrAsciz(newDataTail, (char)numList[i]);
         if (type == DW)
-            addDW(dataImageTail, numList[i]);
+            addDW(newDataTail, numList[i]);
         if (type == DH)
-            addDH(dataImageTail, (int)numList[i]);
+            addDH(newDataTail, (int)numList[i]);
         advanceDC(type, DC);
         if (i < numberOfItems - 1)
-            dataImageTail = setDataImageTail(dataImageTail, 0, error);
+            newDataTail = setDataImageTail(newDataTail, 0, error);
     }
-    return dataImageTail;
+    return newDataTail;
 }
 
 dataNode *getNextDataNode(dataNode *node) {

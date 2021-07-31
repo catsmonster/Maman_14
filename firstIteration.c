@@ -1,5 +1,4 @@
 #include "firstIteration.h"
-#include "fileErrors.h"
 #include "inputUtils.h"
 #include "directiveFunctions.h"
 #include <ctype.h>
@@ -24,15 +23,14 @@ int compareToKnownDirectiveCMDs(char *directiveInput) {
     return selected;
 }
 
-int isInvalidEndOfCommand(const int *pos, const char *inputLine, long currentLine) {
-    int error = 0;
+int isValidEndOfCommand(const int *pos, const char *inputLine, long currentLine, errorCodes *error) {
+    int valid = 1;
     if (!isspace(inputLine[*pos])) {
-        char errorStr[2];
-        stringFromChar(inputLine[*pos], errorStr);
-        printError(ERROR_INVALID_CHARACTER, ERROR_TYPE_INPUT, 3, errorStr, currentLine, *pos);
-        error = ERROR_INVALID_CHARACTER;
+        handleInvalidCharacterError(inputLine[*pos], currentLine, error, pos);
+        *error = ERROR_INVALID_CHARACTER;
+        valid = 0;
     }
-    return error;
+    return valid;
 }
 
 
@@ -40,7 +38,7 @@ int isInvalidEndOfCommand(const int *pos, const char *inputLine, long currentLin
 /*
  * attempts to read a directive command from the given line, after a dot was encountered
  */
-int getDirectiveCMD(int *pos, const char *inputLine, long currentLine) {
+int getDirectiveCMD(int *pos, const char *inputLine, long currentLine, errorCodes *error) {
     int selectedCMD = -1, counter = 0;
     char directiveInput[MAX_DIRECTIVE_CMD_LENGTH];
     (*pos)++;
@@ -49,19 +47,17 @@ int getDirectiveCMD(int *pos, const char *inputLine, long currentLine) {
         (*pos)++;
     }
     if (counter > MAX_DIRECTIVE_CMD_LENGTH) {
-        printError(ERROR_DIRECTIVE_CMD_TOO_LONG, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
+        printInputError(ERROR_DIRECTIVE_CMD_TOO_LONG, "", currentLine, *pos);
         selectedCMD = ERROR_DIRECTIVE_CMD_TOO_LONG;
     }
     else {
         directiveInput[counter] = '\0';
     }
     if (!isFileError(selectedCMD)) {
-        if (isFileError(isInvalidEndOfCommand(pos, inputLine, currentLine)))
-            selectedCMD = ERROR_INVALID_CHARACTER;
-        else {
+        if (isValidEndOfCommand(pos, inputLine, currentLine, error)) {
             selectedCMD = compareToKnownDirectiveCMDs(directiveInput);
             if (selectedCMD == -1) {
-                printError(ERROR_DIRECTIVE_CMD_NOT_FOUND, ERROR_TYPE_INPUT, 3, directiveInput, currentLine, *pos);
+                printInputError(ERROR_DIRECTIVE_CMD_NOT_FOUND, directiveInput, currentLine, *pos);
                 selectedCMD = ERROR_DIRECTIVE_CMD_NOT_FOUND;
             }
         }
@@ -73,24 +69,21 @@ int getDirectiveCMD(int *pos, const char *inputLine, long currentLine) {
  * extract command name from the input and check against known commands list, returning the position in the list
  * of the found command, or -1 if the command wasn't found
  */
-int getCommandName(int *pos, const char inputLine[], long currentLine, CMD *listOfCommands) {
+int getCommandName(int *pos, const char inputLine[], long currentLine, CMD *listOfCommands, errorCodes *error) {
     int commandPos, i = 0, startPos = *pos;
     char commandName[MAX_COMMAND_LENGTH];
     while (isalpha(inputLine[*pos]) && i < MAX_COMMAND_LENGTH) {
         commandName[i++] = inputLine[(*pos)++];
     }
     if (startPos == *pos) {
-        printError(ERROR_MISSING_ARGUMENT, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
+        printInputError(ERROR_MISSING_ARGUMENT, "", currentLine, *pos);
         commandPos = ERROR_MISSING_ARGUMENT;
     }
-    else if (isFileError(isInvalidEndOfCommand(pos, inputLine, currentLine))) {
-        commandPos = ERROR_INVALID_CHARACTER;
-    }
-    else {
+    if (isValidEndOfCommand(pos, inputLine, currentLine, error)) {
         commandName[i] = '\0';
         commandPos = findCommand(commandName, listOfCommands);
         if (commandPos == -1) {
-            printError(ERROR_COMMAND_NOT_FOUND, ERROR_TYPE_INPUT, 3, commandName, currentLine, *pos);
+            printInputError(ERROR_COMMAND_NOT_FOUND, commandName, currentLine, *pos);
             commandPos = ERROR_COMMAND_NOT_FOUND;
         }
     }
@@ -112,11 +105,11 @@ int isKnownCMD(char *labelName, CMD *listOfCommands) {
  */
 void handleLabelError(int *pos, int startPos, long currentLine, char labelName[], int *isLabel, int error) {
     if (error == ERROR_LABEL_COMMAND_CONFLICT)
-        printError(ERROR_LABEL_COMMAND_CONFLICT, ERROR_TYPE_INPUT, 3, labelName, currentLine, *pos);
+        printInputError(ERROR_LABEL_COMMAND_CONFLICT, labelName, currentLine, *pos);
     if (error ==ERROR_MISSING_WHITESPACE)
-        printError(ERROR_MISSING_WHITESPACE, ERROR_TYPE_INPUT, 3, "", currentLine, *pos);
+        printInputError(ERROR_MISSING_WHITESPACE, "", currentLine, *pos);
     if (error ==ERROR_MAX_LENGTH)
-        printError(ERROR_MAX_LENGTH, ERROR_TYPE_INPUT, 3, "", currentLine, startPos);
+        printInputError(ERROR_MAX_LENGTH, "", currentLine, startPos);
     *pos = startPos;
     *isLabel = error;
 }
@@ -160,15 +153,15 @@ int isValidLabel(int *pos, const char inputLine[], long currentLine, CMD *listOf
  * attempts to read a command, be it a directive or a "normal" command
  */
 void readCommand(int *pos, const char inputLine[], long currentLine, CMD *listOfCommands, int *selectedDirectiveCMD,
-                int *selectedCMD, int *error){
+                int *selectedCMD, errorCodes *error){
     skipWhiteSpaces(pos, inputLine);
     if (inputLine[*pos] == '.') {
-        *selectedDirectiveCMD = getDirectiveCMD(pos, inputLine, currentLine);
+        *selectedDirectiveCMD = getDirectiveCMD(pos, inputLine, currentLine, error);
         if (isFileError(*selectedDirectiveCMD))
             *error = *selectedDirectiveCMD;
     }
     else {
-        *selectedCMD = getCommandName(pos, inputLine, currentLine, listOfCommands);
+        *selectedCMD = getCommandName(pos, inputLine, currentLine, listOfCommands, error);
         if (isFileError(*selectedCMD))
             *error = *selectedCMD;
     }
@@ -177,9 +170,9 @@ void readCommand(int *pos, const char inputLine[], long currentLine, CMD *listOf
 /*
  * handles an error in case there is a label name conflict
  */
-void handleNameConflict(int itemExists, char *labelName, long currentLine, int pos, int *error){
+void handleNameConflict(int itemExists, char *labelName, long currentLine, int pos, errorCodes *error){
     if (itemExists) {
-        printError(ERROR_LABEL_NAME_CONFLICT, ERROR_TYPE_INPUT, 3, labelName, currentLine, pos);
+        printInputError(ERROR_LABEL_NAME_CONFLICT, labelName, currentLine, pos);
         *error = ERROR_LABEL_NAME_CONFLICT;
     }
 }
@@ -189,9 +182,9 @@ void handleNameConflict(int itemExists, char *labelName, long currentLine, int p
  */
 void addLabelAndExecuteCommand(int selectedDirectiveCMD, char labelName[], int validLabel, int selectedCMD, int *pos,
                                const char inputLine[], long * DC, long * IC, long currentLine,
-                               void (*directiveFuncArr[])(int *, const char[], long *, int *, dataNode**, long),
-                               CMD *listOfCommands, dataTable *listOfSymbols, int *error, dataNode **dataImageTail,
-                               codeNode **codeImageTail, entriesOrExtern **entriesOrExternTail) {
+                               void (*directiveFuncArr[])(int *, const char[], long *, errorCodes *, dataNode**, long),
+                               CMD *listOfCommands, dataTable *listOfSymbols, errorCodes *error, dataNode **dataImageTail,
+                               codeNode **codeImageTail, entriesOrExternList **entriesOrExternTail) {
     int itemExists = 0;
     if (selectedDirectiveCMD != -1) {
         if (validLabel && selectedDirectiveCMD != ENTRY_DIRECTIVE && selectedDirectiveCMD != EXTERNAL_DIRECTIVE) {
@@ -201,7 +194,7 @@ void addLabelAndExecuteCommand(int selectedDirectiveCMD, char labelName[], int v
         if (!itemExists) {
             if (selectedDirectiveCMD == EXTERNAL_DIRECTIVE || selectedDirectiveCMD == ENTRY_DIRECTIVE) {
                 if (validLabel) {
-                    printError(WARNING_LABEL_IGNORED, ERROR_TYPE_INPUT, 3, labelName, currentLine, *pos);
+                    printInputError(WARNING_LABEL_IGNORED, labelName, currentLine, *pos);
                 }
                 if (selectedDirectiveCMD == EXTERNAL_DIRECTIVE)
                     external(pos, inputLine, listOfSymbols, error, currentLine, entriesOrExternTail);
@@ -227,9 +220,9 @@ void addLabelAndExecuteCommand(int selectedDirectiveCMD, char labelName[], int v
  * coordinates the line reading process
  */
 void readLine(int *pos, const char inputLine[], long * DC, long * IC, long currentLine,
-             void (*directiveFuncArr[])(int *, const char[], long *, int *, dataNode**, long), CMD *listOfCommands,
-             dataTable *listOfSymbols, int *error, dataNode **dataImageTail, codeNode **codeImageTail,
-             entriesOrExtern **entriesOrExternTail) {
+              void (*directiveFuncArr[])(int *, const char[], long *, errorCodes *, dataNode**, long), CMD *listOfCommands,
+              dataTable *listOfSymbols, errorCodes *error, dataNode **dataImageTail, codeNode **codeImageTail,
+              entriesOrExternList **entriesOrExternTail) {
     int selectedDirectiveCMD = -1, selectedCMD = -1;
     char *labelName = calloc(MAX_LABEL_LENGTH, sizeof(char));
     int validLabel = isValidLabel(pos, inputLine, currentLine, listOfCommands, labelName);
@@ -248,13 +241,13 @@ void readLine(int *pos, const char inputLine[], long * DC, long * IC, long curre
  * running the first iteration over the input file to build the basic skeleton of the output, skipping any blank lines
  * or comment lines
  */
-void firstIteration(FILE *fp, long * DC, long * IC, int *error,
-                    void (*directiveFuncArr[])(int *, const char[], long *, int*, dataNode**, long),
+void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error,
+                    void (*directiveFuncArr[])(int *, const char[], long *, errorCodes *, dataNode**, long),
                     CMD *listOfCommands, dataTable *listOfSymbols, dataNode *dataImageHead, codeNode *codeImageHead,
-                    entriesOrExtern *entriesOrExternHead) {
+                    entriesOrExternList *entriesOrExternHead) {
     dataNode *dataImageTail = dataImageHead;
     codeNode *codeImageTail = codeImageHead;
-    entriesOrExtern *entriesOrExternTail = entriesOrExternHead;
+    entriesOrExternList *entriesOrExternTail = entriesOrExternHead;
     long currentLine = 1;
     int skipLine;
     char inputLine[MAX_LINE_LENGTH];

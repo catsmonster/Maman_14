@@ -7,6 +7,6 @@
 int main(int argc, char * argv[]) {
     int error = inputFileHandler(argc, argv);
     if (isFileError(error))
-        printError(error, ERROR_TYPE_FILE, 0);
+        printFileError(error, "");
     return 0;
 }

@@ -6,7 +6,8 @@
 #include "dataTable.h"
 #include "dataImage.h"
 #include "entriesOrExternList.h"
-void firstIteration(FILE *fp, long * DC, long * IC, int *error, void(*[])(int*, const char[],long*, int*,
-        dataNode**, long), CMD *, dataTable*, dataNode *, codeNode *, entriesOrExtern *);
+#include "fileErrors.h"
+void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, void(*[])(int*, const char[],long*, errorCodes *,
+        dataNode**, long), CMD *, dataTable*, dataNode *, codeNode *, entriesOrExternList *);
 
 #endif

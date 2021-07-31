@@ -34,12 +34,12 @@ struct dataTable {
 dataTable *initializeDataTable() {
     dataTable *p = (dataTable *)malloc(sizeof(dataTable));
     if (!p) {
-        printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+        printMemoryError(ERROR_MEMORY_ALLOCATION);
     }
     else {
         p->entries = (symbol **) calloc(TABLE_SIZE, sizeof(symbol *));
         if (!(p->entries)) {
-            printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+            printMemoryError(ERROR_MEMORY_ALLOCATION);
             free(p);
             p = NULL;
         }
@@ -67,7 +67,7 @@ int generateHash(const char *name) {
 symbol *createSymbol(char *name, long address, int attribute) {
     symbol *entry = (symbol *)calloc(1, sizeof(symbol));
     if (!entry) {
-        printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+        printMemoryError(ERROR_MEMORY_ALLOCATION);
     }
     else {
         entry->name = name;
@@ -97,7 +97,7 @@ void handleConflict(dataTable *table, int posInTable, int *itemExists, symbol *n
         if (!itemExists) {
             currentPos = newSymbol;
             if (!currentPos) {
-                printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+                printMemoryError(ERROR_MEMORY_ALLOCATION);
                 *itemExists = ERROR_MEMORY_ALLOCATION;
             }
         }
@@ -133,14 +133,14 @@ symbol *findSymbol(char *name, dataTable *table) {
     return dataEntry && strcmp(dataEntry -> name, name) == 0 ? dataEntry : NULL;
 }
 
-long getSymbolAddress(char *name, dataTable *table, int *error, long currentLine) {
+long getSymbolAddress(char *name, dataTable *table, errorCodes *error, long currentLine) {
     long res;
     symbol *dataEntry = findSymbol(name, table);
     if (dataEntry)
         res = dataEntry -> address;
     else {
         *error = ERROR_SYMBOL_NOT_FOUND;
-        printError(ERROR_SYMBOL_NOT_FOUND, ERROR_TYPE_INPUT, 3, name, currentLine, 0);
+        printInputError(ERROR_SYMBOL_NOT_FOUND, name, currentLine, 0);
         res = ERROR_SYMBOL_NOT_FOUND;
     }
     return res;
@@ -149,7 +149,7 @@ long getSymbolAddress(char *name, dataTable *table, int *error, long currentLine
 
 
 
-int getSymbolType(char *name, dataTable *table, int *error, long currentLine) {
+int getSymbolType(char *name, dataTable *table, errorCodes *error, long currentLine) {
     int type;
     symbol *dataEntry = findSymbol(name, table);
     if (dataEntry) {
@@ -157,7 +157,7 @@ int getSymbolType(char *name, dataTable *table, int *error, long currentLine) {
     }
     else {
         *error = ERROR_SYMBOL_NOT_FOUND;
-        printError(ERROR_SYMBOL_NOT_FOUND, ERROR_TYPE_INPUT, 3, name, currentLine,0);
+        printInputError(ERROR_SYMBOL_NOT_FOUND, name, currentLine,0);
         type = ERROR_SYMBOL_NOT_FOUND;
     }
     return type;

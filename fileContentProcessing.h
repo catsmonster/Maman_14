@@ -8,7 +8,7 @@
 /*
  * API of input related processing
  */
-void readFile(FILE *, void(*[])(int*, const char[], long*, int*, dataNode**, long), CMD *, dataTable *,
-              dataNode *dataImageHead, codeNode *codeImageHead, entriesOrExtern*
-              ,char *fileName);
+void readFile(FILE *, void(*[])(int*, const char[], long*, errorCodes *, dataNode**, long), CMD *, dataTable *,
+              dataNode *dataImageHead, codeNode *codeImageHead, entriesOrExternList*
+              , char *fileName);
 #endif

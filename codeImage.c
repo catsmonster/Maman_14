@@ -1,5 +1,4 @@
 #include "codeImage.h"
-#include "fileErrors.h"
 #include <stdlib.h>
 #define FIRST_INSTRUCTION_COUNTER_VALUE 100
 
@@ -42,7 +41,7 @@ struct codeNode {
 codeNode *initializeCodeImage() {
     codeNode *p = calloc(1, sizeof(codeNode));
     if (!p) {
-        printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+        printMemoryError(ERROR_MEMORY_ALLOCATION);
     }
     return  p;
 }
@@ -50,7 +49,7 @@ codeNode *initializeCodeImage() {
 
 
 
-void setMissingData(long data, codeNode *codeImageHead) {
+void adjustMissingAddressToCodeImage(long data, codeNode *codeImageHead) {
     if (codeImageHead -> type == I_TYPE || codeImageHead -> type == I_TYPE_CONDITIONAL) {
         codeImageHead -> data.I.immed = data - codeImageHead -> data.I.immed;
     }
@@ -101,12 +100,12 @@ unsigned char getCodeRepresentation(codeNode *node, int part) {
 /*
  * adds a new empty code node in case this isn't the head of the data image
  */
-codeNode *setCodeImageTail(codeNode *codeImageTail, int *error, long *IC, char *label, int type, long currentLine) {
+codeNode *setCodeImageTail(codeNode *codeImageTail, errorCodes *error, long *IC, char *label, int type, long currentLine) {
     int firstInput = *IC == FIRST_INSTRUCTION_COUNTER_VALUE ? 1 : 0;
     if (!firstInput) {
         codeNode *p = calloc(1, sizeof(codeNode));
         if (!p) {
-            printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+            printMemoryError(ERROR_MEMORY_ALLOCATION);
             *error = ERROR_MEMORY_ALLOCATION;
         }
         else {
@@ -125,34 +124,34 @@ codeNode *setCodeImageTail(codeNode *codeImageTail, int *error, long *IC, char *
 
 
 
-codeNode *insertRWord(int *error, int opcode, int funct, int rs, int rt, int rd, long *IC, codeNode *codeImageTail,
+codeNode *insertRWord(errorCodes *error, int opcode, int funct, int rs, int rt, int rd, long *IC, codeNode *codeImageTail,
                       long currentLine) {
-    codeImageTail = setCodeImageTail(codeImageTail, error, IC, NULL, R_TYPE, currentLine);
-    codeImageTail -> data.R.opcode = opcode;
-    codeImageTail -> data.R.funct = funct;
-    codeImageTail -> data.R.rs = rs;
-    codeImageTail -> data.R.rt = rt;
-    codeImageTail -> data.R.rd = rd;
-    return codeImageTail;
+    codeNode *newTail = setCodeImageTail(codeImageTail, error, IC, NULL, R_TYPE, currentLine);
+    newTail -> data.R.opcode = opcode;
+    newTail -> data.R.funct = funct;
+    newTail -> data.R.rs = rs;
+    newTail -> data.R.rt = rt;
+    newTail -> data.R.rd = rd;
+    return newTail;
 }
 
-codeNode *insertIWord(int *error, int opcode, int rs, int rt, long immed, long *IC, codeNode *codeImageTail,
+codeNode *insertIWord(errorCodes *error, int opcode, int rs, int rt, long immed, long *IC, codeNode *codeImageTail,
                       char *label, int type, long currentLine) {
-    codeImageTail = setCodeImageTail(codeImageTail, error, IC, label, type, currentLine);
-    codeImageTail -> data.I.rs = rs;
-    codeImageTail -> data.I.rt = rt;
-    codeImageTail -> data.I.immed = immed;
-    codeImageTail -> data.I.opcode = opcode;
-    return codeImageTail;
+    codeNode *newTail = setCodeImageTail(codeImageTail, error, IC, label, type, currentLine);
+    newTail -> data.I.rs = rs;
+    newTail -> data.I.rt = rt;
+    newTail -> data.I.immed = immed;
+    newTail -> data.I.opcode = opcode;
+    return newTail;
 }
 
-codeNode *insertJWord(int *error, int opcode, short reg, long address, long *IC, codeNode *codeImageTail,
+codeNode *insertJWord(errorCodes *error, int opcode, short reg, long address, long *IC, codeNode *codeImageTail,
                       char *label, int type, long currentLine) {
-    codeImageTail = setCodeImageTail(codeImageTail, error, IC, label, type, currentLine);
-    codeImageTail -> data.J.opcode = opcode;
-    codeImageTail -> data.J.reg = reg;
-    codeImageTail -> data.J.address = address;
-    return codeImageTail;
+    codeNode *newTail = setCodeImageTail(codeImageTail, error, IC, label, type, currentLine);
+    newTail -> data.J.opcode = opcode;
+    newTail -> data.J.reg = reg;
+    newTail -> data.J.address = address;
+    return newTail;
 }
 
 void freeCodeImage(codeNode *head) {

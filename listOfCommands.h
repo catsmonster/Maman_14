@@ -9,9 +9,8 @@ CMD * getCommands();
 int findCommand(char *, CMD *);
 int getOpcode(int, CMD*);
 int getFunct(int, CMD*);
-char getType(int, CMD*);
 char *getCMDName(int, CMD*);
-void runCMD(int *pos, const char input[], int posInList, CMD *list, codeNode **codeImageTail, long *IC, int *error,
+void runCMD(int *pos, const char input[], int posInList, CMD *list, codeNode **codeImageTail, long *IC, errorCodes *error,
             long currentLine);
 
 #endif

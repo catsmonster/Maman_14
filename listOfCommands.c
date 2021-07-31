@@ -13,8 +13,7 @@ struct commands {
     char *name;
     int funct;
     int opcode;
-    char type;
-    void (*function)(int *pos, const char input[], int posInList, CMD *list, codeNode **codeImageTail, long *IC, int *error,
+    void (*function)(int *pos, const char input[], int posInList, CMD *list, codeNode **codeImageTail, long *IC, errorCodes *error,
             long currentLine);
 };
 
@@ -24,37 +23,37 @@ struct commands {
 CMD *getCommands() {
     int i;
     CMD commandArr[] = {
-            {"add", 1, 0, 'R',    arithmeticRFunctions},
-            {"addi", -1, 10, 'I', arithmeticAndLoaderIFunctions},
-            {"and", 3, 0, 'R',    arithmeticRFunctions},
-            {"andi", -1, 12, 'I', arithmeticAndLoaderIFunctions},
-            {"beq", -1, 16, 'I',  conditionalIFunctions},
-            {"bgt", -1, 18, 'I',  conditionalIFunctions},
-            {"blt", -1, 17, 'I',  conditionalIFunctions},
-            {"bne", -1, 15, 'I',  conditionalIFunctions},
-            {"call", -1, 32, 'J', jmpLaCall},
-            {"jmp", -1, 30, 'J',  jmpLaCall},
-            {"la", -1, 31, 'J', jmpLaCall},
-            {"lb", -1, 19, 'I',   arithmeticAndLoaderIFunctions},
-            {"lh", -1, 23, 'I',   arithmeticAndLoaderIFunctions},
-            {"lw", -1, 21, 'I',   arithmeticAndLoaderIFunctions},
-            {"move", 1, 1, 'R',   copyRFunctions},
-            {"mvhi", 2, 1, 'R',   copyRFunctions},
-            {"mvlo", 3, 1, 'R',   copyRFunctions},
-            {"nor", 5, 0, 'R',    arithmeticRFunctions},
-            {"nori", -1, 14, 'I', arithmeticAndLoaderIFunctions},
-            {"or", 4, 0, 'R',     arithmeticRFunctions},
-            {"ori", -1, 13, 'I',  arithmeticAndLoaderIFunctions},
-            {"sb", -1, 20, 'I',   arithmeticAndLoaderIFunctions},
-            {"sh", -1, 24, 'I',   arithmeticAndLoaderIFunctions},
-            {"stop", -1, 63, 'J', stop},
-            {"sub", 2, 0, 'R',    arithmeticRFunctions},
-            {"subi", -1, 11, 'I', arithmeticAndLoaderIFunctions},
-            {"sw", -1, 22, 'I',   arithmeticAndLoaderIFunctions}
+            {"add", 1, 0,    arithmeticRFunctions},
+            {"addi", -1, 10, arithmeticAndLoaderIFunctions},
+            {"and", 3, 0,     arithmeticRFunctions},
+            {"andi", -1, 12,  arithmeticAndLoaderIFunctions},
+            {"beq", -1, 16,   conditionalIFunctions},
+            {"bgt", -1, 18,   conditionalIFunctions},
+            {"blt", -1, 17,   conditionalIFunctions},
+            {"bne", -1, 15,   conditionalIFunctions},
+            {"call", -1, 32,  jmpLaCall},
+            {"jmp", -1, 30,   jmpLaCall},
+            {"la", -1, 31,  jmpLaCall},
+            {"lb", -1, 19,    arithmeticAndLoaderIFunctions},
+            {"lh", -1, 23,    arithmeticAndLoaderIFunctions},
+            {"lw", -1, 21,    arithmeticAndLoaderIFunctions},
+            {"move", 1, 1,    copyRFunctions},
+            {"mvhi", 2, 1,    copyRFunctions},
+            {"mvlo", 3, 1,    copyRFunctions},
+            {"nor", 5, 0,    arithmeticRFunctions},
+            {"nori", -1, 14,  arithmeticAndLoaderIFunctions},
+            {"or", 4, 0,     arithmeticRFunctions},
+            {"ori", -1, 13,  arithmeticAndLoaderIFunctions},
+            {"sb", -1, 20,  arithmeticAndLoaderIFunctions},
+            {"sh", -1, 24,  arithmeticAndLoaderIFunctions},
+            {"stop", -1, 63, stop},
+            {"sub", 2, 0, arithmeticRFunctions},
+            {"subi", -1, 11, arithmeticAndLoaderIFunctions},
+            {"sw", -1, 22, arithmeticAndLoaderIFunctions}
     };
     CMD * commandList = (CMD *)malloc(NUM_OF_CMDS * sizeof(CMD));
     if (!commandList) {
-        printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+        printMemoryError(ERROR_MEMORY_ALLOCATION);
     }
     else {
         for (i = 0; i < NUM_OF_CMDS; i++) {
@@ -96,12 +95,6 @@ int getFunct(int i, CMD *list) {
     return list[i].funct;
 }
 
-/*
- * returns the type of a command in a given position in the buffer
- */
-char getType(int i, CMD *list) {
-    return list[i].type;
-}
 
 /*
  * returns the name string of a command in a given position in the buffer
@@ -110,7 +103,7 @@ char *getCMDName(int i, CMD *list) {
     return list[i].name;
 }
 
-void runCMD(int *pos, const char input[], int posInList, CMD *list, codeNode **codeImageTail, long *IC, int *error,
+void runCMD(int *pos, const char input[], int posInList, CMD *list, codeNode **codeImageTail, long *IC, errorCodes *error,
             long currentLine) {
     list[posInList].function(pos, input, posInList, list, codeImageTail, IC, error, currentLine);
 }

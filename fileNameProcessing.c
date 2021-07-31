@@ -26,30 +26,24 @@ int isValidExtension(char fileName[]) {
 /*
  * attempts to read the file in r mode to start the reading process
  */
-int openFile(char * fileName, void (*directivesArr[])(int *, const char[], long *, int*,dataNode**, long),
+int openFile(char * fileName, void (*directivesArr[])(int *, const char[], long *, errorCodes *,dataNode**, long),
              CMD *listOfCommands) {
     dataTable *listOfSymbols = initializeDataTable();
     dataNode *dataImageHead = initializeDataImage();
     codeNode *codeImageHead = initializeCodeImage();
-    entriesOrExtern *entriesOrExternHead = initializeEntriesOrExtern();
+    entriesOrExternList *entriesOrExternHead = initializeEntriesOrExternList();
     int errorCode = 0;
     if (!listOfSymbols || !dataImageHead || !codeImageHead || !entriesOrExternHead) {
-        printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+        printMemoryError(ERROR_MEMORY_ALLOCATION);
     }
     else {
         FILE *fp = fopen(fileName, "r");
         if (!fp)
             errorCode = ERROR_FILE_DOES_NOT_EXIST;
         if (!errorCode) {
-            int c = fgetc(fp);
-            if (c == EOF) {
-                errorCode = ERROR_FILE_IS_EMPTY;
-            } else {
-                ungetc(c, fp);
-                readFile(fp, directivesArr, listOfCommands, listOfSymbols, dataImageHead, codeImageHead,
-                         entriesOrExternHead, fileName);
-                fclose(fp);
-            }
+            readFile(fp, directivesArr, listOfCommands, listOfSymbols, dataImageHead, codeImageHead,
+                     entriesOrExternHead, fileName);
+            fclose(fp);
         }
     }
     freeCodeImage(codeImageHead);
@@ -66,10 +60,10 @@ int openFile(char * fileName, void (*directivesArr[])(int *, const char[], long 
  */
 int inputFileHandler(int argc, char **argv) {
     int isError = 0, i;
-    void (*directivesArr[NUM_OF_DIRECTIVE_CMDS - 2])(int *, const char[], long *, int*, dataNode**, long) = {db, dw, dh, asciz};
+    void (*directivesArr[NUM_OF_DIRECTIVE_CMDS - 2])(int *, const char[], long *, errorCodes *, dataNode**, long) = {db, dw, dh, asciz};
     CMD *listOfCommands = getCommands();
     if (!listOfCommands) {
-        printError(ERROR_MEMORY_ALLOCATION, ERROR_TYPE_MEMORY, 0);
+        printMemoryError(ERROR_MEMORY_ALLOCATION);
     }
     else
     {
@@ -79,11 +73,11 @@ int inputFileHandler(int argc, char **argv) {
             for (i = 1; i < argc; i++) {
                 int error = isValidExtension(argv[i]);
                 if (isFileError(error)) {
-                    printError(error, ERROR_TYPE_FILE, 1, argv[i]);
+                    printFileError(error, argv[i]);
                 } else {
                     error = openFile(argv[i], directivesArr, listOfCommands);
                     if (isFileError(error))
-                        printError(error, ERROR_TYPE_FILE, 1, argv[i]);
+                        printFileError(error, argv[i]);
                 }
             }
         }

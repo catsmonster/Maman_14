@@ -1,15 +1,15 @@
 
 #ifndef MAMAN_14_ENTRIESOREXTERNLIST_H
 #define MAMAN_14_ENTRIESOREXTERNLIST_H
+#include "fileErrors.h"
 
-typedef struct entriesOrExternNode entriesOrExtern;
-void freeEntriesOrExternList(entriesOrExtern *head);
-entriesOrExtern *setEntryOrExternTail(char *name, int type, entriesOrExtern *tail, int *error, long currentLine);
-entriesOrExtern *initializeEntriesOrExtern();
-char *getEntryOrExternName(entriesOrExtern *node);
-int getEntryOrExternType(entriesOrExtern *node);
-entriesOrExtern *getNextEntryOrExtern(entriesOrExtern *node);
-entriesOrExtern *addExternToHead(entriesOrExtern *head, long address, char *name, int type, long currentLine);
-long getEntryOrExternLine(entriesOrExtern *node);
+typedef struct entriesOrExternNode entriesOrExternList;
+void freeEntriesOrExternList(entriesOrExternList *head);
+entriesOrExternList *setEntryOrExternListTail(char *name, int type, entriesOrExternList *tail, errorCodes *error, long currentLine);
+entriesOrExternList *initializeEntriesOrExternList();
+char *getEntryOrExternName(entriesOrExternList *node);
+int getEntryOrExternType(entriesOrExternList *node);
+entriesOrExternList *getNextEntryOrExtern(entriesOrExternList *node);
+long getEntryOrExternLine(entriesOrExternList *node);
 
 #endif

@@ -87,6 +87,7 @@ CMakeFiles/Maman_14.dir/main.c.o: ../main.c
 CMakeFiles/Maman_14.dir/printOutput.c.o: ../codeImage.h
 CMakeFiles/Maman_14.dir/printOutput.c.o: ../dataImage.h
 CMakeFiles/Maman_14.dir/printOutput.c.o: ../entriesOrExternList.h
+CMakeFiles/Maman_14.dir/printOutput.c.o: ../fileErrors.h
 CMakeFiles/Maman_14.dir/printOutput.c.o: ../printOutput.c
 CMakeFiles/Maman_14.dir/printOutput.c.o: ../printOutput.h
 

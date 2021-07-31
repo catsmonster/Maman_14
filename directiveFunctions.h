@@ -8,10 +8,10 @@
 #include "dataTable.h"
 #include "entriesOrExternList.h"
 
-void dh(int *, const char [], long *, int*, dataNode**, long);
-void dw(int *, const char[], long *, int*, dataNode**, long);
-void db(int *, const char [], long *, int*, dataNode**, long);
-void asciz(int *, const char[], long *,  int*, dataNode**, long);
-void entry(int *, const char[], int*, long, entriesOrExtern**);
-void external(int *, const char[], dataTable *, int *, long, entriesOrExtern**);
+void dh(int *, const char [], long *, errorCodes *, dataNode**, long);
+void dw(int *, const char[], long *, errorCodes *, dataNode**, long);
+void db(int *, const char [], long *, errorCodes *, dataNode**, long);
+void asciz(int *, const char[], long *,  errorCodes *, dataNode**, long);
+void entry(int *, const char[], errorCodes *, long, entriesOrExternList**);
+void external(int *, const char[], dataTable *, errorCodes *, long, entriesOrExternList**);
 #endif

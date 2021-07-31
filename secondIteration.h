@@ -4,8 +4,9 @@
 #include "codeImage.h"
 #include "entriesOrExternList.h"
 #include "printOutput.h"
+#include "fileErrors.h"
 
-void secondIteration(dataTable *listOfSymbols, int * error, codeNode *, long ICF,
-                     entriesOrExtern *entriesOrExternHead, FILE **extFile, FILE **entFile);
+void secondIteration(dataTable *listOfSymbols, errorCodes *error, codeNode *, long ICF,
+                     entriesOrExternList *entriesOrExternHead, FILE **extFile, FILE **entFile);
 
 #endif

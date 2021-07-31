@@ -1,9 +1,8 @@
 
 #include "secondIteration.h"
-#include "fileErrors.h"
 
 
-void updateCodeImage(codeNode *codeImageHead, dataTable *listOfSymbols, int *error, long ICF, FILE **extFile) {
+void updateCodeImage(codeNode *codeImageHead, dataTable *listOfSymbols, errorCodes *error, long ICF, FILE **extFile) {
     while (codeImageHead && !isFileError(*error)) {
         long symbolAddress, currentLine, address;
         int type, symbolType;
@@ -18,11 +17,11 @@ void updateCodeImage(codeNode *codeImageHead, dataTable *listOfSymbols, int *err
                 symbolType = getSymbolType(label, listOfSymbols, error, currentLine);
                 symbolAddress = symbolType == DATA ? symbolAddress + ICF : symbolType == EXTERN ? 0 : symbolAddress;
                 if (symbolType != EXTERN) {
-                    setMissingData(symbolAddress, codeImageHead);
+                    adjustMissingAddressToCodeImage(symbolAddress, codeImageHead);
                 } else {
                     if (type == I_TYPE_CONDITIONAL) {
                         *error = ERROR_EXTERN_IN_CONDITIONAL;
-                        printError(ERROR_EXTERN_IN_CONDITIONAL, ERROR_TYPE_INPUT, 3, label, currentLine, 0);
+                        printInputError(ERROR_EXTERN_IN_CONDITIONAL, label, currentLine, 0);
                     } else {
                         printEntOrExtLine(extFile, address, label);
                     }
@@ -33,7 +32,7 @@ void updateCodeImage(codeNode *codeImageHead, dataTable *listOfSymbols, int *err
     }
 }
 
-void updateEntries(entriesOrExtern *entriesOrExternHead, dataTable *listOfSymbols, int *error, FILE **entFile, long ICF) {
+void updateEntries(entriesOrExternList *entriesOrExternHead, dataTable *listOfSymbols, errorCodes *error, FILE **entFile, long ICF) {
     while (entriesOrExternHead && !isFileError(*error)) {
         int declaredType;
         long symbolAddress, currentLine = getEntryOrExternLine(entriesOrExternHead);
@@ -50,7 +49,7 @@ void updateEntries(entriesOrExtern *entriesOrExternHead, dataTable *listOfSymbol
                     }
                     else {
                         *error = ERROR_EXTERN_IS_ENTRY;
-                        printError(ERROR_EXTERN_IS_ENTRY, ERROR_TYPE_INPUT, 3, name, currentLine, 0);
+                        printInputError(ERROR_EXTERN_IS_ENTRY, name, currentLine, 0);
                     }
                 }
             }
@@ -63,8 +62,8 @@ void updateEntries(entriesOrExtern *entriesOrExternHead, dataTable *listOfSymbol
 /*
  * running the second iteration over the input file to finalize the necessary data before converting to machine code.
  */
-void secondIteration(dataTable *listOfSymbols, int * error, codeNode *codeImageHead, long ICF,
-                     entriesOrExtern *entriesOrExternHead, FILE **extFile, FILE **entFile) {
+void secondIteration(dataTable *listOfSymbols, errorCodes * error, codeNode *codeImageHead, long ICF,
+                     entriesOrExternList *entriesOrExternHead, FILE **extFile, FILE **entFile) {
     updateEntries(entriesOrExternHead, listOfSymbols, error, entFile, ICF);
     updateCodeImage(codeImageHead, listOfSymbols, error, ICF, extFile);
 }
