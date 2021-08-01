@@ -13,6 +13,9 @@
 #define MAX_SIZE_16_BITS 32767
 #define MAX_LABEL_LENGTH 32
 
+/*
+ * returns 1 if found '$' character, indicating the start of a register
+ */
 int foundRegister(int *pos, const char *input, errorCodes *error, long currentLine) {
     int registerFound = 0;
     skipWhiteSpaces(pos, input);
@@ -26,6 +29,9 @@ int foundRegister(int *pos, const char *input, errorCodes *error, long currentLi
     return registerFound;
 }
 
+/*
+ * makes sure there is no junk data after a given integer, returns 1 if no errors were detected.
+ */
 int isEndOfIntegerValid(int *pos, const char *input, errorCodes *error, long currentLine) {
     int valid = 1;
     if (!isspace(input[*pos]) && input[*pos] != ',' && !isdigit(input[*pos])) {
@@ -35,7 +41,18 @@ int isEndOfIntegerValid(int *pos, const char *input, errorCodes *error, long cur
     return valid;
 }
 
+/*
+ * prints integer out of range error
+ */
+errorCodes handleIntegerOutOfRange(errorCodes *error, long currentLine, int *pos) {
+    *error = ERROR_INTEGER_OUT_OF_RANGE;
+    printInputError(ERROR_INTEGER_OUT_OF_RANGE, "", currentLine, *pos);
+    return LOCAL_ERROR;
+}
 
+/*
+ * reads the register number from the input, converts it to an integer and validates its range.
+ */
 int readRegNum(int *pos, const char input[], long currentLine, errorCodes *error, int *reg) {
     char numStr[MAX_NUM_LENGTH] = {0};
     int strIndex = 0, num, foundError = 0;
@@ -49,9 +66,7 @@ int readRegNum(int *pos, const char input[], long currentLine, errorCodes *error
         }
         num = atoi(numStr);
         if (isdigit(input[*pos]) || num > MAX_REGISTER_VALUE) {
-            *error = ERROR_INTEGER_OUT_OF_RANGE;
-            printInputError(ERROR_INTEGER_OUT_OF_RANGE, "", currentLine, *pos);
-            foundError = LOCAL_ERROR;
+            foundError = handleIntegerOutOfRange(error, currentLine, pos);
         }
         else {
             if (isEndOfIntegerValid(pos, input, error, currentLine))
@@ -63,7 +78,9 @@ int readRegNum(int *pos, const char input[], long currentLine, errorCodes *error
     return foundError;
 }
 
-
+/*
+ * coordinates the process of reading the following register from the input, returns an error if a register wasn't found.
+ */
 int readRegister(int *pos, const char input[], errorCodes *error, long currentLine, int *reg) {
     int foundError;
     if (foundRegister(pos, input, error, currentLine)) {
@@ -77,6 +94,9 @@ int readRegister(int *pos, const char input[], errorCodes *error, long currentLi
     return foundError;
 }
 
+/*
+ * makes sure immed is within the bounds of 16 bits.
+ */
 int isImmedTooBig(int index, const int *pos, const char *input, long num ){
     int isTooBig = 0;
     if (index == MAX_IMMED_NUM_LENGTH && isdigit(input[*pos]) || num > MAX_SIZE_16_BITS || num < MIN_SIZE_16_BITS) {
@@ -86,6 +106,9 @@ int isImmedTooBig(int index, const int *pos, const char *input, long num ){
     return isTooBig;
 }
 
+/*
+ * reads an instant value from the input line, validates it, and converts it to a long.
+ */
 int readInstantValue(int *pos, const char input[], errorCodes *error, long currentLine, long *immed) {
     char num[MAX_IMMED_NUM_LENGTH] = {0};
     char *end;
@@ -106,9 +129,7 @@ int readInstantValue(int *pos, const char input[], errorCodes *error, long curre
                 foundError = LOCAL_ERROR;
             } else {
                 if (isImmedTooBig(numStrIndex, pos, input, temp)) {
-                    *error = ERROR_INTEGER_OUT_OF_RANGE;
-                    printInputError(ERROR_INTEGER_OUT_OF_RANGE, "", currentLine, *pos);
-                    foundError = LOCAL_ERROR;
+                    foundError = handleIntegerOutOfRange(error, currentLine, pos);
                 } else {
                     *immed = temp;
                 }
@@ -122,23 +143,9 @@ int readInstantValue(int *pos, const char input[], errorCodes *error, long curre
     return foundError;
 }
 
-void readLabel(int *pos, const char input[], errorCodes *error, long currentLine, char *label) {
-    int index = 0;
-    skipWhiteSpaces(pos, input);
-    if (!isalpha(input[*pos])) {
-        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
-    }
-    else {
-        while (isalnum(input[*pos]) && index < MAX_LABEL_LENGTH) {
-            label[index++] = input[(*pos)++];
-        }
-    }
-    skipWhiteSpaces(pos, input);
-    if (input[*pos] && isgraph(input[*pos])) {
-        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
-    }
-}
-
+/*
+ * checks to make sure there aren't any more arguments, since they are not expected at this point.
+ */
 int isEndOfInputValid(int *pos, const char input[], errorCodes *error, long currentLine) {
     int isValid = 1;
     skipWhiteSpaces(pos, input);
@@ -150,6 +157,9 @@ int isEndOfInputValid(int *pos, const char input[], errorCodes *error, long curr
     return isValid;
 }
 
+/*
+ * adds an R word to the end of code image.
+ */
 void addRWord(int *pos, const char input[], errorCodes *error, long currentLine, codeNode **codeImageTail, int posInList,
               CMD *listOfCommands, int rs, int rt, int rd, long *IC) {
     if (isEndOfInputValid(pos, input, error, currentLine)){
@@ -159,6 +169,9 @@ void addRWord(int *pos, const char input[], errorCodes *error, long currentLine,
     }
 }
 
+/*
+ * adds an I word to the end of the code image.
+ */
 void addIWord(int *pos, const char input[], errorCodes *error, long currentLine, codeNode **codeImageTail, int posInList,
               CMD *listOfCommands, int rs, int rt, long immed, long *IC, char *label, typesOfCommands type) {
     if (isEndOfInputValid(pos, input, error, currentLine)){
@@ -168,6 +181,9 @@ void addIWord(int *pos, const char input[], errorCodes *error, long currentLine,
     }
 }
 
+/*
+ * reads an arithmetic R function (3 registers, no additional data)
+ */
 void arithmeticRFunctions(int *pos, const char input[], int posInList, CMD *listOfCommands, codeNode **codeImageTail,
                           long *IC, errorCodes *error, long currentLine) {
     int rs = -1, rt = -1, rd = -1;
@@ -176,7 +192,10 @@ void arithmeticRFunctions(int *pos, const char input[], int posInList, CMD *list
             if (readRegister(pos, input, error, currentLine, &rt) != LOCAL_ERROR) {
                 if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR) {
                     if (readRegister(pos, input, error, currentLine, &rd) != LOCAL_ERROR) {
-                        addRWord(pos, input, error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt, rd, IC);
+                        if (isEndOfInputValid(pos, input, error, currentLine)) {
+                            addRWord(pos, input, error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt,
+                                     rd, IC);
+                        }
                     }
                 }
             }
@@ -184,18 +203,26 @@ void arithmeticRFunctions(int *pos, const char input[], int posInList, CMD *list
     }
 }
 
+/*
+ * reads a copy R function (2 registers, no additional data)
+ */
 void copyRFunctions(int *pos, const char input[], int posInList, CMD *listOfCommands, codeNode **codeImageTail,
                     long *IC, errorCodes *error, long currentLine){
     int rs, rd, rt = 0;
     if (readRegister(pos, input, error, currentLine, &rs) != LOCAL_ERROR) {
         if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR){
             if (readRegister(pos, input, error, currentLine, &rd) != LOCAL_ERROR) {
-                addRWord(pos, input, error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt, rd, IC);
+                if (isEndOfInputValid(pos, input, error, currentLine)) {
+                    addRWord(pos, input, error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt, rd, IC);
+                }
             }
         }
     }
 }
 
+/*
+ * reads an arithmetic or a loader I function (register, immediate value, register and no additional data)
+ */
 void arithmeticAndLoaderIFunctions(int *pos, const char *input, int posInList, CMD *listOfCommands, codeNode **codeImageTail,
                                    long *IC, errorCodes *error, long currentLine){
     int rs, rt;
@@ -205,7 +232,10 @@ void arithmeticAndLoaderIFunctions(int *pos, const char *input, int posInList, C
             if (readInstantValue(pos, input, error, currentLine, &immed) != LOCAL_ERROR) {
                 if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR) {
                     if (readRegister(pos, input, error, currentLine, &rt) != LOCAL_ERROR) {
-                        addIWord(pos, input, error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt, immed, IC, NULL, I_TYPE);
+                        if (isEndOfInputValid(pos, input, error, currentLine)) {
+                            addIWord(pos, input, error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt,
+                                     immed, IC, NULL, I_TYPE);
+                        }
                     }
                 }
             }
@@ -213,6 +243,9 @@ void arithmeticAndLoaderIFunctions(int *pos, const char *input, int posInList, C
     }
 }
 
+/*
+ * reads a conditional I function (2 registers and a label, no additional data)
+ */
 void conditionalIFunctions(int *pos, const char input[], int posInList, CMD *listOfCommands, codeNode **codeImageTail,
                            long *IC, errorCodes *error, long currentLine){
     char *label = calloc(MAX_LABEL_LENGTH, sizeof(char));
@@ -222,8 +255,8 @@ void conditionalIFunctions(int *pos, const char input[], int posInList, CMD *lis
         if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR) {
             if (readRegister(pos, input, error, currentLine, &rt) != LOCAL_ERROR) {
                 if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR) {
-                    readLabel(pos, input, error, currentLine, label);
-                    if (!isFileError(*error)) {
+                    readInputLabel(pos, input, currentLine, error, label);
+                    if (isEndOfInputValid(pos, input, error, currentLine) && !isFileError(*error)) {
                         addIWord(pos, input, error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt,
                                  immed, IC, label, I_TYPE_CONDITIONAL);
                     }
@@ -234,7 +267,9 @@ void conditionalIFunctions(int *pos, const char input[], int posInList, CMD *lis
 }
 
 
-
+/*
+ * simply returning 1 or 0 whether a '$' sign was detected
+ */
 int isRegister(int *pos, const char input[]) {
     int res;
     skipWhiteSpaces(pos, input);
@@ -245,39 +280,42 @@ int isRegister(int *pos, const char input[]) {
     return res;
 }
 
+/*
+ * returns 1 if the command which called this function was jmp
+ */
 int isJmp(int posInList, CMD *listOfCommands) {
     return strcmp(getCMDName(posInList, listOfCommands), "jmp") ? 0 : 1;
 }
 
+/*
+ * reads functions of type jmp, la or call and adds the data to the end of the code image.
+ */
 void jmpLaCall(int *pos, const char input[], int posInList, CMD *listOfCommands, codeNode **codeImageTail, long *IC, errorCodes *error,
          long currentLine){
-    int reg = -1;
+    int reg = NOT_FOUND;
     if (isJmp(posInList, listOfCommands) && isRegister(pos, input)) {
         int foundError;
         foundError = readRegNum(pos, input, currentLine, error, &reg);
-        if (foundError != LOCAL_ERROR && isEndOfInputValid(pos, input, error, currentLine) && reg != -1) {
+        if (foundError != LOCAL_ERROR && isEndOfInputValid(pos, input, error, currentLine) && reg != NOT_FOUND) {
             *codeImageTail = insertJWord(error, getOpcode(posInList, listOfCommands), 1, reg, IC, *codeImageTail, NULL, J_TYPE, currentLine);
         }
     }
     else {
         char *label = calloc(MAX_LABEL_LENGTH, sizeof(char));
-        readLabel(pos, input, error, currentLine, label);
-        if (!isFileError(*error)) {
+        readInputLabel(pos, input, currentLine, error, label);
+        if (isEndOfInputValid(pos, input, error, currentLine) && !isFileError(*error)) {
             *codeImageTail = insertJWord(error, getOpcode(posInList, listOfCommands), 0, 0, IC, *codeImageTail, label, J_TYPE, currentLine);
         }
     }
 }
 
 
-
+/*
+ * adds stop to the end of the code image.
+ */
 void stop(int *pos, const char input[], int posInList, CMD *listOfCommands, codeNode **codeImageTail, long *IC,
           errorCodes *error, long currentLine){
-    skipWhiteSpaces(pos, input);
-    if (input[*pos] && isgraph(input[*pos])) {
-        *error = ERROR_EXCESSIVE_ARGUMENT;
-        printInputError(ERROR_EXCESSIVE_ARGUMENT, "", currentLine, *pos);
-    }
-    else {
+    if (isEndOfInputValid(pos, input, error, currentLine)) {
         *codeImageTail = insertJWord(error, getOpcode(posInList, listOfCommands), 0, 0, IC, *codeImageTail, NULL, J_TYPE, currentLine);
     }
 }

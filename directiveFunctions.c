@@ -205,38 +205,10 @@ void asciz(int *pos, const char input[], long *DC, errorCodes *error, dataNode *
     }
 }
 
+
 /*
- * checks whether the input argument for extern or entry is legal
+ * adds a label given as an argument to the linked list containing all the labels flagged as entries or extern.
  */
-void validateLabelName(int *pos, const char input[], errorCodes *error, long currentLine, int index) {
-    if (index >= MAX_LABEL_LENGTH && isalnum(input[*pos])) {
-        *error = ERROR_MAX_LENGTH;
-        printInputError(ERROR_MAX_LENGTH, "", currentLine, *pos);
-    }
-    else if (isgraph(input[*pos])) {
-        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
-    }
-    skipWhiteSpaces(pos, input);
-    if (isgraph(input[*pos])) {
-        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
-    }
-}
-
-void readInputLabel(int *pos, const char *input, long currentLine, errorCodes *error, char *labelName) {
-    skipWhiteSpaces(pos, input);
-    if (!isalpha(input[*pos])) {
-        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
-    }
-    else {
-        int index = 0;
-        while (isalnum(input[*pos]) && index < MAX_LABEL_LENGTH) {
-            labelName[index++] = input[(*pos)++];
-        }
-        validateLabelName(pos, input, error, currentLine, index);
-    }
-}
-
-
 void entry(int *pos, const char input[], errorCodes *error, long currentLine,
            entriesOrExternList **entriesOrExternTail){
     char* labelName = calloc(MAX_LABEL_LENGTH, sizeof(char ));
@@ -248,7 +220,8 @@ void entry(int *pos, const char input[], errorCodes *error, long currentLine,
 
 
 /*
- * reads a label name as argument and adds it to the symbol list with the address 0 and the attribute external
+ * reads a label name as argument and adds it to the symbol list with the address 0 and the attribute external,
+ * also adds the label name to the entry or extern list.
  */
 void external(int *pos, const char input[], dataTable *table, errorCodes *error, long currentLine, entriesOrExternList **entriesOrExternTail){
     char* labelName = calloc(MAX_LABEL_LENGTH, sizeof(char ));

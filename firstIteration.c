@@ -14,9 +14,9 @@
  * for the different directive commands, so the position returned is the same as the one of the corresponding function
  */
 int compareToKnownDirectiveCMDs(char *directiveInput) {
-    int selected = -1, i;
+    int selected = NOT_FOUND, i;
     char *knownCMDs[] = {"db", "dw", "dh", "asciz", "entry", "extern"};
-    for (i = 0; selected == -1 && i < NUM_OF_DIRECTIVE_CMDS; i++) {
+    for (i = 0; selected == NOT_FOUND && i < NUM_OF_DIRECTIVE_CMDS; i++) {
         if (!strcmp(directiveInput, knownCMDs[i]))
             selected = i;
     }
@@ -28,7 +28,7 @@ int compareToKnownDirectiveCMDs(char *directiveInput) {
  * attempts to read a directive command from the given line, after a dot was encountered
  */
 int getDirectiveCMD(int *pos, const char *inputLine, long currentLine, errorCodes *error) {
-    int selectedCMD = -1, counter = 0;
+    int selectedCMD = NOT_FOUND, counter = 0;
     char directiveInput[MAX_DIRECTIVE_CMD_LENGTH];
     (*pos)++;
     while (!isFileError(selectedCMD) && counter < MAX_DIRECTIVE_CMD_LENGTH && islower(inputLine[*pos])) {
@@ -45,7 +45,7 @@ int getDirectiveCMD(int *pos, const char *inputLine, long currentLine, errorCode
     if (!isFileError(selectedCMD)) {
         if (isValidEndOfCommand(pos, inputLine, currentLine, error)) {
             selectedCMD = compareToKnownDirectiveCMDs(directiveInput);
-            if (selectedCMD == -1) {
+            if (selectedCMD == NOT_FOUND) {
                 printInputError(ERROR_DIRECTIVE_CMD_NOT_FOUND, directiveInput, currentLine, *pos);
                 selectedCMD = ERROR_DIRECTIVE_CMD_NOT_FOUND;
             }
@@ -71,7 +71,7 @@ int getCommandName(int *pos, const char inputLine[], long currentLine, CMD *list
     if (isValidEndOfCommand(pos, inputLine, currentLine, error)) {
         commandName[i] = '\0';
         commandPos = findCommand(commandName, listOfCommands);
-        if (commandPos == -1) {
+        if (commandPos == NOT_FOUND) {
             printInputError(ERROR_COMMAND_NOT_FOUND, commandName, currentLine, *pos);
             commandPos = ERROR_COMMAND_NOT_FOUND;
         }
@@ -84,7 +84,7 @@ int getCommandName(int *pos, const char inputLine[], long currentLine, CMD *list
  */
 int isKnownCMD(char *labelName, CMD *listOfCommands) {
     int isKnown = 0;
-    if (findCommand(labelName, listOfCommands) != -1)
+    if (findCommand(labelName, listOfCommands) != NOT_FOUND)
         isKnown = 1;
     return isKnown;
 }
@@ -105,7 +105,7 @@ void handleLabelError(int *pos, int startPos, long currentLine, char labelName[]
 
 /*
  * attempts to read a label, if a label is illegal, or if the read text isn't a label, resets the position pointer and
- * returns an error code. otherwise returns 1.
+ * returns an error code. otherwise, returns 1.
  */
 int isValidLabel(int *pos, const char inputLine[], long currentLine, CMD *listOfCommands, char labelName[]) {
     int startPos = *pos, isLabel = 0, i = 0;
@@ -215,11 +215,11 @@ void addLabelAndExecuteCommand(int selectedDirectiveCMD, char labelName[], int v
                                CMD *listOfCommands, dataTable *listOfSymbols, errorCodes *error, dataNode **dataImageTail,
                                codeNode **codeImageTail, entriesOrExternList **entriesOrExternTail) {
     int itemExists = 0;
-    if (selectedDirectiveCMD != -1) {
+    if (selectedDirectiveCMD != NOT_FOUND) {
         handleDirectiveExecution(pos, inputLine, error, validLabel, selectedDirectiveCMD, itemExists, labelName,
                                  currentLine, DC, listOfSymbols, entriesOrExternTail, dataImageTail);
     }
-    else if (selectedCMD != -1) {
+    else if (selectedCMD != NOT_FOUND) {
        handleCommandExecution(pos, inputLine, validLabel, itemExists, labelName, IC, listOfSymbols, currentLine, error,
                               selectedCMD, listOfCommands, codeImageTail);
     }
@@ -231,7 +231,7 @@ void addLabelAndExecuteCommand(int selectedDirectiveCMD, char labelName[], int v
 void readLine(int *pos, const char inputLine[], long * DC, long * IC, long currentLine, CMD *listOfCommands,
               dataTable *listOfSymbols, errorCodes *error, dataNode **dataImageTail, codeNode **codeImageTail,
               entriesOrExternList **entriesOrExternTail) {
-    int selectedDirectiveCMD = -1, selectedCMD = -1;
+    int selectedDirectiveCMD = NOT_FOUND, selectedCMD = NOT_FOUND;
     char *labelName = calloc(MAX_LABEL_LENGTH, sizeof(char));
     int validLabel = isValidLabel(pos, inputLine, currentLine, listOfCommands, labelName);
     if (!isFileError(validLabel)) {

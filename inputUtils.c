@@ -77,4 +77,35 @@ int isValidEndOfCommand(const int *pos, const char *inputLine, long currentLine,
     return valid;
 }
 
+/*
+ * checks whether the given argument label is valid
+ */
+void validateLabelName(int *pos, const char input[], errorCodes *error, long currentLine, int index) {
+    if (index >= MAX_LABEL_LENGTH && isalnum(input[*pos])) {
+        *error = ERROR_MAX_LENGTH;
+        printInputError(ERROR_MAX_LENGTH, "", currentLine, *pos);
+    }
+    skipWhiteSpaces(pos, input);
+    if (isgraph(input[*pos])) {
+        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
+    }
+}
+
+/*
+ * reads an argument label from the input and validates it
+ */
+void readInputLabel(int *pos, const char *input, long currentLine, errorCodes *error, char *labelName) {
+    skipWhiteSpaces(pos, input);
+    if (!isalpha(input[*pos])) {
+        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
+    }
+    else {
+        int index = 0;
+        while (isalnum(input[*pos]) && index < MAX_LABEL_LENGTH) {
+            labelName[index++] = input[(*pos)++];
+        }
+        validateLabelName(pos, input, error, currentLine, index);
+    }
+}
+
 
