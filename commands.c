@@ -174,7 +174,7 @@ void addRWord(int *pos, const char input[], errorCodes *error, long currentLine,
  */
 void addIWord(int *pos, const char input[], errorCodes *error, long currentLine, codeNode **codeImageTail, int posInList,
               CMD *listOfCommands, int rs, int rt, long immed, long *IC, char *label, typesOfCommands type) {
-    if (isEndOfInputValid(pos, input, error, currentLine)){
+    if (!isFileError(*error)){
         *codeImageTail = insertIWord(error, getOpcode(posInList, listOfCommands),
                                      rs, rt, immed, IC,
                                      *codeImageTail, label, type, currentLine);
@@ -256,7 +256,7 @@ void conditionalIFunctions(int *pos, const char input[], int posInList, CMD *lis
             if (readRegister(pos, input, error, currentLine, &rt) != LOCAL_ERROR) {
                 if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR) {
                     readInputLabel(pos, input, currentLine, error, label);
-                    if (isEndOfInputValid(pos, input, error, currentLine) && !isFileError(*error)) {
+                    if (!isFileError(*error)) {
                         addIWord(pos, input, error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt,
                                  immed, IC, label, I_TYPE_CONDITIONAL);
                     }
@@ -303,7 +303,7 @@ void jmpLaCall(int *pos, const char input[], int posInList, CMD *listOfCommands,
     else {
         char *label = calloc(MAX_LABEL_LENGTH, sizeof(char));
         readInputLabel(pos, input, currentLine, error, label);
-        if (isEndOfInputValid(pos, input, error, currentLine) && !isFileError(*error)) {
+        if (!isFileError(*error)) {
             *codeImageTail = insertJWord(error, getOpcode(posInList, listOfCommands), 0, 0, IC, *codeImageTail, label, J_TYPE, currentLine);
         }
     }

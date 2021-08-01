@@ -87,7 +87,7 @@ void validateLabelName(int *pos, const char input[], errorCodes *error, long cur
     }
     skipWhiteSpaces(pos, input);
     if (isgraph(input[*pos])) {
-        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
+        printInputError(ERROR_EXCESSIVE_ARGUMENT, "", currentLine, *pos);
     }
 }
 

@@ -101,7 +101,7 @@ int readNum(int *pos, const char input[],errorCodes *error, long currentLine, in
 /*
  * coordinates the process of adding numbers to the list
  */
-void readData(int *pos, const char input[], long *DC, errorCodes *error, dataNode **dataImageTail, long currentLine, int type) {
+void readNumbersSeperatedByCommas(int *pos, const char input[], long *DC, errorCodes *error, dataNode **dataImageTail, long currentLine, int type) {
     int listIndex = 0, localError = 0;
     long *list = initializeList(error);
     if (list) {
@@ -109,7 +109,7 @@ void readData(int *pos, const char input[], long *DC, errorCodes *error, dataNod
             skipWhiteSpaces(pos, input);
             localError = readNum(pos, input, error, currentLine, type, list, &listIndex);
             if (localError != LOCAL_ERROR)
-                advanceToNextArgument(pos, input, currentLine, 0, error);
+                localError = advanceToNextArgument(pos, input, currentLine, 0, error);
         }
         if (!localError) {
             if (listIndex > 0) {
@@ -168,21 +168,21 @@ void readString(int *pos, const char input[], long currentLine, long *DC, dataNo
  * handles .dh directives
  */
 void dh(int *pos, const char input[], long *DC, errorCodes *error, dataNode **dataImageTail, long currentLine) {
-    readData(pos, input, DC, error, dataImageTail, currentLine, DH);
+    readNumbersSeperatedByCommas(pos, input, DC, error, dataImageTail, currentLine, DH);
 }
 
 /*
  * handles .dw directives
  */
 void dw(int *pos, const char input[], long *DC, errorCodes *error, dataNode **dataImageTail, long currentLine) {
-    readData(pos, input, DC, error, dataImageTail, currentLine, DW);
+    readNumbersSeperatedByCommas(pos, input, DC, error, dataImageTail, currentLine, DW);
 }
 
 /*
  * handles .db directives
  */
 void db(int *pos, const char input[], long *DC, errorCodes *error, dataNode **dataImageTail, long currentLine){
-    readData(pos, input, DC, error, dataImageTail, currentLine, DB_ASCIZ);
+    readNumbersSeperatedByCommas(pos, input, DC, error, dataImageTail, currentLine, DB_ASCIZ);
 }
 
 /*
@@ -200,7 +200,8 @@ void asciz(int *pos, const char input[], long *DC, errorCodes *error, dataNode *
             printInputError(ERROR_MISSING_DATA, "", currentLine, *pos);
         }
         else {
-            handleInvalidCharacterError(input[*pos], currentLine, error, pos);
+            *error = ERROR_MISSING_QUOTATION;
+            printInputError(ERROR_MISSING_QUOTATION, "", currentLine, *pos);
         }
     }
 }
