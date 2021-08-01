@@ -9,8 +9,6 @@ enum {
     EXTERN
 };
 
-extern long currentTableSize;
-extern long numOfSymbols;
 
 typedef struct dataTable dataTable;
 
