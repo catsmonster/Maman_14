@@ -7,6 +7,5 @@
  */
 int inputFileHandler(int argc, char **argv);
 
-extern long numOfSymbols;
-extern long currentTableSize;
+
 #endif

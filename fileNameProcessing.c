@@ -8,10 +8,10 @@
 #include <stdlib.h>
 #include "dataImage.h"
 #include "entriesOrExternList.h"
-#define INITIAL_TABLE_SIZE 32
+#define INITIAL_SYMBOLS_TABLE_SIZE 32
 
 long numOfSymbols = 0;
-long currentTableSize = INITIAL_TABLE_SIZE;
+long currentTableSize = INITIAL_SYMBOLS_TABLE_SIZE;
 
 /*
  * checks for a valid .as file extension
@@ -38,7 +38,7 @@ int openFile(char * fileName, void (*directivesArr[])(int *, const char[], long 
     entriesOrExternList *entriesOrExternHead = initializeEntriesOrExternList();
     int errorCode = 0;
     numOfSymbols = 0;
-    currentTableSize = INITIAL_TABLE_SIZE;
+    currentTableSize = INITIAL_SYMBOLS_TABLE_SIZE;
     if (!listOfSymbols || !dataImageHead || !codeImageHead || !entriesOrExternHead) {
         printMemoryError(ERROR_MEMORY_ALLOCATION);
     }
