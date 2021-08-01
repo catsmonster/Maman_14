@@ -7,6 +7,11 @@
 #include "dataImage.h"
 #include "entriesOrExternList.h"
 #include "fileErrors.h"
+
+/*
+ * handles the building of the symbols table, the data image and most of the code image (minus the final addresses).
+ * also creates a list of labels flagged as entry or extern.
+ */
 void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, CMD *, dataTable*, dataNode *, codeNode *,
                     entriesOrExternList *);
 

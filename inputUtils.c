@@ -64,4 +64,17 @@ int preProcessing(int * pos, const char inputLine[], long currentLine, errorCode
     return skipLine;
 }
 
+/*
+ * validates there isn't excess data after the end of the expected input
+ */
+int isValidEndOfCommand(const int *pos, const char *inputLine, long currentLine, errorCodes *error) {
+    int valid = 1;
+    if (!isspace(inputLine[*pos])) {
+        handleInvalidCharacterError(inputLine[*pos], currentLine, error, pos);
+        *error = ERROR_INVALID_CHARACTER;
+        valid = 0;
+    }
+    return valid;
+}
+
 

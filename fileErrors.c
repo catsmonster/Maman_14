@@ -1,6 +1,5 @@
 #include "fileErrors.h"
 #include <stdio.h>
-#include <stdarg.h>
 
 /*
  * Printing file opening related errors
@@ -168,6 +167,9 @@ void handleInvalidCharacterError(char errorChar, long currentLine, errorCodes *e
     *error = ERROR_INVALID_CHARACTER;
 }
 
+/*
+ * shows invalid integer error message
+ */
 void handleNANError(char errorChar, long currentLine, errorCodes *error, const int *pos) {
     char errorString[2];
     stringFromChar(errorChar, errorString);

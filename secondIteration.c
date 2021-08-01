@@ -5,7 +5,8 @@
 void updateCodeImage(codeNode *codeImageHead, dataTable *listOfSymbols, errorCodes *error, long ICF, FILE **extFile) {
     while (codeImageHead && !isFileError(*error)) {
         long symbolAddress, currentLine, address;
-        int type, symbolType;
+        typesOfCommands type;
+        int symbolType;
         char *label;
         label = getCodeNodeLabel(codeImageHead);
         if (label) {

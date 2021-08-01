@@ -6,17 +6,79 @@
 
 #IncludeRegexTransform: 
 
+/home/user/CLionProjects/Maman14/codeImage.c
+codeImage.h
+/home/user/CLionProjects/Maman14/codeImage.h
+stdlib.h
+-
+
 /home/user/CLionProjects/Maman14/codeImage.h
 fileErrors.h
 /home/user/CLionProjects/Maman14/fileErrors.h
 
+/home/user/CLionProjects/Maman14/commands.c
+commands.h
+/home/user/CLionProjects/Maman14/commands.h
+listOfCommands.h
+/home/user/CLionProjects/Maman14/listOfCommands.h
+inputUtils.h
+/home/user/CLionProjects/Maman14/inputUtils.h
+fileErrors.h
+/home/user/CLionProjects/Maman14/fileErrors.h
+ctype.h
+-
+stdlib.h
+-
+string.h
+-
+
+/home/user/CLionProjects/Maman14/commands.h
+codeImage.h
+/home/user/CLionProjects/Maman14/codeImage.h
+listOfCommands.h
+/home/user/CLionProjects/Maman14/listOfCommands.h
+fileErrors.h
+/home/user/CLionProjects/Maman14/fileErrors.h
+
+/home/user/CLionProjects/Maman14/dataImage.c
+dataImage.h
 /home/user/CLionProjects/Maman14/dataImage.h
+stdlib.h
+-
+
+/home/user/CLionProjects/Maman14/dataImage.h
+fileErrors.h
+/home/user/CLionProjects/Maman14/fileErrors.h
+
+/home/user/CLionProjects/Maman14/dataTable.c
+dataTable.h
+/home/user/CLionProjects/Maman14/dataTable.h
+stdlib.h
+-
+string.h
+-
 fileErrors.h
 /home/user/CLionProjects/Maman14/fileErrors.h
 
 /home/user/CLionProjects/Maman14/dataTable.h
 fileErrors.h
 /home/user/CLionProjects/Maman14/fileErrors.h
+
+/home/user/CLionProjects/Maman14/directiveFunctions.c
+directiveFunctions.h
+/home/user/CLionProjects/Maman14/directiveFunctions.h
+inputUtils.h
+/home/user/CLionProjects/Maman14/inputUtils.h
+fileErrors.h
+/home/user/CLionProjects/Maman14/fileErrors.h
+dataTable.h
+/home/user/CLionProjects/Maman14/dataTable.h
+stdlib.h
+-
+ctype.h
+-
+string.h
+-
 
 /home/user/CLionProjects/Maman14/directiveFunctions.h
 dataImage.h
@@ -25,6 +87,14 @@ dataTable.h
 /home/user/CLionProjects/Maman14/dataTable.h
 entriesOrExternList.h
 /home/user/CLionProjects/Maman14/entriesOrExternList.h
+
+/home/user/CLionProjects/Maman14/entriesOrExternList.c
+entriesOrExternList.h
+/home/user/CLionProjects/Maman14/entriesOrExternList.h
+stdlib.h
+-
+fileErrors.h
+/home/user/CLionProjects/Maman14/fileErrors.h
 
 /home/user/CLionProjects/Maman14/entriesOrExternList.h
 fileErrors.h
@@ -55,6 +125,12 @@ dataImage.h
 /home/user/CLionProjects/Maman14/dataImage.h
 entriesOrExternList.h
 /home/user/CLionProjects/Maman14/entriesOrExternList.h
+
+/home/user/CLionProjects/Maman14/fileErrors.c
+fileErrors.h
+/home/user/CLionProjects/Maman14/fileErrors.h
+stdio.h
+-
 
 /home/user/CLionProjects/Maman14/fileErrors.h
 
@@ -110,13 +186,47 @@ entriesOrExternList.h
 fileErrors.h
 /home/user/CLionProjects/Maman14/fileErrors.h
 
+/home/user/CLionProjects/Maman14/inputUtils.c
+inputUtils.h
 /home/user/CLionProjects/Maman14/inputUtils.h
+fileErrors.h
+/home/user/CLionProjects/Maman14/fileErrors.h
+ctype.h
+-
+
+/home/user/CLionProjects/Maman14/inputUtils.h
+fileErrors.h
+/home/user/CLionProjects/Maman14/fileErrors.h
+
+/home/user/CLionProjects/Maman14/listOfCommands.c
+listOfCommands.h
+/home/user/CLionProjects/Maman14/listOfCommands.h
+commands.h
+/home/user/CLionProjects/Maman14/commands.h
+stdlib.h
+-
+string.h
+-
 fileErrors.h
 /home/user/CLionProjects/Maman14/fileErrors.h
 
 /home/user/CLionProjects/Maman14/listOfCommands.h
 codeImage.h
 /home/user/CLionProjects/Maman14/codeImage.h
+
+/home/user/CLionProjects/Maman14/main.c
+fileNameProcessing.h
+/home/user/CLionProjects/Maman14/fileNameProcessing.h
+fileErrors.h
+/home/user/CLionProjects/Maman14/fileErrors.h
+
+/home/user/CLionProjects/Maman14/printOutput.c
+printOutput.h
+/home/user/CLionProjects/Maman14/printOutput.h
+string.h
+-
+stdlib.h
+-
 
 /home/user/CLionProjects/Maman14/printOutput.h
 codeImage.h
@@ -127,6 +237,10 @@ entriesOrExternList.h
 /home/user/CLionProjects/Maman14/entriesOrExternList.h
 stdio.h
 -
+
+/home/user/CLionProjects/Maman14/secondIteration.c
+secondIteration.h
+/home/user/CLionProjects/Maman14/secondIteration.h
 
 /home/user/CLionProjects/Maman14/secondIteration.h
 dataTable.h

@@ -6,7 +6,7 @@ struct codeNode {
     long address;
     char *label;
     long currentLine;
-    int type;
+    typesOfCommands type;
     codeNode *next;
     union {
         struct {
@@ -62,7 +62,7 @@ char *getCodeNodeLabel(codeNode *node) {
     return node -> label;
 }
 
-int getCodeNodeType(codeNode *node) {
+typesOfCommands getCodeNodeType(codeNode *node) {
     return node -> type;
 }
 
@@ -78,7 +78,7 @@ codeNode *getNextCodeNode(codeNode *node) {
     return node -> next;
 }
 
-unsigned char getCodeRepresentation(codeNode *node, int part) {
+unsigned char getCodeRepresentation(codeNode *node, typesOfCommands part) {
     unsigned char res;
     switch (part) {
         case FIRST_BYTE:
@@ -100,7 +100,7 @@ unsigned char getCodeRepresentation(codeNode *node, int part) {
 /*
  * adds a new empty code node in case this isn't the head of the data image
  */
-codeNode *setCodeImageTail(codeNode *codeImageTail, errorCodes *error, long *IC, char *label, int type, long currentLine) {
+codeNode *setCodeImageTail(codeNode *codeImageTail, errorCodes *error, long *IC, char *label, typesOfCommands type, long currentLine) {
     int firstInput = *IC == FIRST_INSTRUCTION_COUNTER_VALUE ? 1 : 0;
     if (!firstInput) {
         codeNode *p = calloc(1, sizeof(codeNode));
@@ -136,7 +136,7 @@ codeNode *insertRWord(errorCodes *error, int opcode, int funct, int rs, int rt, 
 }
 
 codeNode *insertIWord(errorCodes *error, int opcode, int rs, int rt, long immed, long *IC, codeNode *codeImageTail,
-                      char *label, int type, long currentLine) {
+                      char *label, typesOfCommands type, long currentLine) {
     codeNode *newTail = setCodeImageTail(codeImageTail, error, IC, label, type, currentLine);
     newTail -> data.I.rs = rs;
     newTail -> data.I.rt = rt;
@@ -146,7 +146,7 @@ codeNode *insertIWord(errorCodes *error, int opcode, int rs, int rt, long immed,
 }
 
 codeNode *insertJWord(errorCodes *error, int opcode, short reg, long address, long *IC, codeNode *codeImageTail,
-                      char *label, int type, long currentLine) {
+                      char *label, typesOfCommands type, long currentLine) {
     codeNode *newTail = setCodeImageTail(codeImageTail, error, IC, label, type, currentLine);
     newTail -> data.J.opcode = opcode;
     newTail -> data.J.reg = reg;

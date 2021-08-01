@@ -13,7 +13,6 @@
  */
 void readFile(FILE * fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode *dataImageHead, codeNode *codeImageHead,
               entriesOrExternList *entriesOrExternHead, char *fileName) {
-
     errorCodes error = 0;
     long DC = DATA_COUNTER_START, IC = INSTRUCTIONS_COUNTER_START;
     int c = fgetc(fp);
@@ -24,7 +23,6 @@ void readFile(FILE * fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode
         ungetc(c, fp);
         firstIteration(fp, &DC, &IC, &error, listOfCommands, listOfSymbols, dataImageHead, codeImageHead,
                        entriesOrExternHead);
-        rewind(fp);
         if (!isFileError(error)) {
             FILE *extFile = generateExtFile(fileName);
             FILE *entFile = generateEntFile(fileName);

@@ -7,7 +7,7 @@
 #define NUM_OF_CMDS 27
 
 /*
- * This struct holds the commands for easy access to data
+ * This struct holds the commands for easy access to data, and a pointer to the function which reads them
  */
 struct commands {
     char *name;
@@ -103,6 +103,9 @@ char *getCMDName(int i, CMD *list) {
     return list[i].name;
 }
 
+/*
+ * runs the command stored as a pointer to a function in the list of commands array.
+ */
 void runCMD(int *pos, const char input[], int posInList, CMD *list, codeNode **codeImageTail, long *IC, errorCodes *error,
             long currentLine) {
     list[posInList].function(pos, input, posInList, list, codeImageTail, IC, error, currentLine);

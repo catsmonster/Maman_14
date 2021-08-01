@@ -8,4 +8,5 @@
 void skipWhiteSpaces(int *, const char *);
 int advanceToNextArgument(int *pos, const char *input, long currentLine, int commaDetected, errorCodes *error);
 int preProcessing(int * pos, const char inputLine[], long currentLine, errorCodes *error);
+int isValidEndOfCommand(const int *pos, const char *inputLine, long currentLine, errorCodes *error);
 #endif

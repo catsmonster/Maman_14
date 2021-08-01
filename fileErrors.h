@@ -3,7 +3,7 @@
 #define MAMAN_14_FILEERRORS_H
 
 /*
- * This file provides an interface with error handling throughout the assembly process.
+ * This file provides an interface with error handling throughout the assembler process.
  */
 typedef enum errorCodes {
     ERROR_MISSING_AS_FILE = 300,
@@ -36,9 +36,17 @@ typedef enum errorCodes {
     ERROR_NOT_AN_INTEGER
 }errorCodes;
 
-
+/*
+ * handles printing input related errors.
+ */
 void printInputError(errorCodes, char *errorCause, long line, int pos);
+/*
+ * handles printing memory related errors.
+ */
 void printMemoryError(errorCodes);
+/*
+ * handles printing file access related errors.
+ */
 void printFileError(errorCodes, char *errorCause);
 /*
  * returns 1 if a known error was encountered
@@ -49,8 +57,14 @@ int isFileError(errorCodes);
  */
 void stringFromChar(char, char[]);
 
+/*
+ * handles the process of converting a char to a string and printing the invalid character error.
+ */
 void handleInvalidCharacterError(char errorChar, long currentLine, errorCodes *error, const int *pos);
 
+/*
+ * handles the process of converting a char to a string and printing the 'not a number' error.
+ */
 void handleNANError(char errorChar, long currentLine, errorCodes *error, const int *pos);
 
 #endif

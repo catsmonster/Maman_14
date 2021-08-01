@@ -34,6 +34,7 @@ int openFile(char * fileName, CMD *listOfCommands) {
     int errorCode = 0;
     if (!listOfSymbols || !dataImageHead || !codeImageHead || !entriesOrExternHead) {
         printMemoryError(ERROR_MEMORY_ALLOCATION);
+        errorCode = ERROR_MEMORY_ALLOCATION;
     }
     else {
         FILE *fp = fopen(fileName, "r");
@@ -43,11 +44,11 @@ int openFile(char * fileName, CMD *listOfCommands) {
             readFile(fp, listOfCommands, listOfSymbols, dataImageHead, codeImageHead, entriesOrExternHead, fileName);
             fclose(fp);
         }
+        freeDataTable(listOfSymbols);
+        freeCodeImage(codeImageHead);
+        freeDataImage(dataImageHead);
+        freeEntriesOrExternList(entriesOrExternHead);
     }
-    freeDataTable(listOfSymbols);
-    freeCodeImage(codeImageHead);
-    freeDataImage(dataImageHead);
-    freeEntriesOrExternList(entriesOrExternHead);
     return errorCode;
 }
 

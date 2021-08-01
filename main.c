@@ -8,5 +8,5 @@ int main(int argc, char * argv[]) {
     int error = inputFileHandler(argc, argv);
     if (isFileError(error))
         printFileError(error, "");
-    return 0;
+    return error;
 }

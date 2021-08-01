@@ -23,17 +23,6 @@ int compareToKnownDirectiveCMDs(char *directiveInput) {
     return selected;
 }
 
-int isValidEndOfCommand(const int *pos, const char *inputLine, long currentLine, errorCodes *error) {
-    int valid = 1;
-    if (!isspace(inputLine[*pos])) {
-        handleInvalidCharacterError(inputLine[*pos], currentLine, error, pos);
-        *error = ERROR_INVALID_CHARACTER;
-        valid = 0;
-    }
-    return valid;
-}
-
-
 
 /*
  * attempts to read a directive command from the given line, after a dot was encountered
@@ -66,7 +55,7 @@ int getDirectiveCMD(int *pos, const char *inputLine, long currentLine, errorCode
 }
 
 /*
- * extract command name from the input and check against known commands list, returning the position in the list
+ * extracts command name from the input and checks against known commands list, returning the position in the list
  * of the found command, or -1 if the command wasn't found
  */
 int getCommandName(int *pos, const char inputLine[], long currentLine, CMD *listOfCommands, errorCodes *error) {
@@ -178,6 +167,47 @@ void handleNameConflict(int itemExists, char *labelName, long currentLine, int p
 }
 
 /*
+ * handles labels and directives executions
+ */
+void handleDirectiveExecution(int *pos, const char inputLine[], errorCodes *error, int validLabel, int selectedDirectiveCMD,
+                              int itemExists, char labelName[], long currentLine, long *DC, dataTable *listOfSymbols,
+                              entriesOrExternList **entriesOrExternTail, dataNode **dataImageTail) {
+    void (*directiveFuncArr[NUM_OF_DIRECTIVE_CMDS - 2])(int *, const char[], long *, errorCodes *, dataNode**, long) = {db, dw, dh, asciz};
+    if (validLabel && selectedDirectiveCMD != ENTRY_DIRECTIVE && selectedDirectiveCMD != EXTERNAL_DIRECTIVE) {
+        itemExists = addItemToDataTable(labelName, *DC, DATA, listOfSymbols);
+        handleNameConflict(itemExists, labelName, currentLine, *pos, error);
+    }
+    if (!itemExists) {
+        if (selectedDirectiveCMD == EXTERNAL_DIRECTIVE || selectedDirectiveCMD == ENTRY_DIRECTIVE) {
+            if (validLabel) {
+                printInputError(WARNING_LABEL_IGNORED, labelName, currentLine, *pos);
+            }
+            if (selectedDirectiveCMD == EXTERNAL_DIRECTIVE)
+                external(pos, inputLine, listOfSymbols, error, currentLine, entriesOrExternTail);
+            else
+                entry(pos, inputLine, error, currentLine, entriesOrExternTail);
+        }
+        else
+            directiveFuncArr[selectedDirectiveCMD](pos, inputLine, DC, error, dataImageTail, currentLine);
+    }
+}
+
+/*
+ * handles label and commands execution
+ */
+void handleCommandExecution(int *pos, const char inputLine[], int validLabel, int itemExists, char labelName[], long *IC,
+                            dataTable *listOfSymbols, long currentLine, errorCodes *error, int selectedCMD,
+                            CMD *listOfCommands, codeNode **codeImageTail) {
+    if (validLabel) {
+        itemExists = addItemToDataTable(labelName, *IC, CODE, listOfSymbols);
+        handleNameConflict(itemExists, labelName, currentLine, *pos, error);
+    }
+    if (!itemExists) {
+        runCMD(pos, inputLine, selectedCMD, listOfCommands, codeImageTail, IC, error, currentLine);
+    }
+}
+
+/*
  * if a label was found, adds it to the list of symbols, runs the found command or directive
  */
 void addLabelAndExecuteCommand(int selectedDirectiveCMD, char labelName[], int validLabel, int selectedCMD, int *pos,
@@ -185,34 +215,13 @@ void addLabelAndExecuteCommand(int selectedDirectiveCMD, char labelName[], int v
                                CMD *listOfCommands, dataTable *listOfSymbols, errorCodes *error, dataNode **dataImageTail,
                                codeNode **codeImageTail, entriesOrExternList **entriesOrExternTail) {
     int itemExists = 0;
-    void (*directiveFuncArr[NUM_OF_DIRECTIVE_CMDS - 2])(int *, const char[], long *, errorCodes *, dataNode**, long) = {db, dw, dh, asciz};
     if (selectedDirectiveCMD != -1) {
-        if (validLabel && selectedDirectiveCMD != ENTRY_DIRECTIVE && selectedDirectiveCMD != EXTERNAL_DIRECTIVE) {
-            itemExists = addItemToDataTable(labelName, *DC, DATA, listOfSymbols);
-            handleNameConflict(itemExists, labelName, currentLine, *pos, error);
-        }
-        if (!itemExists) {
-            if (selectedDirectiveCMD == EXTERNAL_DIRECTIVE || selectedDirectiveCMD == ENTRY_DIRECTIVE) {
-                if (validLabel) {
-                    printInputError(WARNING_LABEL_IGNORED, labelName, currentLine, *pos);
-                }
-                if (selectedDirectiveCMD == EXTERNAL_DIRECTIVE)
-                    external(pos, inputLine, listOfSymbols, error, currentLine, entriesOrExternTail);
-                else
-                    entry(pos, inputLine, error, currentLine, entriesOrExternTail);
-            }
-            else
-                directiveFuncArr[selectedDirectiveCMD](pos, inputLine, DC, error, dataImageTail, currentLine);
-        }
+        handleDirectiveExecution(pos, inputLine, error, validLabel, selectedDirectiveCMD, itemExists, labelName,
+                                 currentLine, DC, listOfSymbols, entriesOrExternTail, dataImageTail);
     }
     else if (selectedCMD != -1) {
-        if (validLabel) {
-            itemExists = addItemToDataTable(labelName, *IC, CODE, listOfSymbols);
-            handleNameConflict(itemExists, labelName, currentLine, *pos, error);
-        }
-        if (!itemExists) {
-            runCMD(pos, inputLine, selectedCMD, listOfCommands, codeImageTail, IC, error, currentLine);
-        }
+       handleCommandExecution(pos, inputLine, validLabel, itemExists, labelName, IC, listOfSymbols, currentLine, error,
+                              selectedCMD, listOfCommands, codeImageTail);
     }
 }
 

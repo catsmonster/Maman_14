@@ -160,7 +160,7 @@ void addRWord(int *pos, const char input[], errorCodes *error, long currentLine,
 }
 
 void addIWord(int *pos, const char input[], errorCodes *error, long currentLine, codeNode **codeImageTail, int posInList,
-              CMD *listOfCommands, int rs, int rt, long immed, long *IC, char *label, int type) {
+              CMD *listOfCommands, int rs, int rt, long immed, long *IC, char *label, typesOfCommands type) {
     if (isEndOfInputValid(pos, input, error, currentLine)){
         *codeImageTail = insertIWord(error, getOpcode(posInList, listOfCommands),
                                      rs, rt, immed, IC,
