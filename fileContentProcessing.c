@@ -11,8 +11,7 @@
 /*
  * reading the assembly file and creating the necessary data structures before converting to machine code
  */
-void readFile(FILE * fp, void (*directivesArr[])(int *, const char[], long *, errorCodes *, dataNode**, long),
-              CMD *listOfCommands, dataTable *listOfSymbols, dataNode *dataImageHead, codeNode *codeImageHead,
+void readFile(FILE * fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode *dataImageHead, codeNode *codeImageHead,
               entriesOrExternList *entriesOrExternHead, char *fileName) {
 
     errorCodes error = 0;
@@ -23,7 +22,7 @@ void readFile(FILE * fp, void (*directivesArr[])(int *, const char[], long *, er
         printFileError(ERROR_FILE_IS_EMPTY, fileName);
     } else {
         ungetc(c, fp);
-        firstIteration(fp, &DC, &IC, &error, directivesArr, listOfCommands, listOfSymbols, dataImageHead, codeImageHead,
+        firstIteration(fp, &DC, &IC, &error, listOfCommands, listOfSymbols, dataImageHead, codeImageHead,
                        entriesOrExternHead);
         rewind(fp);
         if (!isFileError(error)) {

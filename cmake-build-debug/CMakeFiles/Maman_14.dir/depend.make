@@ -52,7 +52,6 @@ CMakeFiles/Maman_14.dir/fileNameProcessing.c.o: \
  ../codeImage.h \
  ../dataImage.h \
  ../dataTable.h \
- ../directiveFunctions.h \
  ../entriesOrExternList.h \
  ../fileContentProcessing.h \
  ../fileErrors.h \

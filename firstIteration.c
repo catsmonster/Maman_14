@@ -182,10 +182,10 @@ void handleNameConflict(int itemExists, char *labelName, long currentLine, int p
  */
 void addLabelAndExecuteCommand(int selectedDirectiveCMD, char labelName[], int validLabel, int selectedCMD, int *pos,
                                const char inputLine[], long * DC, long * IC, long currentLine,
-                               void (*directiveFuncArr[])(int *, const char[], long *, errorCodes *, dataNode**, long),
                                CMD *listOfCommands, dataTable *listOfSymbols, errorCodes *error, dataNode **dataImageTail,
                                codeNode **codeImageTail, entriesOrExternList **entriesOrExternTail) {
     int itemExists = 0;
+    void (*directiveFuncArr[NUM_OF_DIRECTIVE_CMDS - 2])(int *, const char[], long *, errorCodes *, dataNode**, long) = {db, dw, dh, asciz};
     if (selectedDirectiveCMD != -1) {
         if (validLabel && selectedDirectiveCMD != ENTRY_DIRECTIVE && selectedDirectiveCMD != EXTERNAL_DIRECTIVE) {
             itemExists = addItemToDataTable(labelName, *DC, DATA, listOfSymbols);
@@ -219,8 +219,7 @@ void addLabelAndExecuteCommand(int selectedDirectiveCMD, char labelName[], int v
 /*
  * coordinates the line reading process
  */
-void readLine(int *pos, const char inputLine[], long * DC, long * IC, long currentLine,
-              void (*directiveFuncArr[])(int *, const char[], long *, errorCodes *, dataNode**, long), CMD *listOfCommands,
+void readLine(int *pos, const char inputLine[], long * DC, long * IC, long currentLine, CMD *listOfCommands,
               dataTable *listOfSymbols, errorCodes *error, dataNode **dataImageTail, codeNode **codeImageTail,
               entriesOrExternList **entriesOrExternTail) {
     int selectedDirectiveCMD = -1, selectedCMD = -1;
@@ -230,7 +229,7 @@ void readLine(int *pos, const char inputLine[], long * DC, long * IC, long curre
         readCommand(pos, inputLine, currentLine, listOfCommands, &selectedDirectiveCMD, &selectedCMD, error);
         if (!isFileError(*error) && !isFileError(selectedDirectiveCMD) && !isFileError(selectedCMD)) {
             addLabelAndExecuteCommand(selectedDirectiveCMD, labelName, validLabel, selectedCMD, pos, inputLine, DC, IC,
-                                      currentLine, directiveFuncArr, listOfCommands, listOfSymbols, error, dataImageTail,
+                                      currentLine, listOfCommands, listOfSymbols, error, dataImageTail,
                                       codeImageTail, entriesOrExternTail);
         }
     }
@@ -241,10 +240,8 @@ void readLine(int *pos, const char inputLine[], long * DC, long * IC, long curre
  * running the first iteration over the input file to build the basic skeleton of the output, skipping any blank lines
  * or comment lines
  */
-void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error,
-                    void (*directiveFuncArr[])(int *, const char[], long *, errorCodes *, dataNode**, long),
-                    CMD *listOfCommands, dataTable *listOfSymbols, dataNode *dataImageHead, codeNode *codeImageHead,
-                    entriesOrExternList *entriesOrExternHead) {
+void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, CMD *listOfCommands, dataTable *listOfSymbols,
+                    dataNode *dataImageHead, codeNode *codeImageHead, entriesOrExternList *entriesOrExternHead) {
     dataNode *dataImageTail = dataImageHead;
     codeNode *codeImageTail = codeImageHead;
     entriesOrExternList *entriesOrExternTail = entriesOrExternHead;
@@ -255,7 +252,7 @@ void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error,
         int pos = 0;
         skipLine = preProcessing(&pos, inputLine, currentLine, error);
         if (!skipLine) {
-            readLine(&pos, inputLine, DC, IC, currentLine, directiveFuncArr, listOfCommands, listOfSymbols, error,
+            readLine(&pos, inputLine, DC, IC, currentLine, listOfCommands, listOfSymbols, error,
                      &dataImageTail, &codeImageTail, &entriesOrExternTail);
         }
         currentLine++;

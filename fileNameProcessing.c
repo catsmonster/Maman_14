@@ -2,7 +2,6 @@
 #include "fileErrors.h"
 #include "fileContentProcessing.h"
 #include "listOfCommands.h"
-#include "directiveFunctions.h"
 #include "dataTable.h"
 #include <string.h>
 #include <stdlib.h>
@@ -27,8 +26,7 @@ int isValidExtension(char fileName[]) {
 /*
  * attempts to read the file in r mode to start the reading process
  */
-int openFile(char * fileName, void (*directivesArr[])(int *, const char[], long *, errorCodes *,dataNode**, long),
-             CMD *listOfCommands) {
+int openFile(char * fileName, CMD *listOfCommands) {
     dataTable *listOfSymbols = initializeDataTable();
     dataNode *dataImageHead = initializeDataImage();
     codeNode *codeImageHead = initializeCodeImage();
@@ -42,8 +40,7 @@ int openFile(char * fileName, void (*directivesArr[])(int *, const char[], long 
         if (!fp)
             errorCode = ERROR_FILE_DOES_NOT_EXIST;
         if (!errorCode) {
-            readFile(fp, directivesArr, listOfCommands, listOfSymbols, dataImageHead, codeImageHead,
-                     entriesOrExternHead, fileName);
+            readFile(fp, listOfCommands, listOfSymbols, dataImageHead, codeImageHead, entriesOrExternHead, fileName);
             fclose(fp);
         }
     }
@@ -61,7 +58,6 @@ int openFile(char * fileName, void (*directivesArr[])(int *, const char[], long 
  */
 int inputFileHandler(int argc, char **argv) {
     int isError = 0, i;
-    void (*directivesArr[NUM_OF_DIRECTIVE_CMDS - 2])(int *, const char[], long *, errorCodes *, dataNode**, long) = {db, dw, dh, asciz};
     CMD *listOfCommands = getCommands();
     if (!listOfCommands) {
         printMemoryError(ERROR_MEMORY_ALLOCATION);
@@ -76,7 +72,7 @@ int inputFileHandler(int argc, char **argv) {
                 if (isFileError(error)) {
                     printFileError(error, argv[i]);
                 } else {
-                    error = openFile(argv[i], directivesArr, listOfCommands);
+                    error = openFile(argv[i], listOfCommands);
                     if (isFileError(error))
                         printFileError(error, argv[i]);
                 }
