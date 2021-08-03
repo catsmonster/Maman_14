@@ -46,22 +46,20 @@ int advanceToNextArgument(int *pos, const char *input, long currentLine, int com
 /*
  * skips to the start of the text to be processed by the assembler, notifying about any invalid characters along the way
  */
-int preProcessing(int * pos, const char inputLine[], long currentLine, errorCodes *error) {
-    int skipLine = 0;
+void advanceToStartOfValidInput(int * pos, const char inputLine[], long currentLine, errorCodes *error) {
     skipWhiteSpaces(pos, inputLine);
     if (!inputLine[*pos] || inputLine[*pos] == ';')
-        skipLine = 1;
+        *pos = -1;
 
-    if (!skipLine) {
+    if (*pos != -1) {
         if (!isalnum(inputLine[*pos]) && inputLine[*pos] != '.') {
             char errorString[2];
             stringFromChar(inputLine[(*pos)++], errorString);
             printInputError(ERROR_INVALID_CHARACTER, errorString, currentLine, *pos - 1);
-            skipLine = preProcessing(pos, inputLine, currentLine, error);
+            advanceToStartOfValidInput(pos, inputLine, currentLine, error);
             *error = ERROR_INVALID_CHARACTER;
         }
     }
-    return skipLine;
 }
 
 /*

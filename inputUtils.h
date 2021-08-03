@@ -8,7 +8,7 @@
 #include "fileErrors.h"
 void skipWhiteSpaces(int *, const char *);
 int advanceToNextArgument(int *pos, const char *input, long currentLine, int commaDetected, errorCodes *error);
-int preProcessing(int * pos, const char inputLine[], long currentLine, errorCodes *error);
+void advanceToStartOfValidInput(int * pos, const char inputLine[], long currentLine, errorCodes *error);
 int isValidEndOfCommand(const int *pos, const char *inputLine, long currentLine, errorCodes *error);
 void readInputLabel(int *pos, const char *input, long currentLine, errorCodes *error, char *labelName);
 #endif

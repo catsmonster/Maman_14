@@ -259,8 +259,8 @@ void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, CMD *list
     char inputLine[MAX_LINE_LENGTH];
     while (fgets(inputLine, MAX_LINE_LENGTH, fp)) {
         int pos = 0;
-        skipLine = preProcessing(&pos, inputLine, currentLine, error);
-        if (!skipLine) {
+        advanceToStartOfValidInput(&pos, inputLine, currentLine, error);
+        if (pos >= 0) {
             readLine(&pos, inputLine, DC, IC, currentLine, listOfCommands, listOfSymbols, error,
                      &dataImageTail, &codeImageTail, &entriesOrExternTail);
         }
