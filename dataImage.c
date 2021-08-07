@@ -8,7 +8,7 @@
  * this struct holds the information of one cell in the data image
  */
 struct dataNode {
-    int type;
+    typeOfData type;
     dataNode *next;
     union {
         char db;
@@ -81,7 +81,7 @@ void addDBOrAsciz(dataNode *dataImageTail, char num) {
     dataImageTail -> type = DB_ASCIZ;
 }
 
-void advanceDC(int type, long *DC) {
+void advanceDC(typeOfData type, long *DC) {
     if (type == DB_ASCIZ)
         (*DC)++;
     else if (type == DH)
@@ -93,7 +93,7 @@ void advanceDC(int type, long *DC) {
 /*
  * populates the data image with data sent from the directive functions based on their type
  */
-dataNode *insertLongArrayToDataImage(errorCodes *error, long *DC, int type, dataNode *dataImageTail, int numberOfItems, long *numList) {
+dataNode *insertLongArrayToDataImage(errorCodes *error, long *DC, typeOfData type, dataNode *dataImageTail, int numberOfItems, long *numList) {
     int i;
     int firstInput = *DC == 0 ? 1 : 0;
     dataNode *newDataTail = setDataImageTail(dataImageTail, firstInput, error);
@@ -117,7 +117,7 @@ dataNode *getNextDataNode(dataNode *node) {
 }
 
 
-unsigned char getDataRepresentation(dataNode *node, int part, int *printCounter) {
+unsigned char getDataRepresentation(dataNode *node, dataByte part, int *printCounter) {
     unsigned char res;
     switch (part) {
         case FIRST_DATA_BYTE:
@@ -137,7 +137,7 @@ unsigned char getDataRepresentation(dataNode *node, int part, int *printCounter)
     return res;
 }
 
-int getDataType(dataNode *node) {
+typeOfData getDataType(dataNode *node) {
     return node -> type;
 }
 

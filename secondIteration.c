@@ -6,7 +6,7 @@ void updateCodeImage(codeNode *codeImageHead, dataTable *listOfSymbols, errorCod
     while (codeImageHead && !isFileError(*error)) {
         long symbolAddress, currentLine, address;
         typesOfCommands type;
-        int symbolType;
+        symbolTypes symbolType;
         char *label;
         label = getCodeNodeLabel(codeImageHead);
         if (label) {
@@ -41,7 +41,7 @@ void updateEntries(entriesOrExternList *entriesOrExternHead, dataTable *listOfSy
         if (declaredType != EXTERN) {
             char *name = getEntryOrExternName(entriesOrExternHead);
             if (!isFileError(*error)) {
-                int symbolType = getSymbolType(name, listOfSymbols, error, currentLine);
+                symbolTypes symbolType = getSymbolType(name, listOfSymbols, error, currentLine);
                 if (!isFileError(*error)) {
                     if (symbolType != EXTERN) {
                         symbolAddress = getSymbolAddress(name, listOfSymbols, error, currentLine);

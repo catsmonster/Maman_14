@@ -18,7 +18,7 @@ typedef struct symbol symbol;
 struct symbol {
     char * name;
     long address;
-    int attribute;
+    symbolTypes attribute;
     symbol *next;
 };
 
@@ -71,7 +71,7 @@ long generateHash(const char *name, dataTable *table) {
 /*
  * attempts to create a symbol based on input name, address and the first attribute (code/data)
  */
-symbol *createSymbol(char *name, long address, int attribute) {
+symbol *createSymbol(char *name, long address, symbolTypes attribute) {
     symbol *entry = (symbol *)calloc(1, sizeof(symbol));
     if (!entry) {
         printMemoryError(ERROR_MEMORY_ALLOCATION);
@@ -165,7 +165,7 @@ void handlePossibleTableExtension(dataTable *table, int *itemExists) {
 /*
  * adds a new symbol to the hashtable, and returning 1 if item was added more than once
  */
-int addItemToDataTable(char *name, long address, int firstAttribute, dataTable *table) {
+int addItemToDataTable(char *name, long address, symbolTypes firstAttribute, dataTable *table) {
     int itemExists = 0;
     long posInTable;
     symbol *newSymbol = createSymbol(name, address, firstAttribute);
@@ -212,8 +212,8 @@ long getSymbolAddress(char *name, dataTable *table, errorCodes *error, long curr
 
 
 
-int getSymbolType(char *name, dataTable *table, errorCodes *error, long currentLine) {
-    int type;
+symbolTypes getSymbolType(char *name, dataTable *table, errorCodes *error, long currentLine) {
+    symbolTypes type;
     symbol *dataEntry = findSymbol(name, table);
     if (dataEntry) {
         type = dataEntry -> attribute;
@@ -221,7 +221,7 @@ int getSymbolType(char *name, dataTable *table, errorCodes *error, long currentL
     else {
         *error = ERROR_SYMBOL_NOT_FOUND;
         printInputError(ERROR_SYMBOL_NOT_FOUND, name, currentLine,0);
-        type = ERROR_SYMBOL_NOT_FOUND;
+        type = SYMBOL_NOT_FOUND;
     }
     return type;
 }
