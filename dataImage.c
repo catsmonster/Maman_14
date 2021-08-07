@@ -112,11 +112,16 @@ dataNode *insertLongArrayToDataImage(errorCodes *error, long *DC, typeOfData typ
     return newDataTail;
 }
 
+/*
+ * returns the next linked data node or NULL
+ */
 dataNode *getNextDataNode(dataNode *node) {
     return node -> next;
 }
 
-
+/*
+ * returns the byte representation of the data in little endian, based on the part of the word.
+ */
 unsigned char getDataRepresentation(dataNode *node, dataByte part, int *printCounter) {
     unsigned char res;
     switch (part) {
@@ -137,11 +142,16 @@ unsigned char getDataRepresentation(dataNode *node, dataByte part, int *printCou
     return res;
 }
 
+/*
+ * returns the type of the data node
+ */
 typeOfData getDataType(dataNode *node) {
     return node -> type;
 }
 
-
+/*
+ * frees the data image.
+ */
 void freeDataImage(dataNode *head) {
     while (head) {
         dataNode *temp = head;
