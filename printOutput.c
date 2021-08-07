@@ -7,11 +7,11 @@
 #define IC_START_VALUE 100
 #define BYTES_IN_LINE 4
 
-enum {
+typedef enum {
     OB_FILE = 700,
     EXT_FILE,
     ENT_FILE
-};
+}fileTypes;
 
 /*
  * returns the position of the file extension
@@ -29,7 +29,7 @@ int getExtensionPos(const char * assemblyFile) {
 /*
  * removes the .as extensions from the file name
  */
-char * removeExtension(char * assemblyFile, int type) {
+char * removeExtension(char * assemblyFile, fileTypes type) {
     char * noExtensionFile;
     int i = getExtensionPos(assemblyFile);
     noExtensionFile = (char *)calloc(i + (type == OB_FILE ? OB_EXTENSION_LENGTH : ENT_EXT_EXTENSION_LENGTH), 1);
@@ -40,7 +40,7 @@ char * removeExtension(char * assemblyFile, int type) {
 /*
  * changes the extension of the file to .ob, .ent or .ext
  */
-char * processFileName(char * assemblyFile, int type) {
+char * processFileName(char * assemblyFile, fileTypes type) {
     char * processedName = removeExtension(assemblyFile, type);
     strcat(processedName, type == OB_FILE ? ".ob" : type == ENT_FILE ? ".ent" : ".ext");
     return processedName;
@@ -75,7 +75,7 @@ void newLineOrTab(FILE *fp, int *printedDataCounter, long ICF, long *dataAddress
 
 
 void printDataByte(dataNode *dataImageHead, long *dataAddress, int *printedDataCounter, long IC, FILE *fp, int size) {
-    int i;
+    dataByte i;
     for (i = FIRST_DATA_BYTE; i < size + FIRST_DATA_BYTE; i++) {
         fprintf(fp, "%02X", getDataRepresentation(dataImageHead, i, printedDataCounter));
         newLineOrTab(fp, printedDataCounter, IC, dataAddress);
@@ -87,7 +87,7 @@ void printData(FILE *fp, dataNode *dataImageHead, long IC) {
     int printedDataCounter = 0;
     long dataAddress = IC;
     while (dataImageHead) {
-        int dataType;
+        typeOfData dataType;
         dataType = getDataType(dataImageHead);
         if (IC == dataAddress) {
             newLineOrTab(fp, &printedDataCounter, IC, &dataAddress);
