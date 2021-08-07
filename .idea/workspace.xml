@@ -12,7 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27892bee-15bb-49b6-b18e-24094989a66e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/directiveFunctions.h" beforeDir="false" afterPath="$PROJECT_DIR$/directiveFunctions.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entriesOrExternList.c" beforeDir="false" afterPath="$PROJECT_DIR$/entriesOrExternList.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +95,7 @@
       <workItem from="1625936061906" duration="139581000" />
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
-      <workItem from="1628359595675" duration="5975000" />
+      <workItem from="1628359595675" duration="6873000" />
     </task>
     <task id="LOCAL-00001" summary="first commit - project is working with valid input, before testing for invalid inputs and before optimizing dataTable.c deleted bloat">
       <created>1627043778177</created>
@@ -230,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628365026512</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="finished documentation for directiveFunctions">
+      <created>1628365592593</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1628365592593</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,6 +276,7 @@
     <MESSAGE value="added fileTypes typedef in printOutput and changed uses of int to type" />
     <MESSAGE value="finished documentation of the dataImage" />
     <MESSAGE value="finished documentation of dataTable" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished documentation of dataTable" />
+    <MESSAGE value="finished documentation for directiveFunctions" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished documentation for directiveFunctions" />
   </component>
 </project>
