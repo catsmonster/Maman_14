@@ -38,32 +38,39 @@ typedef enum errorCodes {
 
 /*
  * handles printing input related errors.
+ * accepts an error code, a string representing the cause, a line counter and a position counter.
  */
 void printInputError(errorCodes, char *errorCause, long line, int pos);
 /*
  * handles printing memory related errors.
+ * accepts an error code
  */
 void printMemoryError(errorCodes);
 /*
  * handles printing file access related errors.
+ * accepts an error code and a string representing the cause
  */
 void printFileError(errorCodes, char *errorCause);
 /*
  * returns 1 if a known error was encountered
+ * accepts an error code
  */
 int isFileError(errorCodes);
 /*
  * when passed a char and an array, edits the array to show as a string containing the given char
+ * accepts a char and a destination string
  */
 void stringFromChar(char, char[]);
 
 /*
  * handles the process of converting a char to a string and printing the invalid character error.
+ * accepts the char which caused the error, current line counter, error code pointer and the position counter pointer.
  */
 void handleInvalidCharacterError(char errorChar, long currentLine, errorCodes *error, const int *pos);
 
 /*
  * handles the process of converting a char to a string and printing the 'not a number' error.
+ * accepts the char which caused the error, current line counter, error code pointer and the position counter pointer.
  */
 void handleNANError(char errorChar, long currentLine, errorCodes *error, const int *pos);
 

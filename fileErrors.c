@@ -7,19 +7,19 @@
 void printFileError(errorCodes errorCode, char * errorCause) {
     switch (errorCode) {
         case ERROR_INVALID_FILE_EXTENSION:
-            printf("The file %s is not supported, please provide a valid .as file.\n", errorCause);
+            printf("The file %s is not supported, please provide a valid .as file.\n----------------------------------------------\n", errorCause);
             break;
         case ERROR_MISSING_AS_FILE:
             printf("Missing assembly file, please provide a valid assembly file.\n");
             break;
         case ERROR_FILE_DOES_NOT_EXIST:
-            printf("The file %s couldn't open, please make sure the file name was entered correctly.\n", errorCause);
+            printf("The file %s couldn't open, please make sure the file name was entered correctly.\n----------------------------------------------\n", errorCause);
             break;
         case ERROR_FILE_IS_EMPTY:
-            printf("The requested file %s is empty.\n", errorCause);
+            printf("The requested file %s is empty.\n----------------------------------------------\n", errorCause);
             break;
         case ERROR_FILE_PERMISSIONS:
-            printf("The requested file couldn't be generated. Possible permissions related error.\n");
+            printf("The requested file couldn't be generated. Possible permissions related error.\n----------------------------------------------\n");
             break;
         default:
             printf("An unknown error has occurred");

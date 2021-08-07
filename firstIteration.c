@@ -255,7 +255,6 @@ void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, CMD *list
     codeNode *codeImageTail = codeImageHead;
     entriesOrExternList *entriesOrExternTail = entriesOrExternHead;
     long currentLine = 1;
-    int skipLine;
     char inputLine[MAX_LINE_LENGTH];
     while (fgets(inputLine, MAX_LINE_LENGTH, fp)) {
         int pos = 0;

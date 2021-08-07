@@ -21,6 +21,7 @@ void readFile(FILE * fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode
         printFileError(ERROR_FILE_IS_EMPTY, fileName);
     } else {
         ungetc(c, fp);
+        printf("Reading from the input file \"%s\"\n----------------------------------------------\n", fileName);
         firstIteration(fp, &DC, &IC, &error, listOfCommands, listOfSymbols, dataImageHead, codeImageHead,
                        entriesOrExternHead);
         if (!isFileError(error)) {
@@ -37,8 +38,10 @@ void readFile(FILE * fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode
         }
         if (!isFileError(error)) {
             printOBFile(codeImageHead, dataImageHead, IC, DC, fileName);
+            printf("3 output files for \"%s\" generated\n----------------------------------------------\n", fileName);
         } else {
             deleteEntExtFiles(fileName);
+            printf("No output files generated.\n----------------------------------------------\n");
         }
     }
 }

@@ -3,6 +3,9 @@
 #include "fileErrors.h"
 #include <ctype.h>
 
+/*
+ * skips any whitespaces.
+ */
 void skipWhiteSpaces(int *pos, const char *inputLine) {
     while (isspace(inputLine[*pos]))
         (*pos)++;

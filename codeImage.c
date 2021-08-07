@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #define FIRST_INSTRUCTION_COUNTER_VALUE 100
 
+/*
+ * this struct holds the necessary information to build the code image. it holds the address from which the command was executed
+ * a possible label argument, the line from which the command was executed, the type of the command, a pointer to the next node
+ * and a union containing each type of command structure, and a structure of 4 bytes used for printing the data in little endian.
+ */
 struct codeNode {
     long address;
     char *label;
@@ -37,7 +42,9 @@ struct codeNode {
     }data;
 };
 
-
+/*
+ * returns the head node of the code image.
+ */
 codeNode *initializeCodeImage() {
     codeNode *p = calloc(1, sizeof(codeNode));
     if (!p) {
@@ -48,36 +55,59 @@ codeNode *initializeCodeImage() {
 
 
 
-
+/*
+ * updates the address in the immed or address fields of the I or J commands (if applicable).
+ */
 void adjustMissingAddressToCodeImage(long data, codeNode *codeImageHead) {
-    if (codeImageHead -> type == I_TYPE || codeImageHead -> type == I_TYPE_CONDITIONAL) {
-        codeImageHead -> data.I.immed = data - codeImageHead -> data.I.immed;
+    if (codeImageHead -> type == I_TYPE) {
+        codeImageHead -> data.I.immed = data;
     }
+    else if (codeImageHead -> type == I_TYPE_CONDITIONAL)
+        codeImageHead -> data.I.immed = data - codeImageHead -> address;
     else {
-        codeImageHead -> data.J.address = data - codeImageHead -> data.J.address;
+        codeImageHead -> data.J.address = data;
     }
 }
 
+/*
+ * returns the label argument of the command (or NULL if a label doesn't exist).
+ */
 char *getCodeNodeLabel(codeNode *node) {
     return node -> label;
 }
 
+/*
+ * returns the type of the command
+ */
 typesOfCommands getCodeNodeType(codeNode *node) {
     return node -> type;
 }
 
+/*
+ * returns the line from which the command was executed
+ */
 long getCodeNodeLine(codeNode *node) {
     return node -> currentLine;
 }
 
+/*
+ * returns the address from which the command was executed
+ */
 long getCodeNodeAddress(codeNode *node) {
     return node -> address;
 }
 
+
+/*
+ * returns the next lined code image node
+ */
 codeNode *getNextCodeNode(codeNode *node) {
     return node -> next;
 }
 
+/*
+ * returns a byte representation of the code word, according to the part given (1-4)
+ */
 unsigned char getCodeRepresentation(codeNode *node, typesOfCommands part) {
     unsigned char res;
     switch (part) {
@@ -123,7 +153,9 @@ codeNode *setCodeImageTail(codeNode *codeImageTail, errorCodes *error, long *IC,
 }
 
 
-
+/*
+ * inserts a new R word to the code image and returns the new tail
+ */
 codeNode *insertRWord(errorCodes *error, int opcode, int funct, int rs, int rt, int rd, long *IC, codeNode *codeImageTail,
                       long currentLine) {
     codeNode *newTail = setCodeImageTail(codeImageTail, error, IC, NULL, R_TYPE, currentLine);
@@ -135,6 +167,9 @@ codeNode *insertRWord(errorCodes *error, int opcode, int funct, int rs, int rt, 
     return newTail;
 }
 
+/*
+ * inserts a new I word to the code image and returns the new tail
+ */
 codeNode *insertIWord(errorCodes *error, int opcode, int rs, int rt, long immed, long *IC, codeNode *codeImageTail,
                       char *label, typesOfCommands type, long currentLine) {
     codeNode *newTail = setCodeImageTail(codeImageTail, error, IC, label, type, currentLine);
@@ -145,6 +180,9 @@ codeNode *insertIWord(errorCodes *error, int opcode, int rs, int rt, long immed,
     return newTail;
 }
 
+/*
+ * inserts a new J word to the code image and returns the new tail
+ */
 codeNode *insertJWord(errorCodes *error, int opcode, short reg, long address, long *IC, codeNode *codeImageTail,
                       char *label, typesOfCommands type, long currentLine) {
     codeNode *newTail = setCodeImageTail(codeImageTail, error, IC, label, type, currentLine);
@@ -154,6 +192,9 @@ codeNode *insertJWord(errorCodes *error, int opcode, short reg, long address, lo
     return newTail;
 }
 
+/*
+ * frees the code image and any labels which might be linked to the code image node.
+ */
 void freeCodeImage(codeNode *head) {
     while (head) {
         codeNode *temp = head;

@@ -250,7 +250,7 @@ void conditionalIFunctions(int *pos, const char input[], int posInList, CMD *lis
                            long *IC, errorCodes *error, long currentLine){
     char *label = calloc(MAX_LABEL_LENGTH, sizeof(char));
     int rs, rt;
-    long immed = *IC;
+    long immed = 0;
     if (readRegister(pos, input, error, currentLine, &rs) != LOCAL_ERROR) {
         if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR) {
             if (readRegister(pos, input, error, currentLine, &rt) != LOCAL_ERROR) {
