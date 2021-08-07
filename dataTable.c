@@ -85,7 +85,7 @@ symbol *createSymbol(char *name, long address, symbolTypes attribute) {
 }
 
 /*
- * resolving any conflicts
+ * resolving any conflicts with same hash results, raising flag if the symbol name already exists.
  */
 void handleConflict(symbol **entries, long posInTable, int *itemExists, symbol *newSymbol, char *name, dataTable *table) {
     if (!strcmp(entries[posInTable]->name, name)) {
@@ -114,6 +114,9 @@ void handleConflict(symbol **entries, long posInTable, int *itemExists, symbol *
     }
 }
 
+/*
+ * adds a symbol to the data table
+ */
 void insertSymbol(symbol *symbolToAdd, symbol **entries, dataTable *table) {
     int itemExists = 0;
     long newPos = generateHash(symbolToAdd -> name, table);
@@ -125,7 +128,10 @@ void insertSymbol(symbol *symbolToAdd, symbol **entries, dataTable *table) {
     }
 }
 
-void populateEntries(symbol **entries, dataTable *table, long previousTableSize) {
+/*
+ * takes the entries from the old data table and reassigns it to the new one
+ */
+void redistributeEntriesToNewTable(symbol **entries, dataTable *table, long previousTableSize) {
     long i;
     for (i = 0; i < previousTableSize; i++) {
         symbol *currentSymbol = table -> entries[i];
@@ -143,6 +149,10 @@ void populateEntries(symbol **entries, dataTable *table, long previousTableSize)
     }
 }
 
+/*
+ * if the number of symbols added is greater or equal to half the size of the current table, squares the size of the table
+ * and redistributes the entries into the new list.
+ */
 void handlePossibleTableExtension(dataTable *table, int *itemExists) {
     if (table -> numOfSymbols >= table -> currentTableSize / 2) {
         symbol **tempEntries = table -> entries;
@@ -155,7 +165,7 @@ void handlePossibleTableExtension(dataTable *table, int *itemExists) {
             *itemExists = ERROR_MEMORY_ALLOCATION;
         }
         else {
-            populateEntries(entries, table, previousTableSize);
+            redistributeEntriesToNewTable(entries, table, previousTableSize);
             table -> entries = entries;
             free(tempEntries);
         }
@@ -184,7 +194,10 @@ int addItemToDataTable(char *name, long address, symbolTypes firstAttribute, dat
     return itemExists;
 }
 
-symbol *findSymbol(char *name, dataTable *table) {
+/*
+ * returns the symbol with the corresponding name, or NULL if it doesn't exist.
+ */
+symbol *getSymbol(char *name, dataTable *table) {
     long posOfLabel = generateHash(name, table);
     symbol * dataEntry = table -> entries[posOfLabel];
     if (dataEntry) {
@@ -195,10 +208,12 @@ symbol *findSymbol(char *name, dataTable *table) {
     return dataEntry && strcmp(dataEntry -> name, name) == 0 ? dataEntry : NULL;
 }
 
-
+/*
+ * returns the address of the symbol
+ */
 long getSymbolAddress(char *name, dataTable *table, errorCodes *error, long currentLine) {
     long res;
-    symbol *dataEntry = findSymbol(name, table);
+    symbol *dataEntry = getSymbol(name, table);
     if (dataEntry)
         res = dataEntry -> address;
     else {
@@ -209,12 +224,12 @@ long getSymbolAddress(char *name, dataTable *table, errorCodes *error, long curr
     return res;
 }
 
-
-
-
+/*
+ * returns the type of the symbol
+ */
 symbolTypes getSymbolType(char *name, dataTable *table, errorCodes *error, long currentLine) {
     symbolTypes type;
-    symbol *dataEntry = findSymbol(name, table);
+    symbol *dataEntry = getSymbol(name, table);
     if (dataEntry) {
         type = dataEntry -> attribute;
     }

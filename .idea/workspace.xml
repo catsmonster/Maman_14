@@ -12,8 +12,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27892bee-15bb-49b6-b18e-24094989a66e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/dataImage.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataImage.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataImage.h" beforeDir="false" afterPath="$PROJECT_DIR$/dataImage.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/dataImage.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/dataImage.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/dataTable.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/dataTable.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/directiveFunctions.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/directiveFunctions.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/entriesOrExternList.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/entriesOrExternList.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileContentProcessing.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileContentProcessing.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileNameProcessing.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileNameProcessing.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/firstIteration.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/firstIteration.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/printOutput.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/printOutput.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/secondIteration.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/secondIteration.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataTable.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataTable.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataTable.h" beforeDir="false" afterPath="$PROJECT_DIR$/dataTable.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +108,7 @@
       <workItem from="1625936061906" duration="139581000" />
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
-      <workItem from="1628359595675" duration="3533000" />
+      <workItem from="1628359595675" duration="5407000" />
     </task>
     <task id="LOCAL-00001" summary="first commit - project is working with valid input, before testing for invalid inputs and before optimizing dataTable.c deleted bloat">
       <created>1627043778177</created>
@@ -217,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628362424087</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="finished documentation of the dataImage">
+      <created>1628363148329</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1628363148329</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,6 +273,7 @@
     <MESSAGE value="added some type definitions for symbolTypes and dataTypes and dataBytes" />
     <MESSAGE value="fixed some more uses of type using typedefs" />
     <MESSAGE value="added fileTypes typedef in printOutput and changed uses of int to type" />
-    <option name="LAST_COMMIT_MESSAGE" value="added fileTypes typedef in printOutput and changed uses of int to type" />
+    <MESSAGE value="finished documentation of the dataImage" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished documentation of the dataImage" />
   </component>
 </project>
