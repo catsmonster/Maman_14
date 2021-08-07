@@ -29,6 +29,7 @@ CMakeFiles/Maman_14.dir/directiveFunctions.c.o
  /home/user/CLionProjects/Maman14/fileErrors.h
  /home/user/CLionProjects/Maman14/inputUtils.h
 CMakeFiles/Maman_14.dir/entriesOrExternList.c.o
+ /home/user/CLionProjects/Maman14/dataTable.h
  /home/user/CLionProjects/Maman14/entriesOrExternList.c
  /home/user/CLionProjects/Maman14/entriesOrExternList.h
  /home/user/CLionProjects/Maman14/fileErrors.h
@@ -86,6 +87,7 @@ CMakeFiles/Maman_14.dir/main.c.o
 CMakeFiles/Maman_14.dir/printOutput.c.o
  /home/user/CLionProjects/Maman14/codeImage.h
  /home/user/CLionProjects/Maman14/dataImage.h
+ /home/user/CLionProjects/Maman14/dataTable.h
  /home/user/CLionProjects/Maman14/entriesOrExternList.h
  /home/user/CLionProjects/Maman14/fileErrors.h
  /home/user/CLionProjects/Maman14/printOutput.c

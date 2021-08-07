@@ -1,12 +1,10 @@
 
 #include "entriesOrExternList.h"
 #include <stdlib.h>
-#include "fileErrors.h"
-#define FIRST_NODE 666
 
 struct entriesOrExternNode {
     char *name;
-    int type;
+    symbolTypes type;
     long currentLine;
     entriesOrExternList *next;
 };
@@ -42,7 +40,7 @@ entriesOrExternList *setNodeTail(entriesOrExternList *tailNode, errorCodes *erro
     return tailNode;
 }
 
-entriesOrExternList *setEntryOrExternListTail(char *name, int type, entriesOrExternList *tail, errorCodes *error, long currentLine) {
+entriesOrExternList *setEntryOrExternListTail(char *name, symbolTypes type, entriesOrExternList *tail, errorCodes *error, long currentLine) {
     tail = setNodeTail(tail, error);
     tail -> type = type;
     tail -> name = name;
@@ -54,7 +52,7 @@ char *getEntryOrExternName(entriesOrExternList *node) {
     return node -> name;
 }
 
-int getEntryOrExternType(entriesOrExternList *node) {
+symbolTypes getEntryOrExternType(entriesOrExternList *node) {
     return node -> type;
 }
 

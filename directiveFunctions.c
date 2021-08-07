@@ -34,7 +34,7 @@ long *initializeList(errorCodes *error) {
 /*
  * determines what is the longest string (including null character and minus sign) for each data type
  */
-int determineMaxLength(int type) {
+int determineMaxLength(typeOfData type) {
     int maxLength = 0;
     if (type == DW) {
         maxLength = DW_MAX_STRING_LENGTH;
@@ -52,7 +52,7 @@ int determineMaxLength(int type) {
  * determines if the number is too big for the data type, checking whether the string is at
  * max length, and if so, performing a string comparison with the known limits of each data type.
  */
-int isNumTooBig(int numArrIndex, int maxLength, const int *pos, const char input[], char num[], int type) {
+int isNumTooBig(int numArrIndex, int maxLength, const int *pos, const char input[], char num[], typeOfData type) {
     int tooBig = 0;
     int compareToLimitations = num[0] == '-' ? strcmp(num + 1, type == DB_ASCIZ ? MIN_SIZE_8_BITS
             : type == DH ? MIN_SIZE_16_BITS : MIN_SIZE_32_BITS)
@@ -69,7 +69,7 @@ int isNumTooBig(int numArrIndex, int maxLength, const int *pos, const char input
 /*
  * reads one number from the input line and stores it in the list
  */
-int readNum(int *pos, const char input[],errorCodes *error, long currentLine, int type, long *list, int *listIndex) {
+int readNum(int *pos, const char input[],errorCodes *error, long currentLine, typeOfData type, long *list, int *listIndex) {
     char num[MAX_NUM_LENGTH] = {0};
     int numArrIndex = 0, foundError = 0;
     long givenNum;
@@ -101,7 +101,7 @@ int readNum(int *pos, const char input[],errorCodes *error, long currentLine, in
 /*
  * coordinates the process of adding numbers to the list
  */
-void readNumbersSeperatedByCommas(int *pos, const char input[], long *DC, errorCodes *error, dataNode **dataImageTail, long currentLine, int type) {
+void readNumbersSeperatedByCommas(int *pos, const char input[], long *DC, errorCodes *error, dataNode **dataImageTail, long currentLine, typeOfData type) {
     int listIndex = 0, localError = 0;
     long *list = initializeList(error);
     if (list) {

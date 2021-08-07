@@ -7,7 +7,8 @@ typedef enum {
     DATA,
     ENTRY,
     EXTERN,
-    SYMBOL_NOT_FOUND
+    SYMBOL_NOT_FOUND,
+    FIRST_NODE
 }symbolTypes;
 
 

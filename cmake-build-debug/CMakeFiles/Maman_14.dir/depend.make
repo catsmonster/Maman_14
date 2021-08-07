@@ -29,6 +29,7 @@ CMakeFiles/Maman_14.dir/directiveFunctions.c.o: \
  ../fileErrors.h \
  ../inputUtils.h
 CMakeFiles/Maman_14.dir/entriesOrExternList.c.o: \
+ ../dataTable.h \
  ../entriesOrExternList.c \
  ../entriesOrExternList.h \
  ../fileErrors.h
@@ -86,6 +87,7 @@ CMakeFiles/Maman_14.dir/main.c.o: \
 CMakeFiles/Maman_14.dir/printOutput.c.o: \
  ../codeImage.h \
  ../dataImage.h \
+ ../dataTable.h \
  ../entriesOrExternList.h \
  ../fileErrors.h \
  ../printOutput.c \
