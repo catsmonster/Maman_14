@@ -204,11 +204,11 @@ void handleCommandExecution(int *pos, const char inputLine[], int validLabel, in
         itemExists = addItemToDataTable(labelName, *IC, CODE, listOfSymbols);
         handleNameConflict(itemExists, labelName, currentLine, *pos, error);
     }
+    else
+        free(labelName);
     if (!itemExists) {
         runCMD(pos, inputLine, selectedCMD, listOfCommands, codeImageTail, IC, error, currentLine);
     }
-    if (!validLabel)
-        free(labelName);
 }
 
 /*
