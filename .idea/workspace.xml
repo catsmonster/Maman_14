@@ -13,14 +13,10 @@
   <component name="ChangeListManager">
     <list default="true" id="27892bee-15bb-49b6-b18e-24094989a66e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/dataTable.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/dataTable.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/entriesOrExternList.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/entriesOrExternList.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/secondIteration.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/secondIteration.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/firstIteration.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/firstIteration.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataTable.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataTable.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entriesOrExternList.c" beforeDir="false" afterPath="$PROJECT_DIR$/entriesOrExternList.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/secondIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/secondIteration.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/firstIteration.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +99,7 @@
       <workItem from="1625936061906" duration="139581000" />
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
-      <workItem from="1628359595675" duration="9509000" />
+      <workItem from="1628359595675" duration="10195000" />
     </task>
     <task id="LOCAL-00001" summary="first commit - project is working with valid input, before testing for invalid inputs and before optimizing dataTable.c deleted bloat">
       <created>1627043778177</created>
@@ -259,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628430237266</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="fixed memory leak in dataTable.c and entriesOrExternList.c (via secondIteration.c)">
+      <created>1628431852117</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1628431852117</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +304,8 @@
     <MESSAGE value="finished documentation for directiveFunctions" />
     <MESSAGE value="documented entriesOrExternList.c" />
     <MESSAGE value="fixed memory leak in printOutput.c" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed memory leak in printOutput.c" />
+    <MESSAGE value="fixed memory leak in dataTable.c and entriesOrExternList.c (via secondIteration.c)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed memory leak in dataTable.c and entriesOrExternList.c (via secondIteration.c)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

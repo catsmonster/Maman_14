@@ -190,6 +190,8 @@ void handleDirectiveExecution(int *pos, const char inputLine[], errorCodes *erro
         else
             directiveFuncArr[selectedDirectiveCMD](pos, inputLine, DC, error, dataImageTail, currentLine);
     }
+    if (!validLabel)
+        free(labelName);
 }
 
 /*
@@ -205,6 +207,8 @@ void handleCommandExecution(int *pos, const char inputLine[], int validLabel, in
     if (!itemExists) {
         runCMD(pos, inputLine, selectedCMD, listOfCommands, codeImageTail, IC, error, currentLine);
     }
+    if (!validLabel)
+        free(labelName);
 }
 
 /*
@@ -241,6 +245,9 @@ void readLine(int *pos, const char inputLine[], long * DC, long * IC, long curre
                                       currentLine, listOfCommands, listOfSymbols, error, dataImageTail,
                                       codeImageTail, entriesOrExternTail);
         }
+    }
+    else {
+        free(labelName);
     }
 
 }
