@@ -114,12 +114,14 @@ void printOBFile(codeNode *codeImageHead, dataNode *dataImageHead, long IC, long
     printCodeWords(fp, codeImageHead);
     printData(fp, dataImageHead, IC);
     fclose(fp);
+    free(outputFileName);
 }
 
 FILE *generateExtFile(char *fileName){
     FILE *fp;
     char *outputFileName = processFileName(fileName, EXT_FILE);
     fp = fopen(outputFileName, "w");
+    free(outputFileName);
     return fp;
 }
 
@@ -128,6 +130,7 @@ FILE *generateEntFile(char *fileName){
     FILE *fp;
     char *outputFileName = processFileName(fileName, ENT_FILE);
     fp = fopen(outputFileName, "w");
+    free(outputFileName);
     return fp;
 }
 
