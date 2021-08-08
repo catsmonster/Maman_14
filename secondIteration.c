@@ -1,5 +1,6 @@
 
 #include "secondIteration.h"
+#include <stdlib.h>
 
 
 void updateCodeImage(codeNode *codeImageHead, dataTable *listOfSymbols, errorCodes *error, long ICF, FILE **extFile) {
@@ -47,6 +48,7 @@ void updateEntries(entriesOrExternList *entriesOrExternHead, dataTable *listOfSy
                         symbolAddress = getSymbolAddress(name, listOfSymbols, error, currentLine);
                         symbolAddress = symbolType == DATA ? symbolAddress + ICF : symbolAddress;
                         printEntOrExtLine(entFile, symbolAddress, name);
+                        free(name);
                     }
                     else {
                         *error = ERROR_EXTERN_IS_ENTRY;

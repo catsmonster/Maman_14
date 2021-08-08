@@ -26,14 +26,6 @@ dataTable.h
 
 /home/user/CLionProjects/Maman14/fileErrors.h
 
-/home/user/CLionProjects/Maman14/printOutput.c
-printOutput.h
-/home/user/CLionProjects/Maman14/printOutput.h
-string.h
--
-stdlib.h
--
-
 /home/user/CLionProjects/Maman14/printOutput.h
 codeImage.h
 /home/user/CLionProjects/Maman14/codeImage.h
@@ -43,4 +35,22 @@ entriesOrExternList.h
 /home/user/CLionProjects/Maman14/entriesOrExternList.h
 stdio.h
 -
+
+/home/user/CLionProjects/Maman14/secondIteration.c
+secondIteration.h
+/home/user/CLionProjects/Maman14/secondIteration.h
+stdlib.h
+-
+
+/home/user/CLionProjects/Maman14/secondIteration.h
+dataTable.h
+/home/user/CLionProjects/Maman14/dataTable.h
+codeImage.h
+/home/user/CLionProjects/Maman14/codeImage.h
+entriesOrExternList.h
+/home/user/CLionProjects/Maman14/entriesOrExternList.h
+printOutput.h
+/home/user/CLionProjects/Maman14/printOutput.h
+fileErrors.h
+/home/user/CLionProjects/Maman14/fileErrors.h
 

@@ -95,7 +95,6 @@ void freeEntriesOrExternList(entriesOrExternList *head) {
     while (head) {
         entriesOrExternList *temp = head;
         head = head -> next;
-        free(temp -> name);
         free(temp);
     }
 }

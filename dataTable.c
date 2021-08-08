@@ -251,10 +251,12 @@ void freeDataTable(dataTable *table) {
             symbol *currPos = table -> entries[i];
             while (currPos) {
                 symbol *temp = currPos;
+                free(temp->name);
                 currPos = currPos -> next;
                 free(temp);
             }
         }
     }
+    free(table -> entries);
     free(table);
 }
