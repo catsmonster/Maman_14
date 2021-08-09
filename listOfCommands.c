@@ -18,7 +18,7 @@ struct commands {
 };
 
 /*
- * getCommands returns a pointer to a buffer containing all the different commands
+ * getCommands returns a pointer to a buffer containing all the different commands and their information ordered alphabetically
  */
 CMD *getCommands() {
     int i;
