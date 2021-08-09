@@ -59,12 +59,13 @@ void printCodeWords(FILE *fp, codeNode *codeImageHead) {
     }
 }
 
-void newLineOrTab(FILE *fp, int *printedDataCounter, long ICF, long *dataAddress) {
+void newLineOrTab(FILE *fp, int *printedDataCounter, long ICF, long *dataAddress, long DC) {
     if (*printedDataCounter % BYTES_IN_LINE == 0) {
         if (*dataAddress != ICF) {
             fputc('\n', fp);
         }
-        fprintf(fp, "%04ld\t", *dataAddress);
+        if (*dataAddress != DC + ICF)
+            fprintf(fp, "%04ld\t", *dataAddress);
         *dataAddress += BYTES_IN_LINE;
         *printedDataCounter = 0;
     }
@@ -74,33 +75,33 @@ void newLineOrTab(FILE *fp, int *printedDataCounter, long ICF, long *dataAddress
 }
 
 
-void printDataByte(dataNode *dataImageHead, long *dataAddress, int *printedDataCounter, long IC, FILE *fp, int size) {
+void printDataByte(dataNode *dataImageHead, long *dataAddress, int *printedDataCounter, long IC, FILE *fp, int size, long DC) {
     dataByte i;
     for (i = FIRST_DATA_BYTE; i < size + FIRST_DATA_BYTE; i++) {
         fprintf(fp, "%02X", getDataRepresentation(dataImageHead, i, printedDataCounter));
-        newLineOrTab(fp, printedDataCounter, IC, dataAddress);
+        newLineOrTab(fp, printedDataCounter, IC, dataAddress, DC);
     }
 }
 
 
-void printData(FILE *fp, dataNode *dataImageHead, long IC) {
+void printData(FILE *fp, dataNode *dataImageHead, long IC, long DC) {
     int printedDataCounter = 0;
     long dataAddress = IC;
     while (dataImageHead) {
         typeOfData dataType;
         dataType = getDataType(dataImageHead);
         if (IC == dataAddress) {
-            newLineOrTab(fp, &printedDataCounter, IC, &dataAddress);
+            newLineOrTab(fp, &printedDataCounter, IC, &dataAddress, DC);
         }
         switch (dataType) {
             case DB_ASCIZ:
-                printDataByte(dataImageHead, &dataAddress, &printedDataCounter, IC, fp, SIZE_OF_DB);
+                printDataByte(dataImageHead, &dataAddress, &printedDataCounter, IC, fp, SIZE_OF_DB, DC);
                 break;
             case DH:
-                printDataByte(dataImageHead, &dataAddress, &printedDataCounter, IC, fp, SIZE_OF_DH);
+                printDataByte(dataImageHead, &dataAddress, &printedDataCounter, IC, fp, SIZE_OF_DH, DC);
                 break;
             default:
-                printDataByte(dataImageHead, &dataAddress, &printedDataCounter, IC, fp, SIZE_OF_DW);
+                printDataByte(dataImageHead, &dataAddress, &printedDataCounter, IC, fp, SIZE_OF_DW, DC);
         }
         dataImageHead = getNextDataNode(dataImageHead);
     }
@@ -112,7 +113,7 @@ void printOBFile(codeNode *codeImageHead, dataNode *dataImageHead, long IC, long
     fp = fopen(outputFileName, "w");
     printICAndDC(fp, IC, DC);
     printCodeWords(fp, codeImageHead);
-    printData(fp, dataImageHead, IC);
+    printData(fp, dataImageHead, IC, DC);
     fclose(fp);
     free(outputFileName);
 }
