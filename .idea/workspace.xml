@@ -12,7 +12,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27892bee-15bb-49b6-b18e-24094989a66e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/entriesOrExternList.h" beforeDir="false" afterPath="$PROJECT_DIR$/entriesOrExternList.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileContentProcessing.c" beforeDir="false" afterPath="$PROJECT_DIR$/fileContentProcessing.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileContentProcessing.h" beforeDir="false" afterPath="$PROJECT_DIR$/fileContentProcessing.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileNameProcessing.c" beforeDir="false" afterPath="$PROJECT_DIR$/fileNameProcessing.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileNameProcessing.h" beforeDir="false" afterPath="$PROJECT_DIR$/fileNameProcessing.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +99,7 @@
       <workItem from="1625936061906" duration="139581000" />
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
-      <workItem from="1628359595675" duration="20665000" />
+      <workItem from="1628359595675" duration="21208000" />
     </task>
     <task id="LOCAL-00001" summary="first commit - project is working with valid input, before testing for invalid inputs and before optimizing dataTable.c deleted bloat">
       <created>1627043778177</created>
@@ -300,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628546644476</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="documented entriesOrExternList.h">
+      <created>1628547261345</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1628547261345</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +331,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="added support for '+' in front of an integer" />
     <MESSAGE value="removed &quot;magic number&quot; from codeImage" />
     <MESSAGE value="updated all functions to use errorCodes enum typedef instead of int, and removed the general printError function to now use specific functions instead. Additionally, removed from listOfCommands the type field and its functionality, as it was redundant." />
     <MESSAGE value="added support for dynamic resizing of the symbols hash table, and fixed some logic errors regarding conflict handling." />
@@ -345,6 +355,7 @@
     <MESSAGE value="added functionality for creating either just extern or just entry" />
     <MESSAGE value="added back deleted files" />
     <MESSAGE value="if the last data entry starts a new line, doesn't add the next address" />
-    <option name="LAST_COMMIT_MESSAGE" value="if the last data entry starts a new line, doesn't add the next address" />
+    <MESSAGE value="documented entriesOrExternList.h" />
+    <option name="LAST_COMMIT_MESSAGE" value="documented entriesOrExternList.h" />
   </component>
 </project>

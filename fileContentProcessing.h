@@ -10,6 +10,6 @@
  * data image linked list, code image linked list, entries/extern linked list, and a string representing the
  * input file name
  */
-void readFile(FILE *, CMD *, dataTable *, dataNode *dataImageHead, codeNode *codeImageHead, entriesOrExternList*,
-              char *fileName);
+void readFileAndGenerateOutput(FILE *fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode *dataImageHead, codeNode *codeImageHead, entriesOrExternList *entriesOrExternHead,
+                               char *fileName);
 #endif

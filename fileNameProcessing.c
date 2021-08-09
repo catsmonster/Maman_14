@@ -41,7 +41,8 @@ int openFile(char * fileName, CMD *listOfCommands) {
         if (!fp)
             errorCode = ERROR_FILE_DOES_NOT_EXIST;
         if (!errorCode) {
-            readFile(fp, listOfCommands, listOfSymbols, dataImageHead, codeImageHead, entriesOrExternHead, fileName);
+            readFileAndGenerateOutput(fp, listOfCommands, listOfSymbols, dataImageHead, codeImageHead,
+                                      entriesOrExternHead, fileName);
             fclose(fp);
         }
         freeDataTable(listOfSymbols);
@@ -57,7 +58,7 @@ int openFile(char * fileName, CMD *listOfCommands) {
  * orchestrates the file reading process. Attempts to read all the files given by the user, giving out file related
  * errors if necessary.
  */
-int inputFileHandler(int argc, char **argv) {
+int inputFilesIteration(int argc, char **argv) {
     int isError = 0, i;
     CMD *listOfCommands = getCommands();
     if (!listOfCommands) {

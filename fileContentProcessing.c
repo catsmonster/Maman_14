@@ -9,7 +9,10 @@
 #define DATA_COUNTER_START 0
 
 
-
+/*
+ * iterates over the entriesOrExternList and updates hasEntry and hasExtern to determine whether an ent/ext file should
+ * be created or not
+ */
 void determineExistenceOfEntryOrExtern(entriesOrExternList *entriesOrExternHead, int *hasEntry, int *hasExtern) {
     entriesOrExternList *temp = entriesOrExternHead;
     while (temp && (!*hasEntry || !*hasExtern)) {
@@ -21,7 +24,10 @@ void determineExistenceOfEntryOrExtern(entriesOrExternList *entriesOrExternHead,
     }
 }
 
-
+/*
+ * handles creating the entry/extern files if needed, passing the extracted information from the first iteration to the
+ * second iteration to finalize missing data and write into the ext/ent files
+ */
 void finalizeExtractedInformation(errorCodes *error, char *fileName, dataTable *listOfSymbols, codeNode *codeImageHead,
                                   long IC, entriesOrExternList *entriesOrExternHead) {
     if (!isFileError(*error)) {
@@ -46,6 +52,7 @@ void finalizeExtractedInformation(errorCodes *error, char *fileName, dataTable *
             fclose(entFile);
         if (isFileError(*error)) {
             deleteEntExtFiles(fileName, entFile, extFile);
+            printf("No output files generated.\n----------------------------------------------\n");
         }
     }
 }
@@ -54,8 +61,8 @@ void finalizeExtractedInformation(errorCodes *error, char *fileName, dataTable *
 /*
  * reading the assembly file and creating the necessary data structures before converting to machine code
  */
-void readFile(FILE * fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode *dataImageHead, codeNode *codeImageHead,
-              entriesOrExternList *entriesOrExternHead, char *fileName) {
+void readFileAndGenerateOutput(FILE * fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode *dataImageHead, codeNode *codeImageHead,
+                               entriesOrExternList *entriesOrExternHead, char *fileName) {
     errorCodes error = 0;
     long DC = DATA_COUNTER_START, IC = INSTRUCTIONS_COUNTER_START;
     int c = fgetc(fp);
@@ -71,8 +78,6 @@ void readFile(FILE * fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode
         if (!isFileError(error)) {
             printOBFile(codeImageHead, dataImageHead, IC, DC, fileName);
             printf("Output files for \"%s\" generated.\n----------------------------------------------\n", fileName);
-        } else {
-            printf("No output files generated.\n----------------------------------------------\n");
         }
     }
 }

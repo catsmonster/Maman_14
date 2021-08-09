@@ -4,8 +4,9 @@
 #include <stdio.h>
 /*
  * API for handling the input file names given by the user
+ * accepts the argc and argv arguments given by main
  */
-int inputFileHandler(int argc, char **argv);
+int inputFilesIteration(int argc, char **argv);
 
 
 #endif
