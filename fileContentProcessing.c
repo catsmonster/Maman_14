@@ -8,6 +8,49 @@
 #define INSTRUCTIONS_COUNTER_START 100
 #define DATA_COUNTER_START 0
 
+
+
+void determineExistenceOfEntryOrExtern(entriesOrExternList *entriesOrExternHead, int *hasEntry, int *hasExtern) {
+    entriesOrExternList *temp = entriesOrExternHead;
+    while (temp && (!*hasEntry || !*hasExtern)) {
+        if (getEntryOrExternType(temp) == ENTRY)
+            *hasEntry = 1;
+        if (getEntryOrExternType(temp) == EXTERN)
+            *hasExtern = 1;
+        temp = getNextEntryOrExtern(temp);
+    }
+}
+
+
+void finalizeExtractedInformation(errorCodes *error, char *fileName, dataTable *listOfSymbols, codeNode *codeImageHead,
+                                  long IC, entriesOrExternList *entriesOrExternHead) {
+    if (!isFileError(*error)) {
+        FILE *extFile = NULL, *entFile = NULL;
+        int hasExtern = 0, hasEntry = 0;
+        determineExistenceOfEntryOrExtern(entriesOrExternHead, &hasEntry, &hasExtern);
+        if (hasExtern) {
+            extFile = generateExtFile(fileName);
+        }
+        if (hasEntry) {
+            entFile = generateEntFile(fileName);
+        }
+        if ((hasExtern && !extFile) || (hasEntry && !entFile)) {
+            *error = ERROR_FILE_PERMISSIONS;
+            printFileError(ERROR_FILE_PERMISSIONS, "");
+        } else if (!isFileError(*error)) {
+            secondIteration(listOfSymbols, error, codeImageHead, IC, entriesOrExternHead, &extFile, &entFile);
+        }
+        if (extFile)
+            fclose(extFile);
+        if (entFile)
+            fclose(entFile);
+        if (isFileError(*error)) {
+            deleteEntExtFiles(fileName, entFile, extFile);
+        }
+    }
+}
+
+
 /*
  * reading the assembly file and creating the necessary data structures before converting to machine code
  */
@@ -21,26 +64,14 @@ void readFile(FILE * fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode
         printFileError(ERROR_FILE_IS_EMPTY, fileName);
     } else {
         ungetc(c, fp);
-        printf("Reading from the input file \"%s\"\n----------------------------------------------\n", fileName);
+        printf("Reading from the input file \"%s\":\n", fileName);
         firstIteration(fp, &DC, &IC, &error, listOfCommands, listOfSymbols, dataImageHead, codeImageHead,
                        entriesOrExternHead);
-        if (!isFileError(error)) {
-            FILE *extFile = generateExtFile(fileName);
-            FILE *entFile = generateEntFile(fileName);
-            if (!extFile || !entFile) {
-                error = ERROR_FILE_PERMISSIONS;
-                printFileError(ERROR_FILE_PERMISSIONS, "");
-            } else {
-                secondIteration(listOfSymbols, &error, codeImageHead, IC, entriesOrExternHead, &extFile, &entFile);
-                fclose(extFile);
-                fclose(entFile);
-            }
-        }
+        finalizeExtractedInformation(&error, fileName, listOfSymbols, codeImageHead, IC, entriesOrExternHead);
         if (!isFileError(error)) {
             printOBFile(codeImageHead, dataImageHead, IC, DC, fileName);
-            printf("3 output files for \"%s\" generated\n----------------------------------------------\n", fileName);
+            printf("Output files for \"%s\" generated.\n----------------------------------------------\n", fileName);
         } else {
-            deleteEntExtFiles(fileName);
             printf("No output files generated.\n----------------------------------------------\n");
         }
     }

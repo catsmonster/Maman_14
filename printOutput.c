@@ -138,8 +138,10 @@ void printEntOrExtLine(FILE **fp, long address, char *label) {
     fprintf(*fp, "%s\t%04ld\n", label, address);
 }
 
-void deleteEntExtFiles(char *fileName) {
-    remove(processFileName(fileName, ENT_FILE));
-    remove(processFileName(fileName, EXT_FILE));
+void deleteEntExtFiles(char *fileName, FILE *entFile, FILE *extFile) {
+    if (entFile)
+        remove(processFileName(fileName, ENT_FILE));
+    if (extFile)
+        remove(processFileName(fileName, EXT_FILE));
 }
 

@@ -35,7 +35,7 @@ void updateCodeImage(codeNode *codeImageHead, dataTable *listOfSymbols, errorCod
 }
 
 void updateEntries(entriesOrExternList *entriesOrExternHead, dataTable *listOfSymbols, errorCodes *error, FILE **entFile, long ICF) {
-    while (entriesOrExternHead && !isFileError(*error)) {
+    while (entriesOrExternHead && getEntryOrExternType(entriesOrExternHead) != FIRST_NODE && !isFileError(*error)) {
         symbolTypes declaredType;
         long symbolAddress, currentLine = getEntryOrExternLine(entriesOrExternHead);
         declaredType = getEntryOrExternType(entriesOrExternHead);

@@ -12,11 +12,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27892bee-15bb-49b6-b18e-24094989a66e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/1.ent" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/1.ext" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/1.ob" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/firstIteration.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/firstIteration.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileContentProcessing.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileContentProcessing.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/printOutput.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/printOutput.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/secondIteration.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/secondIteration.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/firstIteration.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataTable.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataTable.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileContentProcessing.c" beforeDir="false" afterPath="$PROJECT_DIR$/fileContentProcessing.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/printOutput.c" beforeDir="false" afterPath="$PROJECT_DIR$/printOutput.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/printOutput.h" beforeDir="false" afterPath="$PROJECT_DIR$/printOutput.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/secondIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/secondIteration.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +109,7 @@
       <workItem from="1625936061906" duration="139581000" />
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
-      <workItem from="1628359595675" duration="10195000" />
+      <workItem from="1628359595675" duration="19285000" />
     </task>
     <task id="LOCAL-00001" summary="first commit - project is working with valid input, before testing for invalid inputs and before optimizing dataTable.c deleted bloat">
       <created>1627043778177</created>
@@ -262,7 +272,21 @@
       <option name="project" value="LOCAL" />
       <updated>1628431852117</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fixed all memory leaks in the program, this time in firstIteration.c">
+      <created>1628432509002</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1628432509002</updated>
+    </task>
+    <task id="LOCAL-00025" summary="minor refactor in firstIteration.c">
+      <created>1628432585838</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1628432585838</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,17 +329,8 @@
     <MESSAGE value="documented entriesOrExternList.c" />
     <MESSAGE value="fixed memory leak in printOutput.c" />
     <MESSAGE value="fixed memory leak in dataTable.c and entriesOrExternList.c (via secondIteration.c)" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed memory leak in dataTable.c and entriesOrExternList.c (via secondIteration.c)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/codeImage.c</url>
-          <line>197</line>
-          <option name="timeStamp" value="142" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="fixed all memory leaks in the program, this time in firstIteration.c" />
+    <MESSAGE value="minor refactor in firstIteration.c" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor refactor in firstIteration.c" />
   </component>
 </project>

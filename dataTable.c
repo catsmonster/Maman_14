@@ -242,7 +242,7 @@ symbolTypes getSymbolType(char *name, dataTable *table, errorCodes *error, long 
 }
 
 /*
- * runs over the entire hashtable, freeing all the symbols.
+ * runs over the entire hashtable, freeing all the symbols and the labels.
  */
 void freeDataTable(dataTable *table) {
     long i;
