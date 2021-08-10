@@ -1,6 +1,5 @@
 
-#include "inputUtils.h"
-#include "fileErrors.h"
+#include "../includes/inputUtils.h"
 #include <ctype.h>
 
 /*
@@ -37,7 +36,7 @@ int advanceToNextArgument(int *pos, const char *input, long currentLine, int com
     }
     else {
         skipWhiteSpaces(pos, input);
-        if (commaDetected && (input[*pos] && !isgraph(input[*pos]) || !input[*pos])) {
+        if (commaDetected && (input[*pos] && (!isgraph(input[*pos]) || !input[*pos]))) {
             *error = ERROR_MISSING_ARGUMENT;
             printInputError(ERROR_MISSING_ARGUMENT, "", currentLine, *pos);
             errorFound = LOCAL_ERROR;

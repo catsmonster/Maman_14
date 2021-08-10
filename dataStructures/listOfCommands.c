@@ -1,9 +1,8 @@
 
-#include "listOfCommands.h"
-#include "commands.h"
+#include "../includes/listOfCommands.h"
+#include "../includes/commands.h"
 #include <stdlib.h>
 #include <string.h>
-#include "fileErrors.h"
 #define NUM_OF_CMDS 27
 
 /*

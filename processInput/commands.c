@@ -1,8 +1,8 @@
 
-#include "commands.h"
-#include "listOfCommands.h"
-#include "inputUtils.h"
-#include "fileErrors.h"
+#include "../includes/commands.h"
+#include "../includes/listOfCommands.h"
+#include "../includes/inputUtils.h"
+#include "../includes/fileErrors.h"
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
@@ -44,7 +44,7 @@ int isEndOfIntegerValid(int *pos, const char *input, errorCodes *error, long cur
 /*
  * prints integer out of range error
  */
-errorCodes handleIntegerOutOfRange(errorCodes *error, long currentLine, int *pos) {
+errorCodes handleIntegerOutOfRange(errorCodes *error, long currentLine, const int *pos) {
     *error = ERROR_INTEGER_OUT_OF_RANGE;
     printInputError(ERROR_INTEGER_OUT_OF_RANGE, "", currentLine, *pos);
     return LOCAL_ERROR;
@@ -99,7 +99,7 @@ int readRegister(int *pos, const char input[], errorCodes *error, long currentLi
  */
 int isImmedTooBig(int index, const int *pos, const char *input, long num ){
     int isTooBig = 0;
-    if (index == MAX_IMMED_NUM_LENGTH && isdigit(input[*pos]) || num > MAX_SIZE_16_BITS || num < MIN_SIZE_16_BITS) {
+    if ((index == MAX_IMMED_NUM_LENGTH && isdigit(input[*pos])) || num > MAX_SIZE_16_BITS || num < MIN_SIZE_16_BITS) {
         isTooBig = 1;
     }
 

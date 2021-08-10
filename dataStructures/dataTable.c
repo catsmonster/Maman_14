@@ -1,8 +1,8 @@
 
-#include "dataTable.h"
+#include "../includes/dataTable.h"
 #include <stdlib.h>
 #include <string.h>
-#include "fileErrors.h"
+#include "../includes/fileErrors.h"
 #define HASH_COEFFICIENT_ODD 37
 #define HASH_COEFFICIENT_EVEN 101
 #define INITIAL_SYMBOLS_TABLE_SIZE 32

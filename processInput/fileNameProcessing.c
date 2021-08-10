@@ -1,12 +1,8 @@
-#include "fileNameProcessing.h"
-#include "fileErrors.h"
-#include "fileContentProcessing.h"
-#include "listOfCommands.h"
-#include "dataTable.h"
+#include "../includes/fileNameProcessing.h"
+#include "../includes/fileErrors.h"
+#include "../includes/fileContentProcessing.h"
 #include <string.h>
 #include <stdlib.h>
-#include "dataImage.h"
-#include "entriesList.h"
 
 
 /*

@@ -79,224 +79,224 @@ CMakeFiles/Maman_14.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/main.c.s"
 	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/main.c -o CMakeFiles/Maman_14.dir/main.c.s
 
-CMakeFiles/Maman_14.dir/fileNameProcessing.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/fileNameProcessing.c.o: ../fileNameProcessing.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Maman_14.dir/fileNameProcessing.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/fileNameProcessing.c.o -c /home/user/CLionProjects/Maman14/fileNameProcessing.c
+CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.o: ../processInput/fileNameProcessing.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.o -c /home/user/CLionProjects/Maman14/processInput/fileNameProcessing.c
 
-CMakeFiles/Maman_14.dir/fileNameProcessing.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/fileNameProcessing.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/fileNameProcessing.c > CMakeFiles/Maman_14.dir/fileNameProcessing.c.i
+CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/processInput/fileNameProcessing.c > CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.i
 
-CMakeFiles/Maman_14.dir/fileNameProcessing.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/fileNameProcessing.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/fileNameProcessing.c -o CMakeFiles/Maman_14.dir/fileNameProcessing.c.s
+CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/processInput/fileNameProcessing.c -o CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.s
 
-CMakeFiles/Maman_14.dir/fileErrors.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/fileErrors.c.o: ../fileErrors.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Maman_14.dir/fileErrors.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/fileErrors.c.o -c /home/user/CLionProjects/Maman14/fileErrors.c
+CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.o: ../errorHandling/fileErrors.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.o -c /home/user/CLionProjects/Maman14/errorHandling/fileErrors.c
 
-CMakeFiles/Maman_14.dir/fileErrors.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/fileErrors.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/fileErrors.c > CMakeFiles/Maman_14.dir/fileErrors.c.i
+CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/errorHandling/fileErrors.c > CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.i
 
-CMakeFiles/Maman_14.dir/fileErrors.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/fileErrors.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/fileErrors.c -o CMakeFiles/Maman_14.dir/fileErrors.c.s
+CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/errorHandling/fileErrors.c -o CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.s
 
-CMakeFiles/Maman_14.dir/fileContentProcessing.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/fileContentProcessing.c.o: ../fileContentProcessing.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Maman_14.dir/fileContentProcessing.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/fileContentProcessing.c.o -c /home/user/CLionProjects/Maman14/fileContentProcessing.c
+CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.o: ../processInput/fileContentProcessing.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.o -c /home/user/CLionProjects/Maman14/processInput/fileContentProcessing.c
 
-CMakeFiles/Maman_14.dir/fileContentProcessing.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/fileContentProcessing.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/fileContentProcessing.c > CMakeFiles/Maman_14.dir/fileContentProcessing.c.i
+CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/processInput/fileContentProcessing.c > CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.i
 
-CMakeFiles/Maman_14.dir/fileContentProcessing.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/fileContentProcessing.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/fileContentProcessing.c -o CMakeFiles/Maman_14.dir/fileContentProcessing.c.s
+CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/processInput/fileContentProcessing.c -o CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.s
 
-CMakeFiles/Maman_14.dir/listOfCommands.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/listOfCommands.c.o: ../listOfCommands.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Maman_14.dir/listOfCommands.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/listOfCommands.c.o -c /home/user/CLionProjects/Maman14/listOfCommands.c
+CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.o: ../dataStructures/listOfCommands.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.o -c /home/user/CLionProjects/Maman14/dataStructures/listOfCommands.c
 
-CMakeFiles/Maman_14.dir/listOfCommands.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/listOfCommands.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/listOfCommands.c > CMakeFiles/Maman_14.dir/listOfCommands.c.i
+CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/dataStructures/listOfCommands.c > CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.i
 
-CMakeFiles/Maman_14.dir/listOfCommands.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/listOfCommands.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/listOfCommands.c -o CMakeFiles/Maman_14.dir/listOfCommands.c.s
+CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/dataStructures/listOfCommands.c -o CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.s
 
-CMakeFiles/Maman_14.dir/directiveFunctions.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/directiveFunctions.c.o: ../directiveFunctions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Maman_14.dir/directiveFunctions.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/directiveFunctions.c.o -c /home/user/CLionProjects/Maman14/directiveFunctions.c
+CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.o: ../processInput/directiveFunctions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.o -c /home/user/CLionProjects/Maman14/processInput/directiveFunctions.c
 
-CMakeFiles/Maman_14.dir/directiveFunctions.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/directiveFunctions.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/directiveFunctions.c > CMakeFiles/Maman_14.dir/directiveFunctions.c.i
+CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/processInput/directiveFunctions.c > CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.i
 
-CMakeFiles/Maman_14.dir/directiveFunctions.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/directiveFunctions.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/directiveFunctions.c -o CMakeFiles/Maman_14.dir/directiveFunctions.c.s
+CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/processInput/directiveFunctions.c -o CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.s
 
-CMakeFiles/Maman_14.dir/firstIteration.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/firstIteration.c.o: ../firstIteration.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Maman_14.dir/firstIteration.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/firstIteration.c.o -c /home/user/CLionProjects/Maman14/firstIteration.c
+CMakeFiles/Maman_14.dir/processInput/firstIteration.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/processInput/firstIteration.c.o: ../processInput/firstIteration.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Maman_14.dir/processInput/firstIteration.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/processInput/firstIteration.c.o -c /home/user/CLionProjects/Maman14/processInput/firstIteration.c
 
-CMakeFiles/Maman_14.dir/firstIteration.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/firstIteration.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/firstIteration.c > CMakeFiles/Maman_14.dir/firstIteration.c.i
+CMakeFiles/Maman_14.dir/processInput/firstIteration.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/processInput/firstIteration.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/processInput/firstIteration.c > CMakeFiles/Maman_14.dir/processInput/firstIteration.c.i
 
-CMakeFiles/Maman_14.dir/firstIteration.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/firstIteration.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/firstIteration.c -o CMakeFiles/Maman_14.dir/firstIteration.c.s
+CMakeFiles/Maman_14.dir/processInput/firstIteration.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/processInput/firstIteration.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/processInput/firstIteration.c -o CMakeFiles/Maman_14.dir/processInput/firstIteration.c.s
 
-CMakeFiles/Maman_14.dir/dataTable.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/dataTable.c.o: ../dataTable.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Maman_14.dir/dataTable.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/dataTable.c.o -c /home/user/CLionProjects/Maman14/dataTable.c
+CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.o: ../dataStructures/dataTable.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.o -c /home/user/CLionProjects/Maman14/dataStructures/dataTable.c
 
-CMakeFiles/Maman_14.dir/dataTable.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/dataTable.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/dataTable.c > CMakeFiles/Maman_14.dir/dataTable.c.i
+CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/dataStructures/dataTable.c > CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.i
 
-CMakeFiles/Maman_14.dir/dataTable.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/dataTable.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/dataTable.c -o CMakeFiles/Maman_14.dir/dataTable.c.s
+CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/dataStructures/dataTable.c -o CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.s
 
-CMakeFiles/Maman_14.dir/inputUtils.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/inputUtils.c.o: ../inputUtils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Maman_14.dir/inputUtils.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/inputUtils.c.o -c /home/user/CLionProjects/Maman14/inputUtils.c
+CMakeFiles/Maman_14.dir/processInput/inputUtils.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/processInput/inputUtils.c.o: ../processInput/inputUtils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Maman_14.dir/processInput/inputUtils.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/processInput/inputUtils.c.o -c /home/user/CLionProjects/Maman14/processInput/inputUtils.c
 
-CMakeFiles/Maman_14.dir/inputUtils.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/inputUtils.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/inputUtils.c > CMakeFiles/Maman_14.dir/inputUtils.c.i
+CMakeFiles/Maman_14.dir/processInput/inputUtils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/processInput/inputUtils.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/processInput/inputUtils.c > CMakeFiles/Maman_14.dir/processInput/inputUtils.c.i
 
-CMakeFiles/Maman_14.dir/inputUtils.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/inputUtils.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/inputUtils.c -o CMakeFiles/Maman_14.dir/inputUtils.c.s
+CMakeFiles/Maman_14.dir/processInput/inputUtils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/processInput/inputUtils.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/processInput/inputUtils.c -o CMakeFiles/Maman_14.dir/processInput/inputUtils.c.s
 
-CMakeFiles/Maman_14.dir/commands.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/commands.c.o: ../commands.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Maman_14.dir/commands.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/commands.c.o -c /home/user/CLionProjects/Maman14/commands.c
+CMakeFiles/Maman_14.dir/processInput/commands.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/processInput/commands.c.o: ../processInput/commands.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Maman_14.dir/processInput/commands.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/processInput/commands.c.o -c /home/user/CLionProjects/Maman14/processInput/commands.c
 
-CMakeFiles/Maman_14.dir/commands.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/commands.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/commands.c > CMakeFiles/Maman_14.dir/commands.c.i
+CMakeFiles/Maman_14.dir/processInput/commands.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/processInput/commands.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/processInput/commands.c > CMakeFiles/Maman_14.dir/processInput/commands.c.i
 
-CMakeFiles/Maman_14.dir/commands.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/commands.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/commands.c -o CMakeFiles/Maman_14.dir/commands.c.s
+CMakeFiles/Maman_14.dir/processInput/commands.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/processInput/commands.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/processInput/commands.c -o CMakeFiles/Maman_14.dir/processInput/commands.c.s
 
-CMakeFiles/Maman_14.dir/dataImage.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/dataImage.c.o: ../dataImage.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Maman_14.dir/dataImage.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/dataImage.c.o -c /home/user/CLionProjects/Maman14/dataImage.c
+CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.o: ../dataStructures/dataImage.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.o -c /home/user/CLionProjects/Maman14/dataStructures/dataImage.c
 
-CMakeFiles/Maman_14.dir/dataImage.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/dataImage.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/dataImage.c > CMakeFiles/Maman_14.dir/dataImage.c.i
+CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/dataStructures/dataImage.c > CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.i
 
-CMakeFiles/Maman_14.dir/dataImage.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/dataImage.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/dataImage.c -o CMakeFiles/Maman_14.dir/dataImage.c.s
+CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/dataStructures/dataImage.c -o CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.s
 
-CMakeFiles/Maman_14.dir/codeImage.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/codeImage.c.o: ../codeImage.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Maman_14.dir/codeImage.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/codeImage.c.o -c /home/user/CLionProjects/Maman14/codeImage.c
+CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.o: ../dataStructures/codeImage.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.o -c /home/user/CLionProjects/Maman14/dataStructures/codeImage.c
 
-CMakeFiles/Maman_14.dir/codeImage.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/codeImage.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/codeImage.c > CMakeFiles/Maman_14.dir/codeImage.c.i
+CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/dataStructures/codeImage.c > CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.i
 
-CMakeFiles/Maman_14.dir/codeImage.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/codeImage.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/codeImage.c -o CMakeFiles/Maman_14.dir/codeImage.c.s
+CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/dataStructures/codeImage.c -o CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.s
 
-CMakeFiles/Maman_14.dir/secondIteration.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/secondIteration.c.o: ../secondIteration.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/Maman_14.dir/secondIteration.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/secondIteration.c.o -c /home/user/CLionProjects/Maman14/secondIteration.c
+CMakeFiles/Maman_14.dir/processInput/secondIteration.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/processInput/secondIteration.c.o: ../processInput/secondIteration.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/Maman_14.dir/processInput/secondIteration.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/processInput/secondIteration.c.o -c /home/user/CLionProjects/Maman14/processInput/secondIteration.c
 
-CMakeFiles/Maman_14.dir/secondIteration.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/secondIteration.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/secondIteration.c > CMakeFiles/Maman_14.dir/secondIteration.c.i
+CMakeFiles/Maman_14.dir/processInput/secondIteration.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/processInput/secondIteration.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/processInput/secondIteration.c > CMakeFiles/Maman_14.dir/processInput/secondIteration.c.i
 
-CMakeFiles/Maman_14.dir/secondIteration.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/secondIteration.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/secondIteration.c -o CMakeFiles/Maman_14.dir/secondIteration.c.s
+CMakeFiles/Maman_14.dir/processInput/secondIteration.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/processInput/secondIteration.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/processInput/secondIteration.c -o CMakeFiles/Maman_14.dir/processInput/secondIteration.c.s
 
-CMakeFiles/Maman_14.dir/entriesList.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/entriesList.c.o: ../entriesList.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/Maman_14.dir/entriesList.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/entriesList.c.o -c /home/user/CLionProjects/Maman14/entriesList.c
+CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.o: ../dataStructures/entriesList.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.o -c /home/user/CLionProjects/Maman14/dataStructures/entriesList.c
 
-CMakeFiles/Maman_14.dir/entriesList.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/entriesList.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/entriesList.c > CMakeFiles/Maman_14.dir/entriesList.c.i
+CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/dataStructures/entriesList.c > CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.i
 
-CMakeFiles/Maman_14.dir/entriesList.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/entriesList.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/entriesList.c -o CMakeFiles/Maman_14.dir/entriesList.c.s
+CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/dataStructures/entriesList.c -o CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.s
 
-CMakeFiles/Maman_14.dir/printOutput.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/printOutput.c.o: ../printOutput.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/Maman_14.dir/printOutput.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/printOutput.c.o -c /home/user/CLionProjects/Maman14/printOutput.c
+CMakeFiles/Maman_14.dir/print/printOutput.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/print/printOutput.c.o: ../print/printOutput.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/Maman_14.dir/print/printOutput.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/print/printOutput.c.o -c /home/user/CLionProjects/Maman14/print/printOutput.c
 
-CMakeFiles/Maman_14.dir/printOutput.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/printOutput.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/printOutput.c > CMakeFiles/Maman_14.dir/printOutput.c.i
+CMakeFiles/Maman_14.dir/print/printOutput.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/print/printOutput.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/print/printOutput.c > CMakeFiles/Maman_14.dir/print/printOutput.c.i
 
-CMakeFiles/Maman_14.dir/printOutput.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/printOutput.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/printOutput.c -o CMakeFiles/Maman_14.dir/printOutput.c.s
+CMakeFiles/Maman_14.dir/print/printOutput.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/print/printOutput.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/print/printOutput.c -o CMakeFiles/Maman_14.dir/print/printOutput.c.s
 
 # Object files for target Maman_14
 Maman_14_OBJECTS = \
 "CMakeFiles/Maman_14.dir/main.c.o" \
-"CMakeFiles/Maman_14.dir/fileNameProcessing.c.o" \
-"CMakeFiles/Maman_14.dir/fileErrors.c.o" \
-"CMakeFiles/Maman_14.dir/fileContentProcessing.c.o" \
-"CMakeFiles/Maman_14.dir/listOfCommands.c.o" \
-"CMakeFiles/Maman_14.dir/directiveFunctions.c.o" \
-"CMakeFiles/Maman_14.dir/firstIteration.c.o" \
-"CMakeFiles/Maman_14.dir/dataTable.c.o" \
-"CMakeFiles/Maman_14.dir/inputUtils.c.o" \
-"CMakeFiles/Maman_14.dir/commands.c.o" \
-"CMakeFiles/Maman_14.dir/dataImage.c.o" \
-"CMakeFiles/Maman_14.dir/codeImage.c.o" \
-"CMakeFiles/Maman_14.dir/secondIteration.c.o" \
-"CMakeFiles/Maman_14.dir/entriesList.c.o" \
-"CMakeFiles/Maman_14.dir/printOutput.c.o"
+"CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.o" \
+"CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.o" \
+"CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.o" \
+"CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.o" \
+"CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.o" \
+"CMakeFiles/Maman_14.dir/processInput/firstIteration.c.o" \
+"CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.o" \
+"CMakeFiles/Maman_14.dir/processInput/inputUtils.c.o" \
+"CMakeFiles/Maman_14.dir/processInput/commands.c.o" \
+"CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.o" \
+"CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.o" \
+"CMakeFiles/Maman_14.dir/processInput/secondIteration.c.o" \
+"CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.o" \
+"CMakeFiles/Maman_14.dir/print/printOutput.c.o"
 
 # External object files for target Maman_14
 Maman_14_EXTERNAL_OBJECTS =
 
 Maman_14: CMakeFiles/Maman_14.dir/main.c.o
-Maman_14: CMakeFiles/Maman_14.dir/fileNameProcessing.c.o
-Maman_14: CMakeFiles/Maman_14.dir/fileErrors.c.o
-Maman_14: CMakeFiles/Maman_14.dir/fileContentProcessing.c.o
-Maman_14: CMakeFiles/Maman_14.dir/listOfCommands.c.o
-Maman_14: CMakeFiles/Maman_14.dir/directiveFunctions.c.o
-Maman_14: CMakeFiles/Maman_14.dir/firstIteration.c.o
-Maman_14: CMakeFiles/Maman_14.dir/dataTable.c.o
-Maman_14: CMakeFiles/Maman_14.dir/inputUtils.c.o
-Maman_14: CMakeFiles/Maman_14.dir/commands.c.o
-Maman_14: CMakeFiles/Maman_14.dir/dataImage.c.o
-Maman_14: CMakeFiles/Maman_14.dir/codeImage.c.o
-Maman_14: CMakeFiles/Maman_14.dir/secondIteration.c.o
-Maman_14: CMakeFiles/Maman_14.dir/entriesList.c.o
-Maman_14: CMakeFiles/Maman_14.dir/printOutput.c.o
+Maman_14: CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.o
+Maman_14: CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.o
+Maman_14: CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.o
+Maman_14: CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.o
+Maman_14: CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.o
+Maman_14: CMakeFiles/Maman_14.dir/processInput/firstIteration.c.o
+Maman_14: CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.o
+Maman_14: CMakeFiles/Maman_14.dir/processInput/inputUtils.c.o
+Maman_14: CMakeFiles/Maman_14.dir/processInput/commands.c.o
+Maman_14: CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.o
+Maman_14: CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.o
+Maman_14: CMakeFiles/Maman_14.dir/processInput/secondIteration.c.o
+Maman_14: CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.o
+Maman_14: CMakeFiles/Maman_14.dir/print/printOutput.c.o
 Maman_14: CMakeFiles/Maman_14.dir/build.make
 Maman_14: CMakeFiles/Maman_14.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking C executable Maman_14"

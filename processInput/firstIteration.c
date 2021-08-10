@@ -1,6 +1,6 @@
-#include "firstIteration.h"
-#include "inputUtils.h"
-#include "directiveFunctions.h"
+#include "../includes/firstIteration.h"
+#include "../includes/inputUtils.h"
+#include "../includes/directiveFunctions.h"
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>

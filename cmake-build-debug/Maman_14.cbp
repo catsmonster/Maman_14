@@ -76,91 +76,91 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/user/CLionProjects/Maman14/codeImage.c">
+		<Unit filename="/home/user/CLionProjects/Maman14/dataStructures/codeImage.c">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/codeImage.h">
+		<Unit filename="/home/user/CLionProjects/Maman14/dataStructures/dataImage.c">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/commands.c">
+		<Unit filename="/home/user/CLionProjects/Maman14/dataStructures/dataTable.c">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/commands.h">
+		<Unit filename="/home/user/CLionProjects/Maman14/dataStructures/entriesList.c">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/dataImage.c">
+		<Unit filename="/home/user/CLionProjects/Maman14/dataStructures/listOfCommands.c">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/dataImage.h">
+		<Unit filename="/home/user/CLionProjects/Maman14/errorHandling/fileErrors.c">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/dataTable.c">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/codeImage.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/dataTable.h">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/commands.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/directiveFunctions.c">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/dataImage.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/directiveFunctions.h">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/dataTable.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/entriesList.c">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/directiveFunctions.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/entriesList.h">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/entriesList.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/fileContentProcessing.c">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/fileContentProcessing.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/fileContentProcessing.h">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/fileErrors.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/fileErrors.c">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/fileNameProcessing.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/fileErrors.h">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/firstIteration.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/fileNameProcessing.c">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/inputUtils.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/fileNameProcessing.h">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/listOfCommands.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/firstIteration.c">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/printOutput.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/firstIteration.h">
-			<Option target="Maman_14"/>
-		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/inputUtils.c">
-			<Option target="Maman_14"/>
-		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/inputUtils.h">
-			<Option target="Maman_14"/>
-		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/listOfCommands.c">
-			<Option target="Maman_14"/>
-		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/listOfCommands.h">
+		<Unit filename="/home/user/CLionProjects/Maman14/includes/secondIteration.h">
 			<Option target="Maman_14"/>
 		</Unit>
 		<Unit filename="/home/user/CLionProjects/Maman14/main.c">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/printOutput.c">
+		<Unit filename="/home/user/CLionProjects/Maman14/print/printOutput.c">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/printOutput.h">
+		<Unit filename="/home/user/CLionProjects/Maman14/processInput/commands.c">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/secondIteration.c">
+		<Unit filename="/home/user/CLionProjects/Maman14/processInput/directiveFunctions.c">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/secondIteration.h">
+		<Unit filename="/home/user/CLionProjects/Maman14/processInput/fileContentProcessing.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/processInput/fileNameProcessing.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/processInput/firstIteration.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/processInput/inputUtils.c">
+			<Option target="Maman_14"/>
+		</Unit>
+		<Unit filename="/home/user/CLionProjects/Maman14/processInput/secondIteration.c">
 			<Option target="Maman_14"/>
 		</Unit>
 		<Unit filename="/home/user/CLionProjects/Maman14/CMakeLists.txt">

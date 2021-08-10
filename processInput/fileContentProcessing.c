@@ -1,10 +1,7 @@
 #include <stdio.h>
-#include "firstIteration.h"
-#include "directiveFunctions.h"
-#include "fileContentProcessing.h"
-#include "secondIteration.h"
-#include "fileErrors.h"
-#include "printOutput.h"
+#include "../includes/firstIteration.h"
+#include "../includes/fileContentProcessing.h"
+#include "../includes/secondIteration.h"
 #define INSTRUCTIONS_COUNTER_START 100
 #define DATA_COUNTER_START 0
 
@@ -18,7 +15,6 @@ void closeEntExtFiles(errorCodes *error, FILE *entFile, FILE *extFile, char *fil
         fclose(entFile);
     if (isFileError(*error)) {
         deleteEntExtFiles(fileName, entFile, extFile);
-        printf("No output files generated.\n----------------------------------------------\n");
     }
 }
 
@@ -68,6 +64,9 @@ void readFileAndGenerateOutput(FILE * fp, CMD *listOfCommands, dataTable *listOf
         if (!isFileError(error)) {
             printOBFile(codeImageHead, dataImageHead, IC, DC, fileName);
             printf("Output files for \"%s\" generated.\n----------------------------------------------\n", fileName);
+        }
+        else {
+            printf("No output files generated.\n----------------------------------------------\n");
         }
     }
 }

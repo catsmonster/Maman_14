@@ -1,5 +1,5 @@
 
-#include "entriesList.h"
+#include "../includes/entriesList.h"
 #include <stdlib.h>
 #include <string.h>
 

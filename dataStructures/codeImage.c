@@ -1,4 +1,4 @@
-#include "codeImage.h"
+#include "../includes/codeImage.h"
 #include <stdlib.h>
 #define FIRST_INSTRUCTION_COUNTER_VALUE 100
 

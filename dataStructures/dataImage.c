@@ -1,5 +1,5 @@
 
-#include "dataImage.h"
+#include "../includes/dataImage.h"
 #include <stdlib.h>
 #define WORD 32
 

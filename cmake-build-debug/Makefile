@@ -129,293 +129,149 @@ Maman_14/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/build
 .PHONY : Maman_14/fast
 
-codeImage.o: codeImage.c.o
-.PHONY : codeImage.o
+dataStructures/codeImage.o: dataStructures/codeImage.c.o
+.PHONY : dataStructures/codeImage.o
 
 # target to build an object file
-codeImage.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/codeImage.c.o
-.PHONY : codeImage.c.o
+dataStructures/codeImage.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.o
+.PHONY : dataStructures/codeImage.c.o
 
-codeImage.i: codeImage.c.i
-.PHONY : codeImage.i
+dataStructures/codeImage.i: dataStructures/codeImage.c.i
+.PHONY : dataStructures/codeImage.i
 
 # target to preprocess a source file
-codeImage.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/codeImage.c.i
-.PHONY : codeImage.c.i
+dataStructures/codeImage.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.i
+.PHONY : dataStructures/codeImage.c.i
 
-codeImage.s: codeImage.c.s
-.PHONY : codeImage.s
+dataStructures/codeImage.s: dataStructures/codeImage.c.s
+.PHONY : dataStructures/codeImage.s
 
 # target to generate assembly for a file
-codeImage.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/codeImage.c.s
-.PHONY : codeImage.c.s
+dataStructures/codeImage.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/codeImage.c.s
+.PHONY : dataStructures/codeImage.c.s
 
-commands.o: commands.c.o
-.PHONY : commands.o
+dataStructures/dataImage.o: dataStructures/dataImage.c.o
+.PHONY : dataStructures/dataImage.o
 
 # target to build an object file
-commands.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/commands.c.o
-.PHONY : commands.c.o
+dataStructures/dataImage.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.o
+.PHONY : dataStructures/dataImage.c.o
 
-commands.i: commands.c.i
-.PHONY : commands.i
+dataStructures/dataImage.i: dataStructures/dataImage.c.i
+.PHONY : dataStructures/dataImage.i
 
 # target to preprocess a source file
-commands.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/commands.c.i
-.PHONY : commands.c.i
+dataStructures/dataImage.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.i
+.PHONY : dataStructures/dataImage.c.i
 
-commands.s: commands.c.s
-.PHONY : commands.s
+dataStructures/dataImage.s: dataStructures/dataImage.c.s
+.PHONY : dataStructures/dataImage.s
 
 # target to generate assembly for a file
-commands.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/commands.c.s
-.PHONY : commands.c.s
+dataStructures/dataImage.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/dataImage.c.s
+.PHONY : dataStructures/dataImage.c.s
 
-dataImage.o: dataImage.c.o
-.PHONY : dataImage.o
+dataStructures/dataTable.o: dataStructures/dataTable.c.o
+.PHONY : dataStructures/dataTable.o
 
 # target to build an object file
-dataImage.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataImage.c.o
-.PHONY : dataImage.c.o
+dataStructures/dataTable.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.o
+.PHONY : dataStructures/dataTable.c.o
 
-dataImage.i: dataImage.c.i
-.PHONY : dataImage.i
+dataStructures/dataTable.i: dataStructures/dataTable.c.i
+.PHONY : dataStructures/dataTable.i
 
 # target to preprocess a source file
-dataImage.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataImage.c.i
-.PHONY : dataImage.c.i
+dataStructures/dataTable.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.i
+.PHONY : dataStructures/dataTable.c.i
 
-dataImage.s: dataImage.c.s
-.PHONY : dataImage.s
+dataStructures/dataTable.s: dataStructures/dataTable.c.s
+.PHONY : dataStructures/dataTable.s
 
 # target to generate assembly for a file
-dataImage.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataImage.c.s
-.PHONY : dataImage.c.s
+dataStructures/dataTable.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/dataTable.c.s
+.PHONY : dataStructures/dataTable.c.s
 
-dataTable.o: dataTable.c.o
-.PHONY : dataTable.o
+dataStructures/entriesList.o: dataStructures/entriesList.c.o
+.PHONY : dataStructures/entriesList.o
 
 # target to build an object file
-dataTable.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataTable.c.o
-.PHONY : dataTable.c.o
+dataStructures/entriesList.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.o
+.PHONY : dataStructures/entriesList.c.o
 
-dataTable.i: dataTable.c.i
-.PHONY : dataTable.i
+dataStructures/entriesList.i: dataStructures/entriesList.c.i
+.PHONY : dataStructures/entriesList.i
 
 # target to preprocess a source file
-dataTable.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataTable.c.i
-.PHONY : dataTable.c.i
+dataStructures/entriesList.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.i
+.PHONY : dataStructures/entriesList.c.i
 
-dataTable.s: dataTable.c.s
-.PHONY : dataTable.s
+dataStructures/entriesList.s: dataStructures/entriesList.c.s
+.PHONY : dataStructures/entriesList.s
 
 # target to generate assembly for a file
-dataTable.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataTable.c.s
-.PHONY : dataTable.c.s
+dataStructures/entriesList.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/entriesList.c.s
+.PHONY : dataStructures/entriesList.c.s
 
-directiveFunctions.o: directiveFunctions.c.o
-.PHONY : directiveFunctions.o
+dataStructures/listOfCommands.o: dataStructures/listOfCommands.c.o
+.PHONY : dataStructures/listOfCommands.o
 
 # target to build an object file
-directiveFunctions.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/directiveFunctions.c.o
-.PHONY : directiveFunctions.c.o
+dataStructures/listOfCommands.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.o
+.PHONY : dataStructures/listOfCommands.c.o
 
-directiveFunctions.i: directiveFunctions.c.i
-.PHONY : directiveFunctions.i
+dataStructures/listOfCommands.i: dataStructures/listOfCommands.c.i
+.PHONY : dataStructures/listOfCommands.i
 
 # target to preprocess a source file
-directiveFunctions.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/directiveFunctions.c.i
-.PHONY : directiveFunctions.c.i
+dataStructures/listOfCommands.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.i
+.PHONY : dataStructures/listOfCommands.c.i
 
-directiveFunctions.s: directiveFunctions.c.s
-.PHONY : directiveFunctions.s
+dataStructures/listOfCommands.s: dataStructures/listOfCommands.c.s
+.PHONY : dataStructures/listOfCommands.s
 
 # target to generate assembly for a file
-directiveFunctions.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/directiveFunctions.c.s
-.PHONY : directiveFunctions.c.s
+dataStructures/listOfCommands.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/dataStructures/listOfCommands.c.s
+.PHONY : dataStructures/listOfCommands.c.s
 
-entriesList.o: entriesList.c.o
-.PHONY : entriesList.o
+errorHandling/fileErrors.o: errorHandling/fileErrors.c.o
+.PHONY : errorHandling/fileErrors.o
 
 # target to build an object file
-entriesList.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/entriesList.c.o
-.PHONY : entriesList.c.o
+errorHandling/fileErrors.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.o
+.PHONY : errorHandling/fileErrors.c.o
 
-entriesList.i: entriesList.c.i
-.PHONY : entriesList.i
-
-# target to preprocess a source file
-entriesList.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/entriesList.c.i
-.PHONY : entriesList.c.i
-
-entriesList.s: entriesList.c.s
-.PHONY : entriesList.s
-
-# target to generate assembly for a file
-entriesList.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/entriesList.c.s
-.PHONY : entriesList.c.s
-
-fileContentProcessing.o: fileContentProcessing.c.o
-.PHONY : fileContentProcessing.o
-
-# target to build an object file
-fileContentProcessing.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/fileContentProcessing.c.o
-.PHONY : fileContentProcessing.c.o
-
-fileContentProcessing.i: fileContentProcessing.c.i
-.PHONY : fileContentProcessing.i
+errorHandling/fileErrors.i: errorHandling/fileErrors.c.i
+.PHONY : errorHandling/fileErrors.i
 
 # target to preprocess a source file
-fileContentProcessing.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/fileContentProcessing.c.i
-.PHONY : fileContentProcessing.c.i
+errorHandling/fileErrors.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.i
+.PHONY : errorHandling/fileErrors.c.i
 
-fileContentProcessing.s: fileContentProcessing.c.s
-.PHONY : fileContentProcessing.s
-
-# target to generate assembly for a file
-fileContentProcessing.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/fileContentProcessing.c.s
-.PHONY : fileContentProcessing.c.s
-
-fileErrors.o: fileErrors.c.o
-.PHONY : fileErrors.o
-
-# target to build an object file
-fileErrors.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/fileErrors.c.o
-.PHONY : fileErrors.c.o
-
-fileErrors.i: fileErrors.c.i
-.PHONY : fileErrors.i
-
-# target to preprocess a source file
-fileErrors.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/fileErrors.c.i
-.PHONY : fileErrors.c.i
-
-fileErrors.s: fileErrors.c.s
-.PHONY : fileErrors.s
+errorHandling/fileErrors.s: errorHandling/fileErrors.c.s
+.PHONY : errorHandling/fileErrors.s
 
 # target to generate assembly for a file
-fileErrors.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/fileErrors.c.s
-.PHONY : fileErrors.c.s
-
-fileNameProcessing.o: fileNameProcessing.c.o
-.PHONY : fileNameProcessing.o
-
-# target to build an object file
-fileNameProcessing.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/fileNameProcessing.c.o
-.PHONY : fileNameProcessing.c.o
-
-fileNameProcessing.i: fileNameProcessing.c.i
-.PHONY : fileNameProcessing.i
-
-# target to preprocess a source file
-fileNameProcessing.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/fileNameProcessing.c.i
-.PHONY : fileNameProcessing.c.i
-
-fileNameProcessing.s: fileNameProcessing.c.s
-.PHONY : fileNameProcessing.s
-
-# target to generate assembly for a file
-fileNameProcessing.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/fileNameProcessing.c.s
-.PHONY : fileNameProcessing.c.s
-
-firstIteration.o: firstIteration.c.o
-.PHONY : firstIteration.o
-
-# target to build an object file
-firstIteration.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/firstIteration.c.o
-.PHONY : firstIteration.c.o
-
-firstIteration.i: firstIteration.c.i
-.PHONY : firstIteration.i
-
-# target to preprocess a source file
-firstIteration.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/firstIteration.c.i
-.PHONY : firstIteration.c.i
-
-firstIteration.s: firstIteration.c.s
-.PHONY : firstIteration.s
-
-# target to generate assembly for a file
-firstIteration.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/firstIteration.c.s
-.PHONY : firstIteration.c.s
-
-inputUtils.o: inputUtils.c.o
-.PHONY : inputUtils.o
-
-# target to build an object file
-inputUtils.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/inputUtils.c.o
-.PHONY : inputUtils.c.o
-
-inputUtils.i: inputUtils.c.i
-.PHONY : inputUtils.i
-
-# target to preprocess a source file
-inputUtils.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/inputUtils.c.i
-.PHONY : inputUtils.c.i
-
-inputUtils.s: inputUtils.c.s
-.PHONY : inputUtils.s
-
-# target to generate assembly for a file
-inputUtils.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/inputUtils.c.s
-.PHONY : inputUtils.c.s
-
-listOfCommands.o: listOfCommands.c.o
-.PHONY : listOfCommands.o
-
-# target to build an object file
-listOfCommands.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/listOfCommands.c.o
-.PHONY : listOfCommands.c.o
-
-listOfCommands.i: listOfCommands.c.i
-.PHONY : listOfCommands.i
-
-# target to preprocess a source file
-listOfCommands.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/listOfCommands.c.i
-.PHONY : listOfCommands.c.i
-
-listOfCommands.s: listOfCommands.c.s
-.PHONY : listOfCommands.s
-
-# target to generate assembly for a file
-listOfCommands.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/listOfCommands.c.s
-.PHONY : listOfCommands.c.s
+errorHandling/fileErrors.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/errorHandling/fileErrors.c.s
+.PHONY : errorHandling/fileErrors.c.s
 
 main.o: main.c.o
 .PHONY : main.o
@@ -441,53 +297,197 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/main.c.s
 .PHONY : main.c.s
 
-printOutput.o: printOutput.c.o
-.PHONY : printOutput.o
+print/printOutput.o: print/printOutput.c.o
+.PHONY : print/printOutput.o
 
 # target to build an object file
-printOutput.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/printOutput.c.o
-.PHONY : printOutput.c.o
+print/printOutput.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/print/printOutput.c.o
+.PHONY : print/printOutput.c.o
 
-printOutput.i: printOutput.c.i
-.PHONY : printOutput.i
+print/printOutput.i: print/printOutput.c.i
+.PHONY : print/printOutput.i
 
 # target to preprocess a source file
-printOutput.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/printOutput.c.i
-.PHONY : printOutput.c.i
+print/printOutput.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/print/printOutput.c.i
+.PHONY : print/printOutput.c.i
 
-printOutput.s: printOutput.c.s
-.PHONY : printOutput.s
+print/printOutput.s: print/printOutput.c.s
+.PHONY : print/printOutput.s
 
 # target to generate assembly for a file
-printOutput.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/printOutput.c.s
-.PHONY : printOutput.c.s
+print/printOutput.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/print/printOutput.c.s
+.PHONY : print/printOutput.c.s
 
-secondIteration.o: secondIteration.c.o
-.PHONY : secondIteration.o
+processInput/commands.o: processInput/commands.c.o
+.PHONY : processInput/commands.o
 
 # target to build an object file
-secondIteration.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/secondIteration.c.o
-.PHONY : secondIteration.c.o
+processInput/commands.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/commands.c.o
+.PHONY : processInput/commands.c.o
 
-secondIteration.i: secondIteration.c.i
-.PHONY : secondIteration.i
+processInput/commands.i: processInput/commands.c.i
+.PHONY : processInput/commands.i
 
 # target to preprocess a source file
-secondIteration.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/secondIteration.c.i
-.PHONY : secondIteration.c.i
+processInput/commands.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/commands.c.i
+.PHONY : processInput/commands.c.i
 
-secondIteration.s: secondIteration.c.s
-.PHONY : secondIteration.s
+processInput/commands.s: processInput/commands.c.s
+.PHONY : processInput/commands.s
 
 # target to generate assembly for a file
-secondIteration.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/secondIteration.c.s
-.PHONY : secondIteration.c.s
+processInput/commands.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/commands.c.s
+.PHONY : processInput/commands.c.s
+
+processInput/directiveFunctions.o: processInput/directiveFunctions.c.o
+.PHONY : processInput/directiveFunctions.o
+
+# target to build an object file
+processInput/directiveFunctions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.o
+.PHONY : processInput/directiveFunctions.c.o
+
+processInput/directiveFunctions.i: processInput/directiveFunctions.c.i
+.PHONY : processInput/directiveFunctions.i
+
+# target to preprocess a source file
+processInput/directiveFunctions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.i
+.PHONY : processInput/directiveFunctions.c.i
+
+processInput/directiveFunctions.s: processInput/directiveFunctions.c.s
+.PHONY : processInput/directiveFunctions.s
+
+# target to generate assembly for a file
+processInput/directiveFunctions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/directiveFunctions.c.s
+.PHONY : processInput/directiveFunctions.c.s
+
+processInput/fileContentProcessing.o: processInput/fileContentProcessing.c.o
+.PHONY : processInput/fileContentProcessing.o
+
+# target to build an object file
+processInput/fileContentProcessing.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.o
+.PHONY : processInput/fileContentProcessing.c.o
+
+processInput/fileContentProcessing.i: processInput/fileContentProcessing.c.i
+.PHONY : processInput/fileContentProcessing.i
+
+# target to preprocess a source file
+processInput/fileContentProcessing.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.i
+.PHONY : processInput/fileContentProcessing.c.i
+
+processInput/fileContentProcessing.s: processInput/fileContentProcessing.c.s
+.PHONY : processInput/fileContentProcessing.s
+
+# target to generate assembly for a file
+processInput/fileContentProcessing.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/fileContentProcessing.c.s
+.PHONY : processInput/fileContentProcessing.c.s
+
+processInput/fileNameProcessing.o: processInput/fileNameProcessing.c.o
+.PHONY : processInput/fileNameProcessing.o
+
+# target to build an object file
+processInput/fileNameProcessing.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.o
+.PHONY : processInput/fileNameProcessing.c.o
+
+processInput/fileNameProcessing.i: processInput/fileNameProcessing.c.i
+.PHONY : processInput/fileNameProcessing.i
+
+# target to preprocess a source file
+processInput/fileNameProcessing.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.i
+.PHONY : processInput/fileNameProcessing.c.i
+
+processInput/fileNameProcessing.s: processInput/fileNameProcessing.c.s
+.PHONY : processInput/fileNameProcessing.s
+
+# target to generate assembly for a file
+processInput/fileNameProcessing.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/fileNameProcessing.c.s
+.PHONY : processInput/fileNameProcessing.c.s
+
+processInput/firstIteration.o: processInput/firstIteration.c.o
+.PHONY : processInput/firstIteration.o
+
+# target to build an object file
+processInput/firstIteration.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/firstIteration.c.o
+.PHONY : processInput/firstIteration.c.o
+
+processInput/firstIteration.i: processInput/firstIteration.c.i
+.PHONY : processInput/firstIteration.i
+
+# target to preprocess a source file
+processInput/firstIteration.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/firstIteration.c.i
+.PHONY : processInput/firstIteration.c.i
+
+processInput/firstIteration.s: processInput/firstIteration.c.s
+.PHONY : processInput/firstIteration.s
+
+# target to generate assembly for a file
+processInput/firstIteration.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/firstIteration.c.s
+.PHONY : processInput/firstIteration.c.s
+
+processInput/inputUtils.o: processInput/inputUtils.c.o
+.PHONY : processInput/inputUtils.o
+
+# target to build an object file
+processInput/inputUtils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/inputUtils.c.o
+.PHONY : processInput/inputUtils.c.o
+
+processInput/inputUtils.i: processInput/inputUtils.c.i
+.PHONY : processInput/inputUtils.i
+
+# target to preprocess a source file
+processInput/inputUtils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/inputUtils.c.i
+.PHONY : processInput/inputUtils.c.i
+
+processInput/inputUtils.s: processInput/inputUtils.c.s
+.PHONY : processInput/inputUtils.s
+
+# target to generate assembly for a file
+processInput/inputUtils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/inputUtils.c.s
+.PHONY : processInput/inputUtils.c.s
+
+processInput/secondIteration.o: processInput/secondIteration.c.o
+.PHONY : processInput/secondIteration.o
+
+# target to build an object file
+processInput/secondIteration.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/secondIteration.c.o
+.PHONY : processInput/secondIteration.c.o
+
+processInput/secondIteration.i: processInput/secondIteration.c.i
+.PHONY : processInput/secondIteration.i
+
+# target to preprocess a source file
+processInput/secondIteration.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/secondIteration.c.i
+.PHONY : processInput/secondIteration.c.i
+
+processInput/secondIteration.s: processInput/secondIteration.c.s
+.PHONY : processInput/secondIteration.s
+
+# target to generate assembly for a file
+processInput/secondIteration.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/processInput/secondIteration.c.s
+.PHONY : processInput/secondIteration.c.s
 
 # Help Target
 help:
@@ -498,51 +498,51 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Maman_14"
-	@echo "... codeImage.o"
-	@echo "... codeImage.i"
-	@echo "... codeImage.s"
-	@echo "... commands.o"
-	@echo "... commands.i"
-	@echo "... commands.s"
-	@echo "... dataImage.o"
-	@echo "... dataImage.i"
-	@echo "... dataImage.s"
-	@echo "... dataTable.o"
-	@echo "... dataTable.i"
-	@echo "... dataTable.s"
-	@echo "... directiveFunctions.o"
-	@echo "... directiveFunctions.i"
-	@echo "... directiveFunctions.s"
-	@echo "... entriesList.o"
-	@echo "... entriesList.i"
-	@echo "... entriesList.s"
-	@echo "... fileContentProcessing.o"
-	@echo "... fileContentProcessing.i"
-	@echo "... fileContentProcessing.s"
-	@echo "... fileErrors.o"
-	@echo "... fileErrors.i"
-	@echo "... fileErrors.s"
-	@echo "... fileNameProcessing.o"
-	@echo "... fileNameProcessing.i"
-	@echo "... fileNameProcessing.s"
-	@echo "... firstIteration.o"
-	@echo "... firstIteration.i"
-	@echo "... firstIteration.s"
-	@echo "... inputUtils.o"
-	@echo "... inputUtils.i"
-	@echo "... inputUtils.s"
-	@echo "... listOfCommands.o"
-	@echo "... listOfCommands.i"
-	@echo "... listOfCommands.s"
+	@echo "... dataStructures/codeImage.o"
+	@echo "... dataStructures/codeImage.i"
+	@echo "... dataStructures/codeImage.s"
+	@echo "... dataStructures/dataImage.o"
+	@echo "... dataStructures/dataImage.i"
+	@echo "... dataStructures/dataImage.s"
+	@echo "... dataStructures/dataTable.o"
+	@echo "... dataStructures/dataTable.i"
+	@echo "... dataStructures/dataTable.s"
+	@echo "... dataStructures/entriesList.o"
+	@echo "... dataStructures/entriesList.i"
+	@echo "... dataStructures/entriesList.s"
+	@echo "... dataStructures/listOfCommands.o"
+	@echo "... dataStructures/listOfCommands.i"
+	@echo "... dataStructures/listOfCommands.s"
+	@echo "... errorHandling/fileErrors.o"
+	@echo "... errorHandling/fileErrors.i"
+	@echo "... errorHandling/fileErrors.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... printOutput.o"
-	@echo "... printOutput.i"
-	@echo "... printOutput.s"
-	@echo "... secondIteration.o"
-	@echo "... secondIteration.i"
-	@echo "... secondIteration.s"
+	@echo "... print/printOutput.o"
+	@echo "... print/printOutput.i"
+	@echo "... print/printOutput.s"
+	@echo "... processInput/commands.o"
+	@echo "... processInput/commands.i"
+	@echo "... processInput/commands.s"
+	@echo "... processInput/directiveFunctions.o"
+	@echo "... processInput/directiveFunctions.i"
+	@echo "... processInput/directiveFunctions.s"
+	@echo "... processInput/fileContentProcessing.o"
+	@echo "... processInput/fileContentProcessing.i"
+	@echo "... processInput/fileContentProcessing.s"
+	@echo "... processInput/fileNameProcessing.o"
+	@echo "... processInput/fileNameProcessing.i"
+	@echo "... processInput/fileNameProcessing.s"
+	@echo "... processInput/firstIteration.o"
+	@echo "... processInput/firstIteration.i"
+	@echo "... processInput/firstIteration.s"
+	@echo "... processInput/inputUtils.o"
+	@echo "... processInput/inputUtils.i"
+	@echo "... processInput/inputUtils.s"
+	@echo "... processInput/secondIteration.o"
+	@echo "... processInput/secondIteration.i"
+	@echo "... processInput/secondIteration.s"
 .PHONY : help
 
 
