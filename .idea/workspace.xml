@@ -12,11 +12,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27892bee-15bb-49b6-b18e-24094989a66e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/directiveFunctions.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/directiveFunctions.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/entriesOrExternList.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileContentProcessing.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileContentProcessing.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileNameProcessing.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/fileNameProcessing.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/firstIteration.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/firstIteration.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/main.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/secondIteration.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/secondIteration.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/directiveFunctions.c" beforeDir="false" afterPath="$PROJECT_DIR$/directiveFunctions.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/directiveFunctions.h" beforeDir="false" afterPath="$PROJECT_DIR$/directiveFunctions.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entriesOrExternList.c" beforeDir="false" afterPath="$PROJECT_DIR$/entriesList.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entriesOrExternList.h" beforeDir="false" afterPath="$PROJECT_DIR$/entriesList.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fileContentProcessing.c" beforeDir="false" afterPath="$PROJECT_DIR$/fileContentProcessing.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fileContentProcessing.h" beforeDir="false" afterPath="$PROJECT_DIR$/fileContentProcessing.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fileNameProcessing.c" beforeDir="false" afterPath="$PROJECT_DIR$/fileNameProcessing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileNameProcessing.h" beforeDir="false" afterPath="$PROJECT_DIR$/fileNameProcessing.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/firstIteration.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstIteration.h" beforeDir="false" afterPath="$PROJECT_DIR$/firstIteration.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/printOutput.h" beforeDir="false" afterPath="$PROJECT_DIR$/printOutput.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/secondIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/secondIteration.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/secondIteration.h" beforeDir="false" afterPath="$PROJECT_DIR$/secondIteration.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +125,7 @@
       <workItem from="1625936061906" duration="139581000" />
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
-      <workItem from="1628359595675" duration="21208000" />
+      <workItem from="1628359595675" duration="24606000" />
     </task>
     <task id="LOCAL-00001" summary="first commit - project is working with valid input, before testing for invalid inputs and before optimizing dataTable.c deleted bloat">
       <created>1627043778177</created>
@@ -311,7 +337,21 @@
       <option name="project" value="LOCAL" />
       <updated>1628547261345</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="added some more documentation and minor refactoring for names">
+      <created>1628547806884</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1628547806884</updated>
+    </task>
+    <task id="LOCAL-00032" summary="minor documentation fix">
+      <created>1628547961409</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1628547961409</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,8 +371,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="removed &quot;magic number&quot; from codeImage" />
-    <MESSAGE value="updated all functions to use errorCodes enum typedef instead of int, and removed the general printError function to now use specific functions instead. Additionally, removed from listOfCommands the type field and its functionality, as it was redundant." />
     <MESSAGE value="added support for dynamic resizing of the symbols hash table, and fixed some logic errors regarding conflict handling." />
     <MESSAGE value="deleted unnecessary extern declarations" />
     <MESSAGE value="removed global variables and added numOfSymbols and currentTableSize as fields inside the dataTable struct." />
@@ -356,6 +394,24 @@
     <MESSAGE value="added back deleted files" />
     <MESSAGE value="if the last data entry starts a new line, doesn't add the next address" />
     <MESSAGE value="documented entriesOrExternList.h" />
-    <option name="LAST_COMMIT_MESSAGE" value="documented entriesOrExternList.h" />
+    <MESSAGE value="added some more documentation and minor refactoring for names" />
+    <MESSAGE value="minor documentation fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor documentation fix" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/secondIteration.c</url>
+          <line>36</line>
+          <option name="timeStamp" value="150" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/directiveFunctions.c</url>
+          <line>212</line>
+          <option name="timeStamp" value="151" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

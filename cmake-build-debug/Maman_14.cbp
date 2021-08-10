@@ -106,10 +106,10 @@
 		<Unit filename="/home/user/CLionProjects/Maman14/directiveFunctions.h">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/entriesOrExternList.c">
+		<Unit filename="/home/user/CLionProjects/Maman14/entriesList.c">
 			<Option target="Maman_14"/>
 		</Unit>
-		<Unit filename="/home/user/CLionProjects/Maman14/entriesOrExternList.h">
+		<Unit filename="/home/user/CLionProjects/Maman14/entriesList.h">
 			<Option target="Maman_14"/>
 		</Unit>
 		<Unit filename="/home/user/CLionProjects/Maman14/fileContentProcessing.c">

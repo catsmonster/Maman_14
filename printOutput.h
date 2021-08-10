@@ -3,7 +3,7 @@
 #define MAMAN_14_PRINTOUTPUT_H
 #include "codeImage.h"
 #include "dataImage.h"
-#include "entriesOrExternList.h"
+#include "entriesList.h"
 #include <stdio.h>
 
 void printOBFile(codeNode *codeImageHead, dataNode *dataImageHead, long IC, long DC, char *fileName);

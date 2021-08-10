@@ -13,7 +13,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/user/CLionProjects/Maman14/dataImage.c" "/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles/Maman_14.dir/dataImage.c.o"
   "/home/user/CLionProjects/Maman14/dataTable.c" "/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles/Maman_14.dir/dataTable.c.o"
   "/home/user/CLionProjects/Maman14/directiveFunctions.c" "/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles/Maman_14.dir/directiveFunctions.c.o"
-  "/home/user/CLionProjects/Maman14/entriesOrExternList.c" "/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles/Maman_14.dir/entriesOrExternList.c.o"
+  "/home/user/CLionProjects/Maman14/entriesList.c" "/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles/Maman_14.dir/entriesList.c.o"
   "/home/user/CLionProjects/Maman14/fileContentProcessing.c" "/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles/Maman_14.dir/fileContentProcessing.c.o"
   "/home/user/CLionProjects/Maman14/fileErrors.c" "/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles/Maman_14.dir/fileErrors.c.o"
   "/home/user/CLionProjects/Maman14/fileNameProcessing.c" "/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles/Maman_14.dir/fileNameProcessing.c.o"

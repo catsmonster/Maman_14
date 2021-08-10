@@ -25,20 +25,20 @@ CMakeFiles/Maman_14.dir/directiveFunctions.c.o: \
  ../dataTable.h \
  ../directiveFunctions.c \
  ../directiveFunctions.h \
- ../entriesOrExternList.h \
+ ../entriesList.h \
  ../fileErrors.h \
  ../inputUtils.h
-CMakeFiles/Maman_14.dir/entriesOrExternList.c.o: \
+CMakeFiles/Maman_14.dir/entriesList.c.o: \
  ../dataTable.h \
- ../entriesOrExternList.c \
- ../entriesOrExternList.h \
+ ../entriesList.c \
+ ../entriesList.h \
  ../fileErrors.h
 CMakeFiles/Maman_14.dir/fileContentProcessing.c.o: \
  ../codeImage.h \
  ../dataImage.h \
  ../dataTable.h \
  ../directiveFunctions.h \
- ../entriesOrExternList.h \
+ ../entriesList.h \
  ../fileContentProcessing.c \
  ../fileContentProcessing.h \
  ../fileErrors.h \
@@ -53,7 +53,7 @@ CMakeFiles/Maman_14.dir/fileNameProcessing.c.o: \
  ../codeImage.h \
  ../dataImage.h \
  ../dataTable.h \
- ../entriesOrExternList.h \
+ ../entriesList.h \
  ../fileContentProcessing.h \
  ../fileErrors.h \
  ../fileNameProcessing.c \
@@ -64,7 +64,7 @@ CMakeFiles/Maman_14.dir/firstIteration.c.o: \
  ../dataImage.h \
  ../dataTable.h \
  ../directiveFunctions.h \
- ../entriesOrExternList.h \
+ ../entriesList.h \
  ../fileErrors.h \
  ../firstIteration.c \
  ../firstIteration.h \
@@ -88,7 +88,7 @@ CMakeFiles/Maman_14.dir/printOutput.c.o: \
  ../codeImage.h \
  ../dataImage.h \
  ../dataTable.h \
- ../entriesOrExternList.h \
+ ../entriesList.h \
  ../fileErrors.h \
  ../printOutput.c \
  ../printOutput.h
@@ -96,7 +96,7 @@ CMakeFiles/Maman_14.dir/secondIteration.c.o: \
  ../codeImage.h \
  ../dataImage.h \
  ../dataTable.h \
- ../entriesOrExternList.h \
+ ../entriesList.h \
  ../fileErrors.h \
  ../printOutput.h \
  ../secondIteration.c \

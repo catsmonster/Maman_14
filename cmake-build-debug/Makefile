@@ -249,29 +249,29 @@ directiveFunctions.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/directiveFunctions.c.s
 .PHONY : directiveFunctions.c.s
 
-entriesOrExternList.o: entriesOrExternList.c.o
-.PHONY : entriesOrExternList.o
+entriesList.o: entriesList.c.o
+.PHONY : entriesList.o
 
 # target to build an object file
-entriesOrExternList.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/entriesOrExternList.c.o
-.PHONY : entriesOrExternList.c.o
+entriesList.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/entriesList.c.o
+.PHONY : entriesList.c.o
 
-entriesOrExternList.i: entriesOrExternList.c.i
-.PHONY : entriesOrExternList.i
+entriesList.i: entriesList.c.i
+.PHONY : entriesList.i
 
 # target to preprocess a source file
-entriesOrExternList.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/entriesOrExternList.c.i
-.PHONY : entriesOrExternList.c.i
+entriesList.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/entriesList.c.i
+.PHONY : entriesList.c.i
 
-entriesOrExternList.s: entriesOrExternList.c.s
-.PHONY : entriesOrExternList.s
+entriesList.s: entriesList.c.s
+.PHONY : entriesList.s
 
 # target to generate assembly for a file
-entriesOrExternList.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/entriesOrExternList.c.s
-.PHONY : entriesOrExternList.c.s
+entriesList.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maman_14.dir/build.make CMakeFiles/Maman_14.dir/entriesList.c.s
+.PHONY : entriesList.c.s
 
 fileContentProcessing.o: fileContentProcessing.c.o
 .PHONY : fileContentProcessing.o
@@ -513,9 +513,9 @@ help:
 	@echo "... directiveFunctions.o"
 	@echo "... directiveFunctions.i"
 	@echo "... directiveFunctions.s"
-	@echo "... entriesOrExternList.o"
-	@echo "... entriesOrExternList.i"
-	@echo "... entriesOrExternList.s"
+	@echo "... entriesList.o"
+	@echo "... entriesList.i"
+	@echo "... entriesList.s"
 	@echo "... fileContentProcessing.o"
 	@echo "... fileContentProcessing.i"
 	@echo "... fileContentProcessing.s"

@@ -6,7 +6,7 @@
 #define ENTRY_DIRECTIVE 4
 #include "dataImage.h"
 #include "dataTable.h"
-#include "entriesOrExternList.h"
+#include "entriesList.h"
 
 /*
  * handles reading a .dh directive line
@@ -35,13 +35,12 @@ void asciz(int *, const char[], long *,  errorCodes *, dataNode**, long);
 /*
  * handles reading an .entry directive line
  * accepts the position pointer, the input line string, an error code pointer, the current line counter, and the
- * entries/extern linked list
+ * entries linked list
  */
-void entry(int *, const char[], errorCodes *, long, entriesOrExternList**);
+void entry(int *, const char[], errorCodes *, long, entriesList**, entriesList *);
 /*
  * handles reading an .external directive line
- * accepts the position pointer, the input line string, the table of symbols, an error code pointer, the current line counter,
- * and the entries/extern linked list
+ * accepts the position pointer, the input line string, the table of symbols, an error code pointer and the current line counter
  */
-void external(int *, const char[], dataTable *, errorCodes *, long, entriesOrExternList**);
+void external(int *, const char[], dataTable *, errorCodes *, long);
 #endif

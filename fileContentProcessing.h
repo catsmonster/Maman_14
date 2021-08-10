@@ -4,12 +4,12 @@
 #include "listOfCommands.h"
 #include "dataTable.h"
 #include "dataImage.h"
-#include "entriesOrExternList.h"
+#include "entriesList.h"
 /*
  * API of input related processing. accepts a FILE pointer, list of commands pointer, table of symbols pointer,
  * data image linked list, code image linked list, entries/extern linked list, and a string representing the
  * input file name
  */
-void readFileAndGenerateOutput(FILE *fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode *dataImageHead, codeNode *codeImageHead, entriesOrExternList *entriesOrExternHead,
+void readFileAndGenerateOutput(FILE *fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode *dataImageHead, codeNode *codeImageHead, entriesList *entriesOrExternHead,
                                char *fileName);
 #endif

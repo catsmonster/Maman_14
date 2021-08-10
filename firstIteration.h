@@ -5,7 +5,7 @@
 #include "listOfCommands.h"
 #include "dataTable.h"
 #include "dataImage.h"
-#include "entriesOrExternList.h"
+#include "entriesList.h"
 #include "fileErrors.h"
 
 /*
@@ -15,6 +15,6 @@
  * data image, code image, entries/extern list
  */
 void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, CMD *, dataTable*, dataNode *, codeNode *,
-                    entriesOrExternList *);
+                    entriesList *, int *, int *);
 
 #endif

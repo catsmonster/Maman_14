@@ -10,17 +10,17 @@
 
 
 /*
- * iterates over the entriesOrExternList and updates hasEntry and hasExtern to determine whether an ent/ext file should
+ * iterates over the entriesList and updates hasEntry and hasExtern to determine whether an ent/ext file should
  * be created or not
  */
-void determineExistenceOfEntryOrExtern(entriesOrExternList *entriesOrExternHead, int *hasEntry, int *hasExtern) {
-    entriesOrExternList *temp = entriesOrExternHead;
+void determineExistenceOfEntryOrExtern(entriesList *entriesOrExternHead, int *hasEntry, int *hasExtern) {
+    entriesList *temp = entriesOrExternHead;
     while (temp && (!*hasEntry || !*hasExtern)) {
-        if (getEntryOrExternType(temp) == ENTRY)
+        if (isEmpty(temp) == ENTRY)
             *hasEntry = 1;
-        if (getEntryOrExternType(temp) == EXTERN)
+        if (isEmpty(temp) == EXTERN)
             *hasExtern = 1;
-        temp = getNextEntryOrExtern(temp);
+        temp = getNextEntry(temp);
     }
 }
 
@@ -29,11 +29,9 @@ void determineExistenceOfEntryOrExtern(entriesOrExternList *entriesOrExternHead,
  * second iteration to finalize missing data and write into the ext/ent files
  */
 void finalizeExtractedInformation(errorCodes *error, char *fileName, dataTable *listOfSymbols, codeNode *codeImageHead,
-                                  long IC, entriesOrExternList *entriesOrExternHead) {
+                                  long IC, entriesList *entriesOrExternHead, int hasExtern, int hasEntry) {
     if (!isFileError(*error)) {
         FILE *extFile = NULL, *entFile = NULL;
-        int hasExtern = 0, hasEntry = 0;
-        determineExistenceOfEntryOrExtern(entriesOrExternHead, &hasEntry, &hasExtern);
         if (hasExtern) {
             extFile = generateExtFile(fileName);
         }
@@ -62,10 +60,10 @@ void finalizeExtractedInformation(errorCodes *error, char *fileName, dataTable *
  * reading the assembly file and creating the necessary data structures before converting to machine code
  */
 void readFileAndGenerateOutput(FILE * fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode *dataImageHead, codeNode *codeImageHead,
-                               entriesOrExternList *entriesOrExternHead, char *fileName) {
+                               entriesList *entriesOrExternHead, char *fileName) {
     errorCodes error = 0;
     long DC = DATA_COUNTER_START, IC = INSTRUCTIONS_COUNTER_START;
-    int c = fgetc(fp);
+    int hasExtern = 0, hasEntry = 0, c = fgetc(fp);
     if (c == EOF) {
         error = ERROR_FILE_IS_EMPTY;
         printFileError(ERROR_FILE_IS_EMPTY, fileName);
@@ -73,8 +71,8 @@ void readFileAndGenerateOutput(FILE * fp, CMD *listOfCommands, dataTable *listOf
         ungetc(c, fp);
         printf("Reading from the input file \"%s\":\n", fileName);
         firstIteration(fp, &DC, &IC, &error, listOfCommands, listOfSymbols, dataImageHead, codeImageHead,
-                       entriesOrExternHead);
-        finalizeExtractedInformation(&error, fileName, listOfSymbols, codeImageHead, IC, entriesOrExternHead);
+                       entriesOrExternHead, &hasExtern, &hasEntry);
+        finalizeExtractedInformation(&error, fileName, listOfSymbols, codeImageHead, IC, entriesOrExternHead, hasExtern, hasEntry);
         if (!isFileError(error)) {
             printOBFile(codeImageHead, dataImageHead, IC, DC, fileName);
             printf("Output files for \"%s\" generated.\n----------------------------------------------\n", fileName);

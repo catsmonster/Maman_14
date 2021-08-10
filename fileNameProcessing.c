@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "dataImage.h"
-#include "entriesOrExternList.h"
+#include "entriesList.h"
 
 
 /*
@@ -30,7 +30,7 @@ int openFile(char * fileName, CMD *listOfCommands) {
     dataTable *listOfSymbols = initializeDataTable();
     dataNode *dataImageHead = initializeDataImage();
     codeNode *codeImageHead = initializeCodeImage();
-    entriesOrExternList *entriesOrExternHead = initializeEntriesOrExternList();
+    entriesList *entriesOrExternHead = initializeEntriesList();
     int errorCode = 0;
     if (!listOfSymbols || !dataImageHead || !codeImageHead || !entriesOrExternHead) {
         printMemoryError(ERROR_MEMORY_ALLOCATION);
@@ -48,7 +48,7 @@ int openFile(char * fileName, CMD *listOfCommands) {
         freeDataTable(listOfSymbols);
         freeCodeImage(codeImageHead);
         freeDataImage(dataImageHead);
-        freeEntriesOrExternList(entriesOrExternHead);
+        freeEntriesList(entriesOrExternHead);
     }
     return errorCode;
 }

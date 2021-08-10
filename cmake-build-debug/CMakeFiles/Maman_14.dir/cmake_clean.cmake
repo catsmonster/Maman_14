@@ -4,7 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Maman_14.dir/dataImage.c.o"
   "CMakeFiles/Maman_14.dir/dataTable.c.o"
   "CMakeFiles/Maman_14.dir/directiveFunctions.c.o"
-  "CMakeFiles/Maman_14.dir/entriesOrExternList.c.o"
+  "CMakeFiles/Maman_14.dir/entriesList.c.o"
   "CMakeFiles/Maman_14.dir/fileContentProcessing.c.o"
   "CMakeFiles/Maman_14.dir/fileErrors.c.o"
   "CMakeFiles/Maman_14.dir/fileNameProcessing.c.o"

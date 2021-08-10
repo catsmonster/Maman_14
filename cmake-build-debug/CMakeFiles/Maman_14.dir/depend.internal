@@ -25,20 +25,20 @@ CMakeFiles/Maman_14.dir/directiveFunctions.c.o
  /home/user/CLionProjects/Maman14/dataTable.h
  /home/user/CLionProjects/Maman14/directiveFunctions.c
  /home/user/CLionProjects/Maman14/directiveFunctions.h
- /home/user/CLionProjects/Maman14/entriesOrExternList.h
+ /home/user/CLionProjects/Maman14/entriesList.h
  /home/user/CLionProjects/Maman14/fileErrors.h
  /home/user/CLionProjects/Maman14/inputUtils.h
-CMakeFiles/Maman_14.dir/entriesOrExternList.c.o
+CMakeFiles/Maman_14.dir/entriesList.c.o
  /home/user/CLionProjects/Maman14/dataTable.h
- /home/user/CLionProjects/Maman14/entriesOrExternList.c
- /home/user/CLionProjects/Maman14/entriesOrExternList.h
+ /home/user/CLionProjects/Maman14/entriesList.c
+ /home/user/CLionProjects/Maman14/entriesList.h
  /home/user/CLionProjects/Maman14/fileErrors.h
 CMakeFiles/Maman_14.dir/fileContentProcessing.c.o
  /home/user/CLionProjects/Maman14/codeImage.h
  /home/user/CLionProjects/Maman14/dataImage.h
  /home/user/CLionProjects/Maman14/dataTable.h
  /home/user/CLionProjects/Maman14/directiveFunctions.h
- /home/user/CLionProjects/Maman14/entriesOrExternList.h
+ /home/user/CLionProjects/Maman14/entriesList.h
  /home/user/CLionProjects/Maman14/fileContentProcessing.c
  /home/user/CLionProjects/Maman14/fileContentProcessing.h
  /home/user/CLionProjects/Maman14/fileErrors.h
@@ -53,7 +53,7 @@ CMakeFiles/Maman_14.dir/fileNameProcessing.c.o
  /home/user/CLionProjects/Maman14/codeImage.h
  /home/user/CLionProjects/Maman14/dataImage.h
  /home/user/CLionProjects/Maman14/dataTable.h
- /home/user/CLionProjects/Maman14/entriesOrExternList.h
+ /home/user/CLionProjects/Maman14/entriesList.h
  /home/user/CLionProjects/Maman14/fileContentProcessing.h
  /home/user/CLionProjects/Maman14/fileErrors.h
  /home/user/CLionProjects/Maman14/fileNameProcessing.c
@@ -64,7 +64,7 @@ CMakeFiles/Maman_14.dir/firstIteration.c.o
  /home/user/CLionProjects/Maman14/dataImage.h
  /home/user/CLionProjects/Maman14/dataTable.h
  /home/user/CLionProjects/Maman14/directiveFunctions.h
- /home/user/CLionProjects/Maman14/entriesOrExternList.h
+ /home/user/CLionProjects/Maman14/entriesList.h
  /home/user/CLionProjects/Maman14/fileErrors.h
  /home/user/CLionProjects/Maman14/firstIteration.c
  /home/user/CLionProjects/Maman14/firstIteration.h
@@ -88,7 +88,7 @@ CMakeFiles/Maman_14.dir/printOutput.c.o
  /home/user/CLionProjects/Maman14/codeImage.h
  /home/user/CLionProjects/Maman14/dataImage.h
  /home/user/CLionProjects/Maman14/dataTable.h
- /home/user/CLionProjects/Maman14/entriesOrExternList.h
+ /home/user/CLionProjects/Maman14/entriesList.h
  /home/user/CLionProjects/Maman14/fileErrors.h
  /home/user/CLionProjects/Maman14/printOutput.c
  /home/user/CLionProjects/Maman14/printOutput.h
@@ -96,7 +96,7 @@ CMakeFiles/Maman_14.dir/secondIteration.c.o
  /home/user/CLionProjects/Maman14/codeImage.h
  /home/user/CLionProjects/Maman14/dataImage.h
  /home/user/CLionProjects/Maman14/dataTable.h
- /home/user/CLionProjects/Maman14/entriesOrExternList.h
+ /home/user/CLionProjects/Maman14/entriesList.h
  /home/user/CLionProjects/Maman14/fileErrors.h
  /home/user/CLionProjects/Maman14/printOutput.h
  /home/user/CLionProjects/Maman14/secondIteration.c

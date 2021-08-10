@@ -235,18 +235,18 @@ CMakeFiles/Maman_14.dir/secondIteration.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/secondIteration.c.s"
 	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/secondIteration.c -o CMakeFiles/Maman_14.dir/secondIteration.c.s
 
-CMakeFiles/Maman_14.dir/entriesOrExternList.c.o: CMakeFiles/Maman_14.dir/flags.make
-CMakeFiles/Maman_14.dir/entriesOrExternList.c.o: ../entriesOrExternList.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/Maman_14.dir/entriesOrExternList.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/entriesOrExternList.c.o -c /home/user/CLionProjects/Maman14/entriesOrExternList.c
+CMakeFiles/Maman_14.dir/entriesList.c.o: CMakeFiles/Maman_14.dir/flags.make
+CMakeFiles/Maman_14.dir/entriesList.c.o: ../entriesList.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/CLionProjects/Maman14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/Maman_14.dir/entriesList.c.o"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Maman_14.dir/entriesList.c.o -c /home/user/CLionProjects/Maman14/entriesList.c
 
-CMakeFiles/Maman_14.dir/entriesOrExternList.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/entriesOrExternList.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/entriesOrExternList.c > CMakeFiles/Maman_14.dir/entriesOrExternList.c.i
+CMakeFiles/Maman_14.dir/entriesList.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Maman_14.dir/entriesList.c.i"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/CLionProjects/Maman14/entriesList.c > CMakeFiles/Maman_14.dir/entriesList.c.i
 
-CMakeFiles/Maman_14.dir/entriesOrExternList.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/entriesOrExternList.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/entriesOrExternList.c -o CMakeFiles/Maman_14.dir/entriesOrExternList.c.s
+CMakeFiles/Maman_14.dir/entriesList.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Maman_14.dir/entriesList.c.s"
+	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/CLionProjects/Maman14/entriesList.c -o CMakeFiles/Maman_14.dir/entriesList.c.s
 
 CMakeFiles/Maman_14.dir/printOutput.c.o: CMakeFiles/Maman_14.dir/flags.make
 CMakeFiles/Maman_14.dir/printOutput.c.o: ../printOutput.c
@@ -276,7 +276,7 @@ Maman_14_OBJECTS = \
 "CMakeFiles/Maman_14.dir/dataImage.c.o" \
 "CMakeFiles/Maman_14.dir/codeImage.c.o" \
 "CMakeFiles/Maman_14.dir/secondIteration.c.o" \
-"CMakeFiles/Maman_14.dir/entriesOrExternList.c.o" \
+"CMakeFiles/Maman_14.dir/entriesList.c.o" \
 "CMakeFiles/Maman_14.dir/printOutput.c.o"
 
 # External object files for target Maman_14
@@ -295,7 +295,7 @@ Maman_14: CMakeFiles/Maman_14.dir/commands.c.o
 Maman_14: CMakeFiles/Maman_14.dir/dataImage.c.o
 Maman_14: CMakeFiles/Maman_14.dir/codeImage.c.o
 Maman_14: CMakeFiles/Maman_14.dir/secondIteration.c.o
-Maman_14: CMakeFiles/Maman_14.dir/entriesOrExternList.c.o
+Maman_14: CMakeFiles/Maman_14.dir/entriesList.c.o
 Maman_14: CMakeFiles/Maman_14.dir/printOutput.c.o
 Maman_14: CMakeFiles/Maman_14.dir/build.make
 Maman_14: CMakeFiles/Maman_14.dir/link.txt
