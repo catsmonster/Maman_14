@@ -7,11 +7,6 @@
 #define IC_START_VALUE 100
 #define BYTES_IN_LINE 4
 
-typedef enum {
-    OB_FILE = 700,
-    EXT_FILE,
-    ENT_FILE
-}fileTypes;
 
 /*
  * returns the position of the file extension
@@ -46,10 +41,17 @@ char * processFileName(char * assemblyFile, fileTypes type) {
     return processedName;
 }
 
+/*
+ * prints the number of instruction words and the number of data words in decimal values in the top of the .ob file
+ */
 void printICAndDC(FILE *fp, long IC, long DC) {
     fprintf(fp, "\t\t%ld\t%ld\n", IC - IC_START_VALUE, DC);
 }
 
+/*
+ * prints the code words 4 bytes in each line, starting with a decimal address presented in 4 digits, and followed by
+ * the bytes in little endian of the instruction word, in hexadecimal values of 2 digits each.
+ */
 void printCodeWords(FILE *fp, codeNode *codeImageHead) {
     while (codeImageHead) {
         fprintf(fp, "%04ld\t%02X\t%02X\t%02X\t%02X\n", getCodeNodeAddress(codeImageHead),
@@ -59,6 +61,9 @@ void printCodeWords(FILE *fp, codeNode *codeImageHead) {
     }
 }
 
+/*
+ * either prints a new line with an address and a tab, or just a tab (exceptions for first and last values printed).
+ */
 void newLineOrTab(FILE *fp, int *printedDataCounter, long ICF, long *dataAddress, long DC) {
     if (*printedDataCounter % BYTES_IN_LINE == 0) {
         if (*dataAddress != ICF) {
@@ -74,7 +79,10 @@ void newLineOrTab(FILE *fp, int *printedDataCounter, long ICF, long *dataAddress
     }
 }
 
-
+/*
+ * prints the representation of the data words in little endian, 1 byte at a time - presented as a hexadecimal value of
+ * 2 digits, following the format of 4 bytes in a line
+ */
 void printDataByte(dataNode *dataImageHead, long *dataAddress, int *printedDataCounter, long IC, FILE *fp, int size, long DC) {
     dataByte i;
     for (i = FIRST_DATA_BYTE; i < size + FIRST_DATA_BYTE; i++) {
@@ -83,7 +91,9 @@ void printDataByte(dataNode *dataImageHead, long *dataAddress, int *printedDataC
     }
 }
 
-
+/*
+ * iterates over the data image and prints each node according to its specified type
+ */
 void printData(FILE *fp, dataNode *dataImageHead, long IC, long DC) {
     int printedDataCounter = 0;
     long dataAddress = IC;
@@ -107,6 +117,9 @@ void printData(FILE *fp, dataNode *dataImageHead, long IC, long DC) {
     }
 }
 
+/*
+ * handles the printing process of the .ob file
+ */
 void printOBFile(codeNode *codeImageHead, dataNode *dataImageHead, long IC, long DC, char *fileName){
     FILE *fp;
     char *outputFileName = processFileName(fileName, OB_FILE);
@@ -118,27 +131,27 @@ void printOBFile(codeNode *codeImageHead, dataNode *dataImageHead, long IC, long
     free(outputFileName);
 }
 
-FILE *generateExtFile(char *fileName){
+/*
+ * generates an .ext or .ent file with the same name as the input file, returning its pointer
+ */
+FILE *generateExtOrEntFile(char *fileName, fileTypes type){
     FILE *fp;
-    char *outputFileName = processFileName(fileName, EXT_FILE);
+    char *outputFileName = processFileName(fileName, type);
     fp = fopen(outputFileName, "w");
     free(outputFileName);
     return fp;
 }
 
-
-FILE *generateEntFile(char *fileName){
-    FILE *fp;
-    char *outputFileName = processFileName(fileName, ENT_FILE);
-    fp = fopen(outputFileName, "w");
-    free(outputFileName);
-    return fp;
-}
-
+/*
+ * prints a line to the .ent or .ext file with the name of the label and the address of its usage in 4 a digits decimal
+ */
 void printEntOrExtLine(FILE **fp, long address, char *label) {
     fprintf(*fp, "%s\t%04ld\n", label, address);
 }
 
+/*
+ * deletes .ent and .ext files if any exist (in case an error was encountered)
+ */
 void deleteEntExtFiles(char *fileName, FILE *entFile, FILE *extFile) {
     if (entFile)
         remove(processFileName(fileName, ENT_FILE));

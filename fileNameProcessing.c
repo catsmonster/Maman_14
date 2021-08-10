@@ -83,5 +83,4 @@ int inputFilesIteration(int argc, char **argv) {
         free(listOfCommands);
     }
     return isError;
-
 }

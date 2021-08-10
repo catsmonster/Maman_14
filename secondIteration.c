@@ -3,6 +3,23 @@
 #include <stdlib.h>
 
 
+/*
+ * in case an external symbol was encountered, prints the address in which it was used as an argument in an instruction
+ * to the .ext file
+ */
+void handleExtSymbol(typesOfCommands type, char *label, errorCodes *error, long currentLine, FILE **extFile, long address) {
+    if (type == I_TYPE_CONDITIONAL) {
+        *error = ERROR_EXTERN_IN_CONDITIONAL;
+        printInputError(ERROR_EXTERN_IN_CONDITIONAL, label, currentLine, 0);
+    } else {
+        printEntOrExtLine(extFile, address, label);
+    }
+}
+
+/*
+ * updates the information which couldn't be fully processed in the first iteration into the code image, and prints
+ * the .ext file if necessary.
+ */
 void updateCodeImage(codeNode *codeImageHead, dataTable *listOfSymbols, errorCodes *error, long ICF, FILE **extFile) {
     while (codeImageHead && !isFileError(*error)) {
         long symbolAddress, currentLine, address;
@@ -21,12 +38,7 @@ void updateCodeImage(codeNode *codeImageHead, dataTable *listOfSymbols, errorCod
                 if (symbolType != EXTERN) {
                     adjustMissingAddressToCodeImage(symbolAddress, codeImageHead);
                 } else {
-                    if (type == I_TYPE_CONDITIONAL) {
-                        *error = ERROR_EXTERN_IN_CONDITIONAL;
-                        printInputError(ERROR_EXTERN_IN_CONDITIONAL, label, currentLine, 0);
-                    } else {
-                        printEntOrExtLine(extFile, address, label);
-                    }
+                    handleExtSymbol(type, label, error, currentLine, extFile, address);
                 }
             }
         }
@@ -34,6 +46,9 @@ void updateCodeImage(codeNode *codeImageHead, dataTable *listOfSymbols, errorCod
     }
 }
 
+/*
+ * iterates over the list of entries and prints any entries to the .ent file
+ */
 void updateEntries(entriesList *entriesHead, dataTable *listOfSymbols, errorCodes *error, FILE **entFile, long ICF) {
     while (entriesHead && !isEmpty(entriesHead) && !isFileError(*error)) {
         long symbolAddress, currentLine = getEntryLine(entriesHead);

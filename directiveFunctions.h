@@ -34,8 +34,8 @@ void db(int *, const char [], long *, errorCodes *, dataNode**, long);
 void asciz(int *, const char[], long *,  errorCodes *, dataNode**, long);
 /*
  * handles reading an .entry directive line
- * accepts the position pointer, the input line string, an error code pointer, the current line counter, and the
- * entries linked list
+ * accepts the position pointer, the input line string, an error code pointer, the current line counter, the address of the
+ * entries linked list tail and the entries linked list head
  */
 void entry(int *, const char[], errorCodes *, long, entriesList**, entriesList *);
 /*

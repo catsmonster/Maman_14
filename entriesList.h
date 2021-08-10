@@ -4,11 +4,11 @@
 #include "fileErrors.h"
 #include "dataTable.h"
 /*
- * this struct holds the names of labels which are flagged as entry or extern
+ * this struct holds the names of labels which are flagged as entry
  */
 typedef struct entriesNode entriesList;
 /*
- * frees the linked list of entriesOrExtern
+ * frees the linked list of entries
  * accepts head of entriesList
  */
 void freeEntriesList(entriesList *head);

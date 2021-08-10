@@ -10,9 +10,9 @@
 
 /*
  * handles the building of the symbols table, the data image and most of the code image (minus the final addresses).
- * also creates a list of labels flagged as entry or extern.
+ * also creates a list of labels flagged as entry.
  * accepts a FILE pointer, data-counter pointer, instructions-counter pointer, error code pointer, list of commands,
- * data image, code image, entries/extern list
+ * data image, code image, entries list
  */
 void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, CMD *, dataTable*, dataNode *, codeNode *,
                     entriesList *, int *, int *);

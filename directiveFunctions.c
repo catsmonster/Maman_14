@@ -208,7 +208,7 @@ void asciz(int *pos, const char input[], long *DC, errorCodes *error, dataNode *
 
 
 /*
- * adds a label given as an argument to the linked list containing all the labels flagged as entries.
+ * adds the label given as an argument to a linked list of entries
  */
 void entry(int *pos, const char input[], errorCodes *error, long currentLine, entriesList **entriesTail, entriesList *entriesHead){
     char* labelName = calloc(MAX_LABEL_LENGTH, sizeof(char ));

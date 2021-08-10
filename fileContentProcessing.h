@@ -7,9 +7,8 @@
 #include "entriesList.h"
 /*
  * API of input related processing. accepts a FILE pointer, list of commands pointer, table of symbols pointer,
- * data image linked list, code image linked list, entries/extern linked list, and a string representing the
- * input file name
+ * data image linked list, code image linked list, entries linked list, and a string representing the input file name
  */
-void readFileAndGenerateOutput(FILE *fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode *dataImageHead, codeNode *codeImageHead, entriesList *entriesOrExternHead,
-                               char *fileName);
+void readFileAndGenerateOutput(FILE *fp, CMD *listOfCommands, dataTable *listOfSymbols, dataNode *dataImageHead,
+                               codeNode *codeImageHead, entriesList *entriesHead, char *fileName);
 #endif
