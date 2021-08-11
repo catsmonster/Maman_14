@@ -11,34 +11,29 @@ void skipWhiteSpaces(int *pos, const char *inputLine) {
 }
 
 /*
- * advances to the next valid number to read into the list
+ * advances to the next valid argument to read
  */
-int advanceToNextArgument(int *pos, const char *input, long currentLine, int commaDetected, errorCodes *error){
+int advanceToNextArgument(int *pos, const char *input, long currentLine, errorCodes *error){
     int errorFound = 0;
     skipWhiteSpaces(pos, input);
     if (input[*pos] && input[*pos] != '\n') {
         if (input[*pos] == ',') {
-            if (commaDetected) {
+            (*pos)++;
+            skipWhiteSpaces(pos, input);
+            if (!input[*pos] || (input[*pos] && (!isgraph(input[*pos])))) {
+                *error = ERROR_MISSING_ARGUMENT;
+                printInputError(ERROR_MISSING_ARGUMENT, "", currentLine, *pos);
+                errorFound = LOCAL_ERROR;
+            }
+            else if (input[*pos] == ',') {
                 *error = ERROR_MULTIPLE_CONSECUTIVE_COMMAS;
                 printInputError(ERROR_MULTIPLE_CONSECUTIVE_COMMAS, "", currentLine, *pos);
                 errorFound = LOCAL_ERROR;
-            } else {
-                (*pos)++;
-                advanceToNextArgument(pos, input, currentLine, 1, error);
-            }
-        } else {
-            if (!commaDetected) {
-                *error = ERROR_MISSING_COMMA;
-                printInputError(ERROR_MISSING_COMMA, "", currentLine, *pos);
-                errorFound = LOCAL_ERROR;
             }
         }
-    }
-    else {
-        skipWhiteSpaces(pos, input);
-        if (commaDetected && (input[*pos] && (!isgraph(input[*pos]) || !input[*pos]))) {
-            *error = ERROR_MISSING_ARGUMENT;
-            printInputError(ERROR_MISSING_ARGUMENT, "", currentLine, *pos);
+        else {
+            *error = ERROR_MISSING_COMMA;
+            printInputError(ERROR_MISSING_COMMA, "", currentLine, *pos);
             errorFound = LOCAL_ERROR;
         }
     }

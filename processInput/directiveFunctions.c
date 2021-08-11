@@ -107,7 +107,7 @@ void readNumbersSeperatedByCommas(int *pos, const char input[], long *DC, errorC
             skipWhiteSpaces(pos, input);
             localError = readNum(pos, input, error, currentLine, type, list, &listIndex);
             if (localError != LOCAL_ERROR)
-                localError = advanceToNextArgument(pos, input, currentLine, 0, error);
+                localError = advanceToNextArgument(pos, input, currentLine, error);
         }
         if (!localError) {
             if (listIndex > 0) {

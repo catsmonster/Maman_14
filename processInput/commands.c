@@ -1,28 +1,23 @@
 
 #include "../includes/commands.h"
-#include "../includes/listOfCommands.h"
 #include "../includes/inputUtils.h"
-#include "../includes/fileErrors.h"
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
 #define MAX_NUM_LENGTH 3
 #define MAX_REGISTER_VALUE 31
 #define MAX_IMMED_NUM_LENGTH 7
-#define MIN_SIZE_16_BITS -32768
+#define MIN_SIZE_16_BITS (-32768)
 #define MAX_SIZE_16_BITS 32767
 #define MAX_LABEL_LENGTH 32
 
 /*
  * returns 1 if found '$' character, indicating the start of a register
  */
-int foundRegister(int *pos, const char *input, errorCodes *error, long currentLine) {
+int foundRegister(int *pos, const char *input) {
     int registerFound = 0;
     skipWhiteSpaces(pos, input);
-    if (input[*pos] != '$') {
-        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
-    }
-    else {
+    if (input[*pos] == '$') {
         registerFound = 1;
         (*pos)++;
     }
@@ -83,7 +78,7 @@ int readRegNum(int *pos, const char input[], long currentLine, errorCodes *error
  */
 int readRegister(int *pos, const char input[], errorCodes *error, long currentLine, int *reg) {
     int foundError;
-    if (foundRegister(pos, input, error, currentLine)) {
+    if (foundRegister(pos, input)) {
         foundError = readRegNum(pos, input, currentLine, error, reg);
     }
     else {
@@ -172,7 +167,7 @@ void addRWord(int *pos, const char input[], errorCodes *error, long currentLine,
 /*
  * adds an I word to the end of the code image.
  */
-void addIWord(int *pos, const char input[], errorCodes *error, long currentLine, codeNode **codeImageTail, int posInList,
+void addIWord(errorCodes *error, long currentLine, codeNode **codeImageTail, int posInList,
               CMD *listOfCommands, int rs, int rt, long immed, long *IC, char *label, typesOfCommands type) {
     if (!isFileError(*error)){
         *codeImageTail = insertIWord(error, getOpcode(posInList, listOfCommands),
@@ -188,9 +183,9 @@ void arithmeticRFunctions(int *pos, const char input[], int posInList, CMD *list
                           long *IC, errorCodes *error, long currentLine) {
     int rs = -1, rt = -1, rd = -1;
     if (readRegister(pos, input, error, currentLine, &rs) != LOCAL_ERROR) {
-        if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR) {
+        if (advanceToNextArgument(pos, input, currentLine, error) != LOCAL_ERROR) {
             if (readRegister(pos, input, error, currentLine, &rt) != LOCAL_ERROR) {
-                if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR) {
+                if (advanceToNextArgument(pos, input, currentLine, error) != LOCAL_ERROR) {
                     if (readRegister(pos, input, error, currentLine, &rd) != LOCAL_ERROR) {
                         if (isEndOfInputValid(pos, input, error, currentLine)) {
                             addRWord(pos, input, error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt,
@@ -210,7 +205,7 @@ void copyRFunctions(int *pos, const char input[], int posInList, CMD *listOfComm
                     long *IC, errorCodes *error, long currentLine){
     int rs, rd, rt = 0;
     if (readRegister(pos, input, error, currentLine, &rs) != LOCAL_ERROR) {
-        if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR){
+        if (advanceToNextArgument(pos, input, currentLine, error) != LOCAL_ERROR){
             if (readRegister(pos, input, error, currentLine, &rd) != LOCAL_ERROR) {
                 if (isEndOfInputValid(pos, input, error, currentLine)) {
                     addRWord(pos, input, error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt, rd, IC);
@@ -228,12 +223,12 @@ void arithmeticAndLoaderIFunctions(int *pos, const char *input, int posInList, C
     int rs, rt;
     long immed;
     if (readRegister(pos, input, error, currentLine, &rs) != LOCAL_ERROR) {
-        if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR) {
+        if (advanceToNextArgument(pos, input, currentLine, error) != LOCAL_ERROR) {
             if (readInstantValue(pos, input, error, currentLine, &immed) != LOCAL_ERROR) {
-                if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR) {
+                if (advanceToNextArgument(pos, input, currentLine, error) != LOCAL_ERROR) {
                     if (readRegister(pos, input, error, currentLine, &rt) != LOCAL_ERROR) {
                         if (isEndOfInputValid(pos, input, error, currentLine)) {
-                            addIWord(pos, input, error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt,
+                            addIWord(error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt,
                                      immed, IC, NULL, I_TYPE);
                         }
                     }
@@ -252,12 +247,12 @@ void conditionalIFunctions(int *pos, const char input[], int posInList, CMD *lis
     int rs, rt;
     long immed = 0;
     if (readRegister(pos, input, error, currentLine, &rs) != LOCAL_ERROR) {
-        if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR) {
+        if (advanceToNextArgument(pos, input, currentLine, error) != LOCAL_ERROR) {
             if (readRegister(pos, input, error, currentLine, &rt) != LOCAL_ERROR) {
-                if (advanceToNextArgument(pos, input, currentLine, 0, error) != LOCAL_ERROR) {
+                if (advanceToNextArgument(pos, input, currentLine, error) != LOCAL_ERROR) {
                     readInputLabel(pos, input, currentLine, error, label);
                     if (!isFileError(*error)) {
-                        addIWord(pos, input, error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt,
+                        addIWord(error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt,
                                  immed, IC, label, I_TYPE_CONDITIONAL);
                     }
                 }

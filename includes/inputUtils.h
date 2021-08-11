@@ -13,10 +13,9 @@
 void skipWhiteSpaces(int *, const char *);
 /*
  * attempts to find the next element in a list separated by commas, handles format related errors.
- * accepts the position counter, an input string, current line counter, a flag indicating that a comma was found (default is 0)
- * and a pointer to an error code.
+ * accepts the position counter, an input string, current line counter and a pointer to an error code.
  */
-int advanceToNextArgument(int *pos, const char *input, long currentLine, int commaDetected, errorCodes *error);
+int advanceToNextArgument(int *pos, const char *input, long currentLine, errorCodes *error);
 /*
  * advances to the first valid character in the line, announcing any illegal characters along the way, and skipping
  * empty lines or comment lines.

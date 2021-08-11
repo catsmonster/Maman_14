@@ -6,15 +6,37 @@
 
 #IncludeRegexTransform: 
 
+/home/user/CLionProjects/Maman14/includes/codeImage.h
+fileErrors.h
+/home/user/CLionProjects/Maman14/includes/fileErrors.h
+
+/home/user/CLionProjects/Maman14/includes/commands.h
+codeImage.h
+/home/user/CLionProjects/Maman14/includes/codeImage.h
+listOfCommands.h
+/home/user/CLionProjects/Maman14/includes/listOfCommands.h
+fileErrors.h
+/home/user/CLionProjects/Maman14/includes/fileErrors.h
+
 /home/user/CLionProjects/Maman14/includes/fileErrors.h
 
 /home/user/CLionProjects/Maman14/includes/inputUtils.h
 fileErrors.h
 /home/user/CLionProjects/Maman14/includes/fileErrors.h
 
-/home/user/CLionProjects/Maman14/processInput/inputUtils.c
+/home/user/CLionProjects/Maman14/includes/listOfCommands.h
+codeImage.h
+/home/user/CLionProjects/Maman14/includes/codeImage.h
+
+/home/user/CLionProjects/Maman14/processInput/commands.c
+../includes/commands.h
+/home/user/CLionProjects/Maman14/includes/commands.h
 ../includes/inputUtils.h
 /home/user/CLionProjects/Maman14/includes/inputUtils.h
 ctype.h
+-
+stdlib.h
+-
+string.h
 -
 
