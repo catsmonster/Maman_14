@@ -57,7 +57,7 @@ int getDirectiveCMD(int *pos, const char *inputLine, long currentLine, errorCode
  */
 int getCommandName(int *pos, const char inputLine[], long currentLine, CMD *listOfCommands, errorCodes *error) {
     int commandPos = NOT_FOUND, i = 0, startPos = *pos;
-    char commandName[MAX_COMMAND_LENGTH];
+    char commandName[MAX_COMMAND_LENGTH] = {0};
     while (isalpha(inputLine[*pos]) && i < MAX_COMMAND_LENGTH) {
         commandName[i++] = inputLine[(*pos)++];
     }
@@ -65,8 +65,11 @@ int getCommandName(int *pos, const char inputLine[], long currentLine, CMD *list
         printInputError(ERROR_MISSING_ARGUMENT, "", currentLine, *pos);
         commandPos = ERROR_MISSING_ARGUMENT;
     }
+    else if (i >= MAX_COMMAND_LENGTH) {
+        printInputError(ERROR_DIRECTIVE_CMD_TOO_LONG, "", currentLine, *pos);
+        commandPos = ERROR_DIRECTIVE_CMD_TOO_LONG;
+    }
     else if (isValidEndOfCommand(pos, inputLine, currentLine, error)) {
-        commandName[i] = '\0';
         commandPos = findCommand(commandName, listOfCommands);
         if (commandPos == NOT_FOUND) {
             printInputError(ERROR_COMMAND_NOT_FOUND, commandName, currentLine, *pos);
