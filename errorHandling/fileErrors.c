@@ -57,40 +57,40 @@ void printInputError(errorCodes errorCode, char * errorCause, long line, int pos
             printf("Line %ld in position %d: label/command name too long.\n", line, pos);
             break;
         case ERROR_INTEGER_OUT_OF_RANGE:
-            printf("line %ld in position %d: given number is out of range\n", line, pos);
+            printf("Line %ld in position %d: given number is out of range\n", line, pos);
             break;
         case ERROR_MULTIPLE_CONSECUTIVE_COMMAS:
-            printf("line %ld in position %d: encountered multiple consecutive commas.\n", line, pos);
+            printf("Line %ld in position %d: encountered multiple consecutive commas.\n", line, pos);
             break;
         case ERROR_MISSING_COMMA:
-            printf("line %ld in position %d: missing expected comma\n", line, pos);
+            printf("Line %ld in position %d: missing expected comma\n", line, pos);
             break;
         case ERROR_MISSING_DATA:
-            printf("line %ld in position %d: no data was given.\n", line, pos);
+            printf("Line %ld in position %d: no data was given.\n", line, pos);
             break;
         case ERROR_MISSING_QUOTATION:
-            printf("line %ld in position %d: missing quotation mark, invalid string.\n", line, pos);
+            printf("Line %ld in position %d: missing quotation mark, invalid string.\n", line, pos);
             break;
         case ERROR_MISSING_ARGUMENT:
-            printf("line %ld in position %d: missing arguments.\n", line, pos);
+            printf("Line %ld in position %d: missing arguments.\n", line, pos);
             break;
         case ERROR_EXCESSIVE_ARGUMENT:
-            printf("line %ld in position %d: excessive arguments\n", line, pos);
+            printf("Line %ld in position %d: excessive arguments\n", line, pos);
             break;
         case ERROR_SYMBOL_NOT_FOUND:
-            printf("line %ld: The symbol \"%s\" doesn't exist.\n", line, errorCause);
+            printf("Line %ld: The symbol \"%s\" doesn't exist.\n", line, errorCause);
             break;
         case WARNING_LABEL_IGNORED:
-            printf("line %ld: a label \"%s\" before an entry/extern directive will be ignored.\n", line, errorCause);
+            printf("Line %ld: a label \"%s\" before an entry/extern directive will be ignored.\n", line, errorCause);
             break;
         case ERROR_EXTERN_IS_ENTRY:
-            printf("line %ld: the label \"%s\" can't be both an external value and an entry.\n", line, errorCause);
+            printf("Line %ld: the label \"%s\" can't be both an external value and an entry.\n", line, errorCause);
             break;
         case ERROR_EXTERN_IN_CONDITIONAL:
-            printf("line %ld: external variable \"%s\" cannot be used together with a conditional command.\n", line, errorCause);
+            printf("Line %ld: external variable \"%s\" cannot be used together with a conditional command.\n", line, errorCause);
             break;
         case ERROR_NOT_AN_INTEGER:
-            printf("line %ld in position %d: error, expected a digit, instead encountered the character \"%s\".\n", line, pos, errorCause);
+            printf("Line %ld in position %d: error, expected a digit, instead encountered the character \"%s\".\n", line, pos, errorCause);
             break;
         default:
             printf("An unknown error has occurred\n");
