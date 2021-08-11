@@ -59,7 +59,7 @@ int getDirectiveCMD(int *pos, const char *inputLine, long currentLine, errorCode
  * of the found command, or -1 if the command wasn't found
  */
 int getCommandName(int *pos, const char inputLine[], long currentLine, CMD *listOfCommands, errorCodes *error) {
-    int commandPos, i = 0, startPos = *pos;
+    int commandPos = NOT_FOUND, i = 0, startPos = *pos;
     char commandName[MAX_COMMAND_LENGTH];
     while (isalpha(inputLine[*pos]) && i < MAX_COMMAND_LENGTH) {
         commandName[i++] = inputLine[(*pos)++];
@@ -68,7 +68,7 @@ int getCommandName(int *pos, const char inputLine[], long currentLine, CMD *list
         printInputError(ERROR_MISSING_ARGUMENT, "", currentLine, *pos);
         commandPos = ERROR_MISSING_ARGUMENT;
     }
-    if (isValidEndOfCommand(pos, inputLine, currentLine, error)) {
+    else if (isValidEndOfCommand(pos, inputLine, currentLine, error)) {
         commandName[i] = '\0';
         commandPos = findCommand(commandName, listOfCommands);
         if (commandPos == NOT_FOUND) {
@@ -92,7 +92,7 @@ int isKnownCMD(char *labelName, CMD *listOfCommands) {
 /*
  * prints an error message and resets the start position in case of an error while reading a label
  */
-void handleLabelError(int *pos, int startPos, long currentLine, char labelName[], int *isLabel, int error) {
+void handleLabelError(int *pos, int startPos, long currentLine, char labelName[], int *isLabel, errorCodes error) {
     if (error == ERROR_LABEL_COMMAND_CONFLICT)
         printInputError(ERROR_LABEL_COMMAND_CONFLICT, labelName, currentLine, *pos);
     if (error ==ERROR_MISSING_WHITESPACE)
@@ -107,7 +107,7 @@ void handleLabelError(int *pos, int startPos, long currentLine, char labelName[]
  * attempts to read a label, if a label is illegal, or if the read text isn't a label, resets the position pointer and
  * returns an error code. otherwise, returns 1.
  */
-int isValidLabel(int *pos, const char inputLine[], long currentLine, CMD *listOfCommands, char labelName[]) {
+int isValidLabel(int *pos, const char inputLine[], long currentLine, CMD *listOfCommands, char labelName[], errorCodes *error) {
     int startPos = *pos, isLabel = 0, i = 0;
     if (isalpha(inputLine[*pos])) {
         while (isalnum(inputLine[*pos]) && i < MAX_LABEL_LENGTH) {
@@ -119,20 +119,27 @@ int isValidLabel(int *pos, const char inputLine[], long currentLine, CMD *listOf
                 (*pos)++;
                 if (isKnownCMD(labelName, listOfCommands)) {
                     handleLabelError(pos, startPos, currentLine, labelName, &isLabel, ERROR_LABEL_COMMAND_CONFLICT);
+                    *error = ERROR_LABEL_COMMAND_CONFLICT;
                 } else {
                     isLabel = 1;
                 }
             }
             else {
                 handleLabelError(pos, startPos, currentLine, labelName, &isLabel, ERROR_MISSING_WHITESPACE);
+                *error = ERROR_MISSING_WHITESPACE;
             }
         }
         else {
             if (i == MAX_LABEL_LENGTH) {
                 handleLabelError(pos, startPos, currentLine, labelName, &isLabel, ERROR_MAX_LENGTH);
+                *error = ERROR_MAX_LENGTH;
             }
             (*pos) = startPos;
         }
+    } else if (isgraph(inputLine[*pos]) && inputLine[*pos] != '.') {
+        handleInvalidCharacterError(inputLine[*pos], currentLine, error, pos);
+        *error = ERROR_INVALID_CHARACTER;
+        isLabel = ERROR_INVALID_CHARACTER;
     }
     return isLabel;
 
@@ -243,7 +250,7 @@ void readLine(int *pos, const char inputLine[], long * DC, long * IC, long curre
               entriesList **entriesTail, int *hasExtern, int *hasEntry, entriesList *entriesHead) {
     int selectedDirectiveCMD = NOT_FOUND, selectedCMD = NOT_FOUND;
     char *labelName = calloc(MAX_LABEL_LENGTH, sizeof(char));
-    int validLabel = isValidLabel(pos, inputLine, currentLine, listOfCommands, labelName);
+    int validLabel = isValidLabel(pos, inputLine, currentLine, listOfCommands, labelName, error);
     if (!isFileError(validLabel)) {
         readCommand(pos, inputLine, currentLine, listOfCommands, &selectedDirectiveCMD, &selectedCMD, error);
         if (!isFileError(selectedDirectiveCMD) && !isFileError(selectedCMD)) {

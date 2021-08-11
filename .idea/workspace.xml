@@ -16,9 +16,9 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/inputUtils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/inputUtils.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/processInput/commands.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/commands.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/processInput/directiveFunctions.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/directiveFunctions.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processInput/firstIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/firstIteration.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/processInput/inputUtils.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/inputUtils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +77,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Maman_14" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="errors-test.as 1.as 2 3.as 4.as 5.as as.as" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Maman_14" TARGET_NAME="Maman_14" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Maman_14" RUN_TARGET_NAME="Maman_14">
+    <configuration name="Maman_14" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="1.as 3.as as.as" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Maman_14" TARGET_NAME="Maman_14" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Maman_14" RUN_TARGET_NAME="Maman_14">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -111,7 +111,7 @@
       <workItem from="1625936061906" duration="139581000" />
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
-      <workItem from="1628359595675" duration="35175000" />
+      <workItem from="1628359595675" duration="39795000" />
     </task>
     <task id="LOCAL-00001" summary="first commit - project is working with valid input, before testing for invalid inputs and before optimizing dataTable.c deleted bloat">
       <created>1627043778177</created>
@@ -358,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628639119260</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fixed a bug concerning the inputUtils.c advanceToNextArgument">
+      <created>1628712115368</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1628712115368</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +385,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="removed directiveFuncArr from unrelated files. it is now declared specifically where it's needed." />
     <MESSAGE value="added some comments, changed the code image to hold typeOfCommands enum instead of int." />
     <MESSAGE value="refactored commands and directiveFunctions to use common functions using inputUtils. Also added checks for all commands to alert excessive data, and added some more comments" />
     <MESSAGE value="added commands.h comments" />
@@ -403,15 +409,26 @@
     <MESSAGE value="changed entriesOrExtern to be entriesList.c instead to remove redundancy" />
     <MESSAGE value="added some more necessary documentation and some minor refactoring" />
     <MESSAGE value="moved content to folders and fixed minor pedantic issues related to parenthesis in commands.c, inputUtils.c, directiveFunctions.c documentation is also finished." />
-    <option name="LAST_COMMIT_MESSAGE" value="moved content to folders and fixed minor pedantic issues related to parenthesis in commands.c, inputUtils.c, directiveFunctions.c documentation is also finished." />
+    <MESSAGE value="fixed a bug concerning the inputUtils.c advanceToNextArgument" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed a bug concerning the inputUtils.c advanceToNextArgument" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/processInput/commands.c</url>
-          <line>243</line>
+          <line>247</line>
           <option name="timeStamp" value="155" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/processInput/commands.c</url>
+          <line>185</line>
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/processInput/directiveFunctions.c</url>
+          <line>186</line>
+          <option name="timeStamp" value="159" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

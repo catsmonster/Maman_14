@@ -92,7 +92,12 @@ void validateLabelName(int *pos, const char input[], errorCodes *error, long cur
 void readInputLabel(int *pos, const char *input, long currentLine, errorCodes *error, char *labelName) {
     skipWhiteSpaces(pos, input);
     if (!isalpha(input[*pos])) {
-        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
+        if (!isgraph(input[*pos])) {
+            printInputError(ERROR_MISSING_ARGUMENT, "", currentLine, *pos);
+        }
+        else {
+            handleInvalidCharacterError(input[*pos], currentLine, error, pos);
+        }
     }
     else {
         int index = 0;

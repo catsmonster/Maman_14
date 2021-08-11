@@ -74,7 +74,7 @@ int readNum(int *pos, const char input[],errorCodes *error, long currentLine, ty
     char *end;
     int maxLength = determineMaxLength(type);
     if (!isdigit(input[*pos]) && input[*pos] != '-' && input[*pos] != '+') {
-        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
+        handleNANError(input[*pos], currentLine, error, pos);
         foundError = LOCAL_ERROR;
     }
     else {
@@ -89,7 +89,12 @@ int readNum(int *pos, const char input[],errorCodes *error, long currentLine, ty
         }
         else {
             givenNum = strtol(num, &end, 10);
-            list[(*listIndex)++] = givenNum;
+            if (end[0]) {
+                handleNANError(end[0], currentLine, error, pos);
+                *error = ERROR_NOT_AN_INTEGER;
+                foundError = LOCAL_ERROR;
+            } else
+                list[(*listIndex)++] = givenNum;
         }
     }
     return foundError;

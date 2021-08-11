@@ -81,9 +81,13 @@ int readRegister(int *pos, const char input[], errorCodes *error, long currentLi
     if (foundRegister(pos, input)) {
         foundError = readRegNum(pos, input, currentLine, error, reg);
     }
-    else {
+    else if (!input[*pos] || input[*pos] == '\n') {
         *error = ERROR_MISSING_ARGUMENT;
         printInputError(ERROR_MISSING_ARGUMENT, "", currentLine, *pos);
+        foundError = LOCAL_ERROR;
+    } else {
+        handleInvalidCharacterError(input[*pos], currentLine, error, pos);
+        *error = ERROR_INVALID_CHARACTER;
         foundError = LOCAL_ERROR;
     }
     return foundError;
