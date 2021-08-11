@@ -11,13 +11,16 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27892bee-15bb-49b6-b18e-24094989a66e" name="Default Changelist" comment="fixed some bugs with displaying errors in commands.c directiveFunctions.c firstIteration.c and inputUtils.c">
+    <list default="true" id="27892bee-15bb-49b6-b18e-24094989a66e" name="Default Changelist" comment="changed all errors to start with a capital letter">
       <change afterPath="$PROJECT_DIR$/cmake-build-debug/checkFirstPass.as" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/cmake-build-debug/checkSecondPass.as" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/cmake-build-debug/errors-test.as" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/errorHandling/fileErrors.c" beforeDir="false" afterPath="$PROJECT_DIR$/errorHandling/fileErrors.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processInput/firstIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/firstIteration.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +78,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Maman_14" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="errors-test.as" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Maman_14" TARGET_NAME="Maman_14" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Maman_14" RUN_TARGET_NAME="Maman_14">
+    <configuration name="Maman_14" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="1.as" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Maman_14" TARGET_NAME="Maman_14" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Maman_14" RUN_TARGET_NAME="Maman_14">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -109,7 +112,7 @@
       <workItem from="1625936061906" duration="139581000" />
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
-      <workItem from="1628359595675" duration="40762000" />
+      <workItem from="1628359595675" duration="41798000" />
     </task>
     <task id="LOCAL-00001" summary="first commit - project is working with valid input, before testing for invalid inputs and before optimizing dataTable.c deleted bloat">
       <created>1627043778177</created>
@@ -370,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628718442874</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="changed all errors to start with a capital letter">
+      <created>1628719763915</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1628719763915</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,7 +400,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="refactored commands and directiveFunctions to use common functions using inputUtils. Also added checks for all commands to alert excessive data, and added some more comments" />
     <MESSAGE value="added commands.h comments" />
     <MESSAGE value="changed the name of the function &quot;preProcessing&quot; to &quot;advanceToStartOfValidInput&quot;" />
     <MESSAGE value="added some type definitions for symbolTypes and dataTypes and dataBytes" />
@@ -415,7 +424,8 @@
     <MESSAGE value="moved content to folders and fixed minor pedantic issues related to parenthesis in commands.c, inputUtils.c, directiveFunctions.c documentation is also finished." />
     <MESSAGE value="fixed a bug concerning the inputUtils.c advanceToNextArgument" />
     <MESSAGE value="fixed some bugs with displaying errors in commands.c directiveFunctions.c firstIteration.c and inputUtils.c" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed some bugs with displaying errors in commands.c directiveFunctions.c firstIteration.c and inputUtils.c" />
+    <MESSAGE value="changed all errors to start with a capital letter" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed all errors to start with a capital letter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -434,6 +444,11 @@
           <url>file://$PROJECT_DIR$/processInput/directiveFunctions.c</url>
           <line>186</line>
           <option name="timeStamp" value="159" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/processInput/firstIteration.c</url>
+          <line>106</line>
+          <option name="timeStamp" value="160" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

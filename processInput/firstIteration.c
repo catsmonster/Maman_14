@@ -29,20 +29,17 @@ int compareToKnownDirectiveCMDs(char *directiveInput) {
  */
 int getDirectiveCMD(int *pos, const char *inputLine, long currentLine, errorCodes *error) {
     int selectedCMD = NOT_FOUND, counter = 0;
-    char directiveInput[MAX_DIRECTIVE_CMD_LENGTH];
+    char directiveInput[MAX_DIRECTIVE_CMD_LENGTH] = {0};
     (*pos)++;
     while (!isFileError(selectedCMD) && counter < MAX_DIRECTIVE_CMD_LENGTH && islower(inputLine[*pos])) {
         directiveInput[counter++] = inputLine[*pos];
         (*pos)++;
     }
-    if (counter > MAX_DIRECTIVE_CMD_LENGTH) {
+    if (counter >= MAX_DIRECTIVE_CMD_LENGTH) {
         printInputError(ERROR_DIRECTIVE_CMD_TOO_LONG, "", currentLine, *pos);
         selectedCMD = ERROR_DIRECTIVE_CMD_TOO_LONG;
     }
-    else {
-        directiveInput[counter] = '\0';
-    }
-    if (!isFileError(selectedCMD)) {
+    else if (!isFileError(selectedCMD)) {
         if (isValidEndOfCommand(pos, inputLine, currentLine, error)) {
             selectedCMD = compareToKnownDirectiveCMDs(directiveInput);
             if (selectedCMD == NOT_FOUND) {

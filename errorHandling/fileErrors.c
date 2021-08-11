@@ -36,7 +36,7 @@ void printInputError(errorCodes errorCode, char * errorCause, long line, int pos
             printf("Line %ld in position %d: The character '%s' is not valid here.\n", line, pos, errorCause);
             break;
         case ERROR_DIRECTIVE_CMD_TOO_LONG:
-            printf("Line %ld in position %d: The command was too long.\n", line, pos);
+            printf("Line %ld in position %d: The command/directive was too long.\n", line, pos);
             break;
         case ERROR_DIRECTIVE_CMD_NOT_FOUND:
             printf("Line %ld in position %d: The directive \".%s\" does not exist\n", line, pos, errorCause);
