@@ -107,7 +107,7 @@ void handleLabelError(int *pos, int startPos, long currentLine, char labelName[]
  * attempts to read a label, if a label is illegal, or if the read text isn't a label, resets the position pointer and
  * returns an error code. otherwise, returns 1.
  */
-int isValidLabel(int *pos, const char inputLine[], long currentLine, CMD *listOfCommands, char labelName[], errorCodes *error) {
+int isValidLabel(int *pos, const char inputLine[], long currentLine, CMD *listOfCommands, char *labelName, errorCodes *error) {
     int startPos = *pos, isLabel = 0, i = 0;
     if (isalpha(inputLine[*pos])) {
         while (isalnum(inputLine[*pos]) && i < MAX_LABEL_LENGTH) {
@@ -170,6 +170,7 @@ void handleNameConflict(int itemExists, char *labelName, long currentLine, int p
     if (itemExists) {
         printInputError(ERROR_LABEL_NAME_CONFLICT, labelName, currentLine, pos);
         *error = ERROR_LABEL_NAME_CONFLICT;
+        free(labelName);
     }
 }
 
@@ -202,8 +203,6 @@ void handleDirectiveExecution(int *pos, const char inputLine[], errorCodes *erro
         else
             directiveFuncArr[selectedDirectiveCMD](pos, inputLine, DC, error, dataImageTail, currentLine);
     }
-    if (!validLabel)
-        free(labelName);
 }
 
 /*
@@ -216,8 +215,6 @@ void handleCommandExecution(int *pos, const char inputLine[], int validLabel, in
         itemExists = addItemToDataTable(labelName, *IC, CODE, listOfSymbols);
         handleNameConflict(itemExists, labelName, currentLine, *pos, error);
     }
-    else
-        free(labelName);
     if (!itemExists) {
         runCMD(pos, inputLine, selectedCMD, listOfCommands, codeImageTail, IC, error, currentLine);
     }
@@ -251,6 +248,10 @@ void readLine(int *pos, const char inputLine[], long * DC, long * IC, long curre
     int selectedDirectiveCMD = NOT_FOUND, selectedCMD = NOT_FOUND;
     char *labelName = calloc(MAX_LABEL_LENGTH, sizeof(char));
     int validLabel = isValidLabel(pos, inputLine, currentLine, listOfCommands, labelName, error);
+    if (!validLabel) {
+        free(labelName);
+        labelName = NULL;
+    }
     if (!isFileError(validLabel)) {
         readCommand(pos, inputLine, currentLine, listOfCommands, &selectedDirectiveCMD, &selectedCMD, error);
         if (!isFileError(selectedDirectiveCMD) && !isFileError(selectedCMD)) {
@@ -260,7 +261,8 @@ void readLine(int *pos, const char inputLine[], long * DC, long * IC, long curre
         }
     }
     else {
-        free(labelName);
+        if (labelName)
+            free(labelName);
     }
 
 }

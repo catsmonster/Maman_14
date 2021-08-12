@@ -90,6 +90,7 @@ symbol *createSymbol(char *name, long address, symbolTypes attribute) {
 void handleConflict(symbol **entries, long posInTable, int *itemExists, symbol *newSymbol, char *name, dataTable *table) {
     if (!strcmp(entries[posInTable]->name, name)) {
         *itemExists = 1;
+        free(newSymbol);
     }
     else {
         symbol *currentPos = entries[posInTable];
