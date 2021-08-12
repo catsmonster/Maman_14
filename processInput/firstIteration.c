@@ -36,8 +36,8 @@ int getDirectiveCMD(int *pos, const char *inputLine, long currentLine, errorCode
         (*pos)++;
     }
     if (counter >= MAX_DIRECTIVE_CMD_LENGTH) {
-        printInputError(ERROR_DIRECTIVE_CMD_TOO_LONG, "", currentLine, *pos);
-        selectedCMD = ERROR_DIRECTIVE_CMD_TOO_LONG;
+        printInputError(ERROR_DIRECTIVE_TOO_LONG, "", currentLine, *pos);
+        selectedCMD = ERROR_DIRECTIVE_TOO_LONG;
     }
     else if (!isFileError(selectedCMD)) {
         if (isValidEndOfCommand(pos, inputLine, currentLine, error)) {
@@ -66,8 +66,8 @@ int getCommandName(int *pos, const char inputLine[], long currentLine, CMD *list
         commandPos = ERROR_MISSING_ARGUMENT;
     }
     else if (i >= MAX_COMMAND_LENGTH) {
-        printInputError(ERROR_DIRECTIVE_CMD_TOO_LONG, "", currentLine, *pos);
-        commandPos = ERROR_DIRECTIVE_CMD_TOO_LONG;
+        printInputError(ERROR_CMD_TOO_LONG, "", currentLine, *pos);
+        commandPos = ERROR_CMD_TOO_LONG;
     }
     else if (isValidEndOfCommand(pos, inputLine, currentLine, error)) {
         commandPos = findCommand(commandName, listOfCommands);
@@ -97,8 +97,8 @@ void handleLabelError(int *pos, int startPos, long currentLine, char labelName[]
         printInputError(ERROR_LABEL_COMMAND_CONFLICT, labelName, currentLine, *pos);
     if (error ==ERROR_MISSING_WHITESPACE)
         printInputError(ERROR_MISSING_WHITESPACE, "", currentLine, *pos);
-    if (error ==ERROR_MAX_LENGTH)
-        printInputError(ERROR_MAX_LENGTH, "", currentLine, startPos);
+    if (error == ERROR_MAX_LABEL_LENGTH)
+        printInputError(ERROR_MAX_LABEL_LENGTH, "", currentLine, startPos);
     *pos = startPos;
     *isLabel = error;
 }
@@ -131,8 +131,8 @@ int isValidLabel(int *pos, const char inputLine[], long currentLine, CMD *listOf
         }
         else {
             if (i == MAX_LABEL_LENGTH) {
-                handleLabelError(pos, startPos, currentLine, labelName, &isLabel, ERROR_MAX_LENGTH);
-                *error = ERROR_MAX_LENGTH;
+                handleLabelError(pos, startPos, currentLine, labelName, &isLabel, ERROR_MAX_LABEL_LENGTH);
+                *error = ERROR_MAX_LABEL_LENGTH;
             }
             (*pos) = startPos;
         }

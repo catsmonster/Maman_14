@@ -35,8 +35,11 @@ void printInputError(errorCodes errorCode, char * errorCause, long line, int pos
         case ERROR_INVALID_CHARACTER:
             printf("Line %ld in position %d: The character '%s' is not valid here.\n", line, pos, errorCause);
             break;
-        case ERROR_DIRECTIVE_CMD_TOO_LONG:
-            printf("Line %ld in position %d: The command/directive was too long.\n", line, pos);
+        case ERROR_DIRECTIVE_TOO_LONG:
+            printf("Line %ld in position %d: The directive name was too long.\n", line, pos);
+            break;
+        case ERROR_CMD_TOO_LONG:
+            printf("Line %ld in position %d: The command name was too long.\n", line, pos);
             break;
         case ERROR_DIRECTIVE_CMD_NOT_FOUND:
             printf("Line %ld in position %d: The directive \".%s\" does not exist\n", line, pos, errorCause);
@@ -53,8 +56,8 @@ void printInputError(errorCodes errorCode, char * errorCause, long line, int pos
         case ERROR_MISSING_WHITESPACE:
             printf("Line %ld in position %d: expected a whitespace\n", line, pos);
             break;
-        case ERROR_MAX_LENGTH:
-            printf("Line %ld in position %d: label/command name too long.\n", line, pos);
+        case ERROR_MAX_LABEL_LENGTH:
+            printf("Line %ld in position %d: the given label name is too long.\n", line, pos);
             break;
         case ERROR_INTEGER_OUT_OF_RANGE:
             printf("Line %ld in position %d: given number is out of range\n", line, pos);
@@ -119,7 +122,8 @@ int isFileError(errorCodes errorCode) {
         case ERROR_MISSING_AS_FILE:
         case ERROR_FILE_DOES_NOT_EXIST:
         case ERROR_INVALID_CHARACTER:
-        case ERROR_DIRECTIVE_CMD_TOO_LONG:
+        case ERROR_DIRECTIVE_TOO_LONG:
+        case ERROR_CMD_TOO_LONG:
         case ERROR_DIRECTIVE_CMD_NOT_FOUND:
         case ERROR_MEMORY_ALLOCATION:
         case ERROR_MEMORY_LIMIT:
@@ -128,7 +132,7 @@ int isFileError(errorCodes errorCode) {
         case ERROR_COMMAND_NOT_FOUND:
         case ERROR_FILE_IS_EMPTY:
         case ERROR_MISSING_WHITESPACE:
-        case ERROR_MAX_LENGTH:
+        case ERROR_MAX_LABEL_LENGTH:
         case ERROR_INTEGER_OUT_OF_RANGE:
         case ERROR_MULTIPLE_CONSECUTIVE_COMMAS:
         case ERROR_MISSING_COMMA:

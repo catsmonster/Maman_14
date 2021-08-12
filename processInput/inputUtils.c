@@ -1,6 +1,7 @@
 
 #include "../includes/inputUtils.h"
 #include <ctype.h>
+#include <stdlib.h>
 
 /*
  * skips any whitespaces.
@@ -77,12 +78,13 @@ int isValidEndOfCommand(const int *pos, const char *inputLine, long currentLine,
  */
 void validateLabelName(int *pos, const char input[], errorCodes *error, long currentLine, int index) {
     if (index >= MAX_LABEL_LENGTH && isalnum(input[*pos])) {
-        *error = ERROR_MAX_LENGTH;
-        printInputError(ERROR_MAX_LENGTH, "", currentLine, *pos);
+        *error = ERROR_MAX_LABEL_LENGTH;
+        printInputError(ERROR_MAX_LABEL_LENGTH, "", currentLine, *pos);
     }
     skipWhiteSpaces(pos, input);
     if (isgraph(input[*pos])) {
         printInputError(ERROR_EXCESSIVE_ARGUMENT, "", currentLine, *pos);
+        *error = ERROR_EXCESSIVE_ARGUMENT;
     }
 }
 
@@ -94,9 +96,13 @@ void readInputLabel(int *pos, const char *input, long currentLine, errorCodes *e
     if (!isalpha(input[*pos])) {
         if (!isgraph(input[*pos])) {
             printInputError(ERROR_MISSING_ARGUMENT, "", currentLine, *pos);
+            *error = ERROR_MISSING_ARGUMENT;
+            free(labelName);
         }
         else {
             handleInvalidCharacterError(input[*pos], currentLine, error, pos);
+            *error = ERROR_INVALID_CHARACTER;
+            free(labelName);
         }
     }
     else {
