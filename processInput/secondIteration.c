@@ -68,6 +68,8 @@ void updateEntries(entriesList *entriesHead, dataTable *listOfSymbols, errorCode
                 }
             }
         }
+        else if (isFileError(*error))
+            free(name);
         entriesHead = getNextEntry(entriesHead);
     }
 }

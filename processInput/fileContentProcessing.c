@@ -8,7 +8,7 @@
 /*
  * close entry or extern files. In case an error was encountered, deletes any output file, if created
  */
-void closeEntExtFiles(errorCodes *error, FILE *entFile, FILE *extFile, char *fileName) {
+void closeEntExtFiles(const errorCodes *error, FILE *entFile, FILE *extFile, char *fileName) {
     if (extFile)
         fclose(extFile);
     if (entFile)
@@ -24,7 +24,7 @@ void closeEntExtFiles(errorCodes *error, FILE *entFile, FILE *extFile, char *fil
  * second iteration to finalize missing data and write into the ext/ent files
  */
 void finalizeExtractedInformation(errorCodes *error, char *fileName, dataTable *listOfSymbols, codeNode *codeImageHead,
-                                  long IC, entriesList *entriesOrExternHead, int hasExtern, int hasEntry) {
+                                  long IC, entriesList *entriesHead, int hasExtern, int hasEntry) {
     if (!isFileError(*error)) {
         FILE *extFile = NULL, *entFile = NULL;
         if (hasExtern) {
@@ -37,9 +37,14 @@ void finalizeExtractedInformation(errorCodes *error, char *fileName, dataTable *
             *error = ERROR_FILE_PERMISSIONS;
             printFileError(ERROR_FILE_PERMISSIONS, "");
         } else if (!isFileError(*error)) {
-            secondIteration(listOfSymbols, error, codeImageHead, IC, entriesOrExternHead, &extFile, &entFile);
+            secondIteration(listOfSymbols, error, codeImageHead, IC, entriesHead, &extFile, &entFile);
         }
         closeEntExtFiles(error, entFile, extFile, fileName);
+    }
+    else {
+        if (hasEntry) {
+            freeUnusedEntries(entriesHead);
+        }
     }
 }
 

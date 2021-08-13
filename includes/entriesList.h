@@ -48,4 +48,10 @@ long getEntryLine(entriesList *node);
  */
 int entryExists(char *name, entriesList *head);
 
+/*
+ * frees the label name of entries which were added to the list, but due to an error, didn't make it to the second iteration
+ * accepts the entries list head
+ */
+void freeUnusedEntries(entriesList *head);
+
 #endif

@@ -215,11 +215,12 @@ void asciz(int *pos, const char input[], long *DC, errorCodes *error, dataNode *
  */
 void entry(int *pos, const char input[], errorCodes *error, long currentLine, entriesList **entriesTail, entriesList *entriesHead){
     char* labelName = calloc(MAX_LABEL_LENGTH, sizeof(char ));
-    readInputLabel(pos, input, currentLine, error, labelName);
-    if (!isFileError(*error)) {
+    if (readInputLabel(pos, input, currentLine, error, labelName) != LOCAL_ERROR) {
         if (!entryExists(labelName, entriesHead))
             *entriesTail = setEntryListTail(labelName, *entriesTail, error, currentLine);
     }
+    else
+        free(labelName);
 }
 
 
@@ -229,12 +230,13 @@ void entry(int *pos, const char input[], errorCodes *error, long currentLine, en
 void external(int *pos, const char input[], dataTable *table, errorCodes *error, long currentLine){
     char* labelName = calloc(MAX_LABEL_LENGTH, sizeof(char ));
     int labelExists;
-    readInputLabel(pos, input, currentLine, error, labelName);
-    if (!isFileError(*error)) {
+    if (readInputLabel(pos, input, currentLine, error, labelName) != LOCAL_ERROR) {
         labelExists = addItemToDataTable(labelName, 0, EXTERN, table);
         if (labelExists && getSymbolType(labelName, table, error, currentLine) != EXTERN) {
             *error = ERROR_LABEL_NAME_CONFLICT;
             printInputError(ERROR_LABEL_NAME_CONFLICT, labelName, currentLine, *pos);
         }
     }
+    else
+        free(labelName);
 }

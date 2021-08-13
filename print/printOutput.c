@@ -153,9 +153,15 @@ void printEntOrExtLine(FILE **fp, long address, char *label) {
  * deletes .ent and .ext files if any exist (in case an error was encountered)
  */
 void deleteEntExtFiles(char *fileName, FILE *entFile, FILE *extFile) {
-    if (entFile)
-        remove(processFileName(fileName, ENT_FILE));
-    if (extFile)
-        remove(processFileName(fileName, EXT_FILE));
+    if (entFile) {
+        char *processedName = processFileName(fileName, ENT_FILE);
+        remove(processedName);
+        free(processedName);
+    }
+    if (extFile) {
+        char *processedName = processFileName(fileName, EXT_FILE);
+        remove(processedName);
+        free(processedName);
+    }
 }
 

@@ -107,3 +107,14 @@ void freeEntriesList(entriesList *head) {
         free(temp);
     }
 }
+
+/*
+ * frees the labels in the entriesList (called in case of an error before the second iteration)
+ */
+void freeUnusedEntries(entriesList *head) {
+    entriesList *temp = head;
+    while (temp) {
+        free(temp -> name);
+        temp = temp -> next;
+    }
+}

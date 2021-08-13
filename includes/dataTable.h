@@ -8,10 +8,8 @@
 typedef enum {
     CODE = 400,
     DATA,
-    ENTRY,
     EXTERN,
-    SYMBOL_NOT_FOUND,
-    FIRST_NODE
+    SYMBOL_NOT_FOUND
 }symbolTypes;
 
 typedef struct dataTable dataTable;

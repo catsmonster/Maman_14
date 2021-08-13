@@ -1,7 +1,6 @@
 
 #include "../includes/inputUtils.h"
 #include <ctype.h>
-#include <stdlib.h>
 
 /*
  * skips any whitespaces.
@@ -91,18 +90,19 @@ void validateLabelName(int *pos, const char input[], errorCodes *error, long cur
 /*
  * reads an argument label from the input and validates it
  */
-void readInputLabel(int *pos, const char *input, long currentLine, errorCodes *error, char *labelName) {
+errorCodes readInputLabel(int *pos, const char *input, long currentLine, errorCodes *error, char *labelName) {
+    errorCodes localError = 0;
     skipWhiteSpaces(pos, input);
     if (!isalpha(input[*pos])) {
         if (!isgraph(input[*pos])) {
             printInputError(ERROR_MISSING_ARGUMENT, "", currentLine, *pos);
             *error = ERROR_MISSING_ARGUMENT;
-            free(labelName);
+            localError = LOCAL_ERROR;
         }
         else {
             handleInvalidCharacterError(input[*pos], currentLine, error, pos);
             *error = ERROR_INVALID_CHARACTER;
-            free(labelName);
+            localError = LOCAL_ERROR;
         }
     }
     else {
@@ -112,6 +112,7 @@ void readInputLabel(int *pos, const char *input, long currentLine, errorCodes *e
         }
         validateLabelName(pos, input, error, currentLine, index);
     }
+    return localError;
 }
 
 

@@ -4,7 +4,7 @@
 #define MAX_LINE_LENGTH 81
 #define MAX_LABEL_LENGTH 32
 #define MAX_DIRECTIVE_CMD_LENGTH 8
-#define NOT_FOUND -1
+#define NOT_FOUND (-1)
 #include "fileErrors.h"
 /*
  * iterates over the given input line and skips any whitespaces, advancing the position counter.
@@ -31,5 +31,5 @@ int isValidEndOfCommand(const int *pos, const char *inputLine, long currentLine,
  * attempts to read a label from the input line.
  * accepts a position counter, input string, current line counter, error code pointer and a destination string.
  */
-void readInputLabel(int *pos, const char *input, long currentLine, errorCodes *error, char *labelName);
+errorCodes readInputLabel(int *pos, const char *input, long currentLine, errorCodes *error, char *labelName);
 #endif

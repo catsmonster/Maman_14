@@ -248,23 +248,23 @@ void readLine(int *pos, const char inputLine[], long * DC, long * IC, long curre
     int selectedDirectiveCMD = NOT_FOUND, selectedCMD = NOT_FOUND;
     char *labelName = calloc(MAX_LABEL_LENGTH, sizeof(char));
     int validLabel = isValidLabel(pos, inputLine, currentLine, listOfCommands, labelName, error);
-    if (!validLabel) {
+    if (!validLabel || isFileError(validLabel)) {
         free(labelName);
         labelName = NULL;
     }
     if (!isFileError(validLabel)) {
         readCommand(pos, inputLine, currentLine, listOfCommands, &selectedDirectiveCMD, &selectedCMD, error);
         if (!isFileError(selectedDirectiveCMD) && !isFileError(selectedCMD)) {
-            addLabelAndExecuteCommand(selectedDirectiveCMD, labelName, validLabel, selectedCMD, pos, inputLine, DC, IC,
+            addLabelAndExecuteCommand(selectedDirectiveCMD, validLabel ? labelName : NULL, validLabel, selectedCMD, pos, inputLine, DC, IC,
                                       currentLine, listOfCommands, listOfSymbols, error, dataImageTail,
                                       codeImageTail, entriesTail, hasExtern, hasEntry, entriesHead);
         }
+        else {
+            if (validLabel) {
+                free(labelName);
+            }
+        }
     }
-    else {
-        if (labelName)
-            free(labelName);
-    }
-
 }
 
 /*

@@ -173,11 +173,9 @@ void addRWord(int *pos, const char input[], errorCodes *error, long currentLine,
  */
 void addIWord(errorCodes *error, long currentLine, codeNode **codeImageTail, int posInList,
               CMD *listOfCommands, int rs, int rt, long immed, long *IC, char *label, typesOfCommands type) {
-    if (!isFileError(*error)){
-        *codeImageTail = insertIWord(error, getOpcode(posInList, listOfCommands),
-                                     rs, rt, immed, IC,
-                                     *codeImageTail, label, type, currentLine);
-    }
+    *codeImageTail = insertIWord(error, getOpcode(posInList, listOfCommands),
+                                 rs, rt, immed, IC,
+                                 *codeImageTail, label, type, currentLine);
 }
 
 /*
@@ -250,18 +248,21 @@ void conditionalIFunctions(int *pos, const char input[], int posInList, CMD *lis
     char *label = calloc(MAX_LABEL_LENGTH, sizeof(char));
     int rs, rt;
     long immed = 0;
-    if (readRegister(pos, input, error, currentLine, &rs) != LOCAL_ERROR) {
-        if (advanceToNextArgument(pos, input, currentLine, error) != LOCAL_ERROR) {
-            if (readRegister(pos, input, error, currentLine, &rt) != LOCAL_ERROR) {
-                if (advanceToNextArgument(pos, input, currentLine, error) != LOCAL_ERROR) {
-                    readInputLabel(pos, input, currentLine, error, label);
-                    if (!isFileError(*error)) {
+    errorCodes localError;
+    if ((localError = readRegister(pos, input, error, currentLine, &rs)) != LOCAL_ERROR) {
+        if ((localError = advanceToNextArgument(pos, input, currentLine, error)) != LOCAL_ERROR) {
+            if ((localError =readRegister(pos, input, error, currentLine, &rt)) != LOCAL_ERROR) {
+                if ((localError = advanceToNextArgument(pos, input, currentLine, error)) != LOCAL_ERROR) {
+                    if ((localError = readInputLabel(pos, input, currentLine, error, label)) != LOCAL_ERROR) {
                         addIWord(error, currentLine, codeImageTail, posInList, listOfCommands, rs, rt,
                                  immed, IC, label, I_TYPE_CONDITIONAL);
                     }
                 }
             }
         }
+    }
+    if (localError == LOCAL_ERROR) {
+        free(label);
     }
 }
 
@@ -301,10 +302,11 @@ void jmpLaCall(int *pos, const char input[], int posInList, CMD *listOfCommands,
     }
     else {
         char *label = calloc(MAX_LABEL_LENGTH, sizeof(char));
-        readInputLabel(pos, input, currentLine, error, label);
-        if (!isFileError(*error)) {
+        if (readInputLabel(pos, input, currentLine, error, label) != LOCAL_ERROR) {
             *codeImageTail = insertJWord(error, getOpcode(posInList, listOfCommands), 0, 0, IC, *codeImageTail, label, J_TYPE, currentLine);
         }
+        else
+            free(label);
     }
 }
 
