@@ -1,6 +1,8 @@
 #include "../includes/codeImage.h"
 #include <stdlib.h>
 #define FIRST_INSTRUCTION_COUNTER_VALUE 100
+#define MAX_SIZE_16_BITS 32767
+#define MIN_SIZE_16_BITS (-32768)
 
 /*
  * this struct holds the necessary information to build the code image. it holds the address from which the command was executed
@@ -58,12 +60,19 @@ codeNode *initializeCodeImage() {
 /*
  * updates the address in the immed or address fields of the I or J commands (if applicable).
  */
-void adjustMissingAddressToCodeImage(long data, codeNode *codeImageHead) {
+void adjustMissingAddressToCodeImage(long data, codeNode *codeImageHead, errorCodes *error) {
     if (codeImageHead -> type == I_TYPE) {
         codeImageHead -> data.I.immed = data;
     }
-    else if (codeImageHead -> type == I_TYPE_CONDITIONAL)
-        codeImageHead -> data.I.immed = data - codeImageHead -> address;
+    else if (codeImageHead -> type == I_TYPE_CONDITIONAL) {
+        long diff = data - codeImageHead -> address;
+        if (diff >= MIN_SIZE_16_BITS && diff <= MAX_SIZE_16_BITS)
+            codeImageHead -> data.I.immed = diff;
+        else {
+            printMemoryError(ERROR_MEMORY_LIMIT);
+            *error = ERROR_MEMORY_LIMIT;
+        }
+    }
     else {
         codeImageHead -> data.J.address = data;
     }

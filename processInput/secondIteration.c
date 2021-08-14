@@ -36,7 +36,7 @@ void updateCodeImage(codeNode *codeImageHead, dataTable *listOfSymbols, errorCod
                 symbolType = getSymbolType(label, listOfSymbols, error, currentLine);
                 symbolAddress = symbolType == DATA ? symbolAddress + ICF : symbolType == EXTERN ? 0 : symbolAddress;
                 if (symbolType != EXTERN) {
-                    adjustMissingAddressToCodeImage(symbolAddress, codeImageHead);
+                    adjustMissingAddressToCodeImage(symbolAddress, codeImageHead, error);
                 } else {
                     handleExtSymbol(type, label, error, currentLine, extFile, address);
                 }

@@ -6,11 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/user/CLionProjects/Maman14/errorHandling/fileErrors.c
-../includes/fileErrors.h
-/home/user/CLionProjects/Maman14/includes/fileErrors.h
-stdio.h
+/home/user/CLionProjects/Maman14/dataStructures/codeImage.c
+../includes/codeImage.h
+/home/user/CLionProjects/Maman14/includes/codeImage.h
+stdlib.h
 -
+
+/home/user/CLionProjects/Maman14/includes/codeImage.h
+fileErrors.h
+/home/user/CLionProjects/Maman14/includes/fileErrors.h
 
 /home/user/CLionProjects/Maman14/includes/fileErrors.h
 

@@ -110,7 +110,7 @@ void printMemoryError(errorCodes errorCode) {
     if (errorCode == ERROR_MEMORY_ALLOCATION)
         printf("Error: memory allocation failed! terminating program\n");
     else if (errorCode == ERROR_MEMORY_LIMIT)
-        printf("Error: memory limit reached! terminating program\n");
+        printf("Error: memory error, attempted to store a number greater than 16 bits inside immed during a conditional function call.\n");
 }
 
 

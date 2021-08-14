@@ -19,9 +19,10 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataStructures/codeImage.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataStructures/codeImage.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/errorHandling/fileErrors.c" beforeDir="false" afterPath="$PROJECT_DIR$/errorHandling/fileErrors.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/fileErrors.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/fileErrors.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processInput/firstIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/firstIteration.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/codeImage.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/codeImage.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processInput/secondIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/secondIteration.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +114,7 @@
       <workItem from="1625936061906" duration="139581000" />
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
-      <workItem from="1628359595675" duration="55775000" />
+      <workItem from="1628359595675" duration="59082000" />
     </task>
     <task id="LOCAL-00001" summary="first commit - project is working with valid input, before testing for invalid inputs and before optimizing dataTable.c deleted bloat">
       <created>1627043778177</created>
@@ -416,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628889467803</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="added a check for line length, changed the format of the error messages to include the word error or warning.">
+      <created>1628955227449</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1628955227449</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,7 +444,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="finished documentation of the dataImage" />
     <MESSAGE value="finished documentation of dataTable" />
     <MESSAGE value="finished documentation for directiveFunctions" />
     <MESSAGE value="documented entriesOrExternList.c" />
@@ -461,6 +468,7 @@
     <MESSAGE value="changed minor error related messages. There are some memory leaks when checking together with error files" />
     <MESSAGE value="improved memory leak situation, still 32 bytes lost in readLine in firstIteration.c" />
     <MESSAGE value="fixed some more memory leaks when running invalid inputs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed some more memory leaks when running invalid inputs" />
+    <MESSAGE value="added a check for line length, changed the format of the error messages to include the word error or warning." />
+    <option name="LAST_COMMIT_MESSAGE" value="added a check for line length, changed the format of the error messages to include the word error or warning." />
   </component>
 </project>

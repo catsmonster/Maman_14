@@ -44,9 +44,9 @@ codeNode *insertJWord(errorCodes *error, int opcode, short reg, long address, lo
 /*
  * after all the necessary data was gathered, adjusts the address in the nodes which didn't have complete data
  * after the first iteration.
- * accepts an address from the symbols table and the code image.
+ * accepts an address from the symbols table, the code image and the error code pointer.
  */
-void adjustMissingAddressToCodeImage(long data, codeNode *codeImageHead);
+void adjustMissingAddressToCodeImage(long data, codeNode *codeImageHead, errorCodes *error);
 /*
  * returns the address linked to the given command node
  * accepts a code image node.
