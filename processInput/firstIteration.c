@@ -268,6 +268,23 @@ void readLine(int *pos, const char inputLine[], long * DC, long * IC, long curre
 }
 
 /*
+ * validates line length doesn't exceed 80 characters
+ */
+int isValidLineLength(const char input[]) {
+    int i = 0, isValid = 0;
+    while (!isValid && input[i]) {
+        if (input[i] == '\n') {
+            isValid = 1;
+        }
+        i++;
+    }
+    if (!isValid && i < MAX_LINE_LENGTH && !input[i])
+        isValid = 1;
+
+    return isValid;
+}
+
+/*
  * running the first iteration over the input file to build the basic skeleton of the output, skipping any blank lines
  * or comment lines
  */
@@ -278,10 +295,15 @@ void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, CMD *list
     codeNode *codeImageTail = codeImageHead;
     entriesList *entriesOrExternTail = entriesOrExternHead;
     long currentLine = 1;
-    char inputLine[MAX_LINE_LENGTH];
-    while (fgets(inputLine, MAX_LINE_LENGTH, fp)) {
+    char inputLine[MAX_LINE_LENGTH + 1];
+    while (fgets(inputLine, MAX_LINE_LENGTH + 1, fp)) {
         int pos = 0;
-        advanceToStartOfValidInput(&pos, inputLine, currentLine, error);
+        if (isValidLineLength(inputLine))
+            advanceToStartOfValidInput(&pos, inputLine, currentLine, error);
+        else {
+            printInputError(ERROR_LINE_LENGTH_EXCEEDS_LIMIT, "", currentLine, 0);
+            *error = ERROR_LINE_LENGTH_EXCEEDS_LIMIT;
+        }
         if (pos >= 0) {
             readLine(&pos, inputLine, DC, IC, currentLine, listOfCommands, listOfSymbols, error,
                      &dataImageTail, &codeImageTail, &entriesOrExternTail, hasExtern, hasEntry, entriesOrExternHead);
