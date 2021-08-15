@@ -56,7 +56,7 @@ int openFile(char * fileName, CMD *listOfCommands) {
  */
 int inputFilesIteration(int argc, char **argv) {
     int isError = 0, i;
-    CMD *listOfCommands = getCommands();
+    CMD *listOfCommands = initializeCommandsList();
     if (!listOfCommands) {
         printMemoryError(ERROR_MEMORY_ALLOCATION);
     }

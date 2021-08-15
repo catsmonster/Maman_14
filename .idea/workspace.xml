@@ -15,17 +15,15 @@
       <change afterPath="$PROJECT_DIR$/cmake-build-debug/checkFirstPass.as" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/cmake-build-debug/checkSecondPass.as" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/cmake-build-debug/errors-test.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataStructures/codeImage.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataStructures/codeImage.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataStructures/dataImage.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataStructures/dataImage.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataStructures/dataTable.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataStructures/dataTable.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataStructures/entriesList.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataStructures/entriesList.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataStructures/listOfCommands.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataStructures/listOfCommands.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/dataImage.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dataImage.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/listOfCommands.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/listOfCommands.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processInput/commands.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/commands.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processInput/directiveFunctions.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/directiveFunctions.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/processInput/fileNameProcessing.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/fileNameProcessing.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processInput/firstIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/firstIteration.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +115,7 @@
       <workItem from="1625936061906" duration="139581000" />
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
-      <workItem from="1628359595675" duration="70068000" />
+      <workItem from="1628359595675" duration="74865000" />
     </task>
     <task id="LOCAL-00001" summary="first commit - project is working with valid input, before testing for invalid inputs and before optimizing dataTable.c deleted bloat">
       <created>1627043778177</created>
@@ -441,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629035147188</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="removed double error reporting in case memory isn't allocated successfully when initializing the data structures">
+      <created>1629051229835</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1629051229835</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,7 +466,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="documented entriesOrExternList.c" />
     <MESSAGE value="fixed memory leak in printOutput.c" />
     <MESSAGE value="fixed memory leak in dataTable.c and entriesOrExternList.c (via secondIteration.c)" />
     <MESSAGE value="fixed all memory leaks in the program, this time in firstIteration.c" />
@@ -486,6 +490,7 @@
     <MESSAGE value="added a check for line length, changed the format of the error messages to include the word error or warning." />
     <MESSAGE value="added check for difference greater than immed about to be stored inside immed." />
     <MESSAGE value="changed the name of a function in secondIteration.c" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed the name of a function in secondIteration.c" />
+    <MESSAGE value="removed double error reporting in case memory isn't allocated successfully when initializing the data structures" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed double error reporting in case memory isn't allocated successfully when initializing the data structures" />
   </component>
 </project>

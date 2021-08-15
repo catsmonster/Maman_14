@@ -92,15 +92,41 @@ int isKnownCMD(char *labelName, CMD *listOfCommands) {
 /*
  * prints an error message and resets the start position in case of an error while reading a label
  */
-void handleLabelError(int *pos, int startPos, long currentLine, char labelName[], int *isLabel, errorCodes error) {
-    if (error == ERROR_LABEL_COMMAND_CONFLICT)
+void handleLabelError(int *pos, int startPos, long currentLine, char labelName[], int *isLabel, errorCodes *error, errorCodes givenError) {
+    if (givenError == ERROR_LABEL_COMMAND_CONFLICT)
         printInputError(ERROR_LABEL_COMMAND_CONFLICT, labelName, currentLine, *pos);
-    if (error ==ERROR_MISSING_WHITESPACE)
+    if (givenError ==ERROR_MISSING_WHITESPACE)
         printInputError(ERROR_MISSING_WHITESPACE, "", currentLine, *pos);
-    if (error == ERROR_MAX_LABEL_LENGTH)
+    if (givenError == ERROR_MAX_LABEL_LENGTH)
         printInputError(ERROR_MAX_LABEL_LENGTH, "", currentLine, startPos);
     *pos = startPos;
-    *isLabel = error;
+    *error = givenError;
+    *isLabel = givenError;
+}
+
+/*
+ * checks the ending of the possible label to determine whether it's valid
+ */
+int isValidEndOfLabel(int *pos, const char inputLine[], int startPos, int i, char *labelName, CMD *listOfCommands,
+                      errorCodes *error, long currentLine) {
+    int isLabel = 0;
+    if (inputLine[*pos] == ':' && startPos != *pos) {
+        if (isspace(inputLine[*pos + 1])) {
+            (*pos)++;
+            if (isKnownCMD(labelName, listOfCommands))
+                handleLabelError(pos, startPos, currentLine, labelName, &isLabel, error, ERROR_LABEL_COMMAND_CONFLICT);
+            else
+                isLabel = 1;
+        }
+        else
+            handleLabelError(pos, startPos, currentLine, labelName, &isLabel, error, ERROR_MISSING_WHITESPACE);
+    }
+    else {
+        if (i == MAX_LABEL_LENGTH)
+            handleLabelError(pos, startPos, currentLine, labelName, &isLabel, error, ERROR_MAX_LABEL_LENGTH);
+        (*pos) = startPos;
+    }
+    return isLabel;
 }
 
 /*
@@ -113,36 +139,12 @@ int isValidLabel(int *pos, const char inputLine[], long currentLine, CMD *listOf
         while (isalnum(inputLine[*pos]) && i < MAX_LABEL_LENGTH) {
             labelName[i++] = inputLine[(*pos)++];
         }
-        if (inputLine[*pos] == ':' && startPos != *pos) {
-            if (isspace(inputLine[*pos + 1])) {
-                labelName[i] = '\0';
-                (*pos)++;
-                if (isKnownCMD(labelName, listOfCommands)) {
-                    handleLabelError(pos, startPos, currentLine, labelName, &isLabel, ERROR_LABEL_COMMAND_CONFLICT);
-                    *error = ERROR_LABEL_COMMAND_CONFLICT;
-                } else {
-                    isLabel = 1;
-                }
-            }
-            else {
-                handleLabelError(pos, startPos, currentLine, labelName, &isLabel, ERROR_MISSING_WHITESPACE);
-                *error = ERROR_MISSING_WHITESPACE;
-            }
-        }
-        else {
-            if (i == MAX_LABEL_LENGTH) {
-                handleLabelError(pos, startPos, currentLine, labelName, &isLabel, ERROR_MAX_LABEL_LENGTH);
-                *error = ERROR_MAX_LABEL_LENGTH;
-            }
-            (*pos) = startPos;
-        }
+        isLabel = isValidEndOfLabel(pos, inputLine, startPos, i, labelName, listOfCommands, error, currentLine);
     } else if (isgraph(inputLine[*pos]) && inputLine[*pos] != '.') {
         handleInvalidCharacterError(inputLine[*pos], currentLine, error, pos);
-        *error = ERROR_INVALID_CHARACTER;
         isLabel = ERROR_INVALID_CHARACTER;
     }
     return isLabel;
-
 }
 
 /*

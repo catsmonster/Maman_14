@@ -17,9 +17,9 @@ struct commands {
 };
 
 /*
- * getCommands returns a pointer to a buffer containing all the different commands and their information ordered alphabetically
+ * initializeCommandsList returns a pointer to a buffer containing all the different commands and their information ordered alphabetically
  */
-CMD *getCommands() {
+CMD *initializeCommandsList() {
     int i;
     CMD commandArr[] = {
             {"add", 1, 0,    arithmeticRFunctions},

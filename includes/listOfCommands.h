@@ -8,7 +8,7 @@ typedef struct commands CMD;
  * returns a list of the assembly commands, containing opcode, funct, the name of the command and a pointer to a function
  * to handle the specific command type.
  */
-CMD * getCommands();
+CMD * initializeCommandsList();
 
 /*
  * returns the position in the list of commands of the specified command name, -1 if the command doesn't exist.

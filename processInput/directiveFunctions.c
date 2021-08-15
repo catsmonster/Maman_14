@@ -63,16 +63,31 @@ int isNumTooBig(int numArrIndex, int maxLength, const int *pos, const char input
     return tooBig;
 }
 
+/*
+ * converts the string representation of the number to a long, and if no errors are found, adds it to the list and updates
+ * the index. returns 0 if successful or a LOCAL_ERROR code in case of failure.
+ */
+errorCodes convertToLongAndInsertToList(int *pos, char num[], long currentLine, errorCodes *error, long *list, int *listIndex) {
+    char *end;
+    long givenNum;
+    errorCodes foundError = 0;
+    givenNum = strtol(num, &end, 10);
+    if (end[0]) {
+        handleNANError(end[0], currentLine, error, pos);
+        *error = ERROR_NOT_AN_INTEGER;
+        foundError = LOCAL_ERROR;
+    } else
+        list[(*listIndex)++] = givenNum;
+    return foundError;
+}
 
 /*
  * reads one number from the input line and stores it in the list
  */
 int readNum(int *pos, const char input[],errorCodes *error, long currentLine, typeOfData type, long *list, int *listIndex) {
     char num[MAX_NUM_LENGTH] = {0};
-    int numArrIndex = 0, foundError = 0;
-    long givenNum;
-    char *end;
-    int maxLength = determineMaxLength(type);
+    errorCodes foundError;
+    int numArrIndex = 0, maxLength = determineMaxLength(type);
     if (!isdigit(input[*pos]) && input[*pos] != '-' && input[*pos] != '+') {
         handleNANError(input[*pos], currentLine, error, pos);
         foundError = LOCAL_ERROR;
@@ -88,13 +103,7 @@ int readNum(int *pos, const char input[],errorCodes *error, long currentLine, ty
             foundError = LOCAL_ERROR;
         }
         else {
-            givenNum = strtol(num, &end, 10);
-            if (end[0]) {
-                handleNANError(end[0], currentLine, error, pos);
-                *error = ERROR_NOT_AN_INTEGER;
-                foundError = LOCAL_ERROR;
-            } else
-                list[(*listIndex)++] = givenNum;
+            foundError = convertToLongAndInsertToList(pos, num, currentLine, error, list, listIndex);
         }
     }
     return foundError;

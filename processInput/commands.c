@@ -106,13 +106,34 @@ int isImmedTooBig(int index, const int *pos, const char *input, long num ){
 }
 
 /*
+ * converts the string representation of the number to a long, and if no errors are found, passes it to immed.
+ * if operation is successful, returns 0, otherwise returns a LOCAL_ERROR code.
+ */
+errorCodes convertToLongAndPassToImmed(int *pos, const char input[], const char num[], long currentLine, errorCodes *error,
+                                       int numStrIndex, long *immed) {
+    long temp;
+    char *end;
+    errorCodes foundError = 0;
+    temp = strtol(num, &end, 10);
+    if (end[0]) {
+        handleInvalidCharacterError(end[0], currentLine, error, pos);
+        foundError = LOCAL_ERROR;
+    } else {
+        if (isImmedTooBig(numStrIndex, pos, input, temp))
+            foundError = handleIntegerOutOfRange(error, currentLine, pos);
+        else
+            *immed = temp;
+    }
+    return foundError;
+}
+
+/*
  * reads an instant value from the input line, validates it, and converts it to a long.
  */
 int readInstantValue(int *pos, const char input[], errorCodes *error, long currentLine, long *immed) {
     char num[MAX_IMMED_NUM_LENGTH] = {0};
-    char *end;
-    int numStrIndex = 0, foundError = 0;
-    long temp;
+    int numStrIndex = 0;
+    errorCodes foundError = 0;
     if (!isdigit(input[*pos]) && input[*pos] != '-' && input[*pos] != '+') {
         handleNANError(input[*pos], currentLine, error, pos);
         foundError = LOCAL_ERROR;
@@ -122,23 +143,11 @@ int readInstantValue(int *pos, const char input[], errorCodes *error, long curre
             num[numStrIndex++] = input[(*pos)++];
         } while (isdigit(input[*pos]) && numStrIndex < MAX_IMMED_NUM_LENGTH);
         if (isEndOfIntegerValid(pos, input, error, currentLine)) {
-            temp = strtol(num, &end, 10);
-            if (end[0]) {
-                handleInvalidCharacterError(end[0], currentLine, error, pos);
-                foundError = LOCAL_ERROR;
-            } else {
-                if (isImmedTooBig(numStrIndex, pos, input, temp)) {
-                    foundError = handleIntegerOutOfRange(error, currentLine, pos);
-                } else {
-                    *immed = temp;
-                }
-            }
+            foundError = convertToLongAndPassToImmed(pos, input, num, currentLine, error, numStrIndex, immed);
         }
-        else {
+        else
             foundError = LOCAL_ERROR;
-        }
     }
-
     return foundError;
 }
 
