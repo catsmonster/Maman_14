@@ -49,7 +49,7 @@ void updateCodeImage(codeNode *codeImageHead, dataTable *listOfSymbols, errorCod
 /*
  * iterates over the list of entries and prints any entries to the .ent file
  */
-void updateEntries(entriesList *entriesHead, dataTable *listOfSymbols, errorCodes *error, FILE **entFile, long ICF) {
+void writeEntriesToFile(entriesList *entriesHead, dataTable *listOfSymbols, errorCodes *error, FILE **entFile, long ICF) {
     while (entriesHead && !isEmpty(entriesHead) && !isFileError(*error)) {
         long symbolAddress, currentLine = getEntryLine(entriesHead);
         char *name = getEntryName(entriesHead);
@@ -80,6 +80,6 @@ void updateEntries(entriesList *entriesHead, dataTable *listOfSymbols, errorCode
  */
 void secondIteration(dataTable *listOfSymbols, errorCodes * error, codeNode *codeImageHead, long ICF,
                      entriesList *entriesHead, FILE **extFile, FILE **entFile) {
-    updateEntries(entriesHead, listOfSymbols, error, entFile, ICF);
+    writeEntriesToFile(entriesHead, listOfSymbols, error, entFile, ICF);
     updateCodeImage(codeImageHead, listOfSymbols, error, ICF, extFile);
 }
