@@ -49,9 +49,6 @@ struct codeNode {
  */
 codeNode *initializeCodeImage() {
     codeNode *p = calloc(1, sizeof(codeNode));
-    if (!p) {
-        printMemoryError(ERROR_MEMORY_ALLOCATION);
-    }
     return  p;
 }
 

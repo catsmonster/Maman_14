@@ -32,7 +32,7 @@ typedef struct dataNode dataNode;
  */
 dataNode *initializeDataImage();
 /*
- * inserts data to the image based on the type.
+ * inserts data to the image based on the type and returns the new tail of the data image.
  * accepts an error code pointer, the data counter pointer, the data type, the tail of the data image, the number of items to be added
  * and an array of items of type long, containing the data to be added
  */

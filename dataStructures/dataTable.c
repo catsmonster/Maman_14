@@ -35,10 +35,7 @@ struct dataTable {
  */
 dataTable *initializeDataTable() {
     dataTable *p = (dataTable *)malloc(sizeof(dataTable));
-    if (!p) {
-        printMemoryError(ERROR_MEMORY_ALLOCATION);
-    }
-    else {
+    if (p) {
         p->entries = (symbol **) calloc(INITIAL_SYMBOLS_TABLE_SIZE, sizeof(symbol *));
         if (!(p->entries)) {
             printMemoryError(ERROR_MEMORY_ALLOCATION);

@@ -18,9 +18,6 @@ struct entriesNode {
  */
 entriesList *initializeEntriesList() {
     entriesList *p = calloc(1, sizeof(entriesList));
-    if (!p) {
-        printMemoryError(ERROR_MEMORY_ALLOCATION);
-    }
     return p;
 }
 

@@ -26,9 +26,9 @@ int openFile(char * fileName, CMD *listOfCommands) {
     dataTable *listOfSymbols = initializeDataTable();
     dataNode *dataImageHead = initializeDataImage();
     codeNode *codeImageHead = initializeCodeImage();
-    entriesList *entriesOrExternHead = initializeEntriesList();
+    entriesList *entriesHead = initializeEntriesList();
     int errorCode = 0;
-    if (!listOfSymbols || !dataImageHead || !codeImageHead || !entriesOrExternHead) {
+    if (!listOfSymbols || !dataImageHead || !codeImageHead || !entriesHead) {
         printMemoryError(ERROR_MEMORY_ALLOCATION);
         errorCode = ERROR_MEMORY_ALLOCATION;
     }
@@ -38,13 +38,13 @@ int openFile(char * fileName, CMD *listOfCommands) {
             errorCode = ERROR_FILE_DOES_NOT_EXIST;
         if (!errorCode) {
             readFileAndGenerateOutput(fp, listOfCommands, listOfSymbols, dataImageHead, codeImageHead,
-                                      entriesOrExternHead, fileName);
+                                      entriesHead, fileName);
             fclose(fp);
         }
         freeDataTable(listOfSymbols);
         freeCodeImage(codeImageHead);
         freeDataImage(dataImageHead);
-        freeEntriesList(entriesOrExternHead);
+        freeEntriesList(entriesHead);
     }
     return errorCode;
 }

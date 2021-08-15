@@ -51,10 +51,7 @@ CMD *getCommands() {
             {"sw", -1, 22, arithmeticAndLoaderIFunctions}
     };
     CMD * commandList = (CMD *)malloc(NUM_OF_CMDS * sizeof(CMD));
-    if (!commandList) {
-        printMemoryError(ERROR_MEMORY_ALLOCATION);
-    }
-    else {
+    if (commandList) {
         for (i = 0; i < NUM_OF_CMDS; i++) {
             commandList[i] = commandArr[i];
         }

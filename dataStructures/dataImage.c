@@ -32,9 +32,6 @@ struct dataNode {
  */
 dataNode * initializeDataImage() {
     dataNode *p = calloc(1, sizeof(dataNode));
-    if (!p) {
-        printMemoryError(ERROR_MEMORY_ALLOCATION);
-    }
     return p;
 }
 
