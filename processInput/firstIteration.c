@@ -192,6 +192,7 @@ void handleDirectiveExecution(int *pos, const char inputLine[], errorCodes *erro
         if (selectedDirectiveCMD == EXTERNAL_DIRECTIVE || selectedDirectiveCMD == ENTRY_DIRECTIVE) {
             if (validLabel) {
                 printInputError(WARNING_LABEL_IGNORED, labelName, currentLine, *pos);
+                free(labelName);
             }
             if (selectedDirectiveCMD == EXTERNAL_DIRECTIVE) {
                 external(pos, inputLine, listOfSymbols, error, currentLine);
@@ -287,28 +288,39 @@ int isValidLineLength(const char input[]) {
 }
 
 /*
+ * in case a line is longer than 80 characters, prints out an error, sets the position counter to -1 and moves the file
+ * pointer to the end of the line (so that it doesn't interfere with the next line).
+ */
+void handleLineLengthError(int *pos, long currentLine, errorCodes *error, FILE *fp) {
+    int c;
+    printInputError(ERROR_LINE_LENGTH_EXCEEDS_LIMIT, "", currentLine, 0);
+    *error = ERROR_LINE_LENGTH_EXCEEDS_LIMIT;
+    *pos = NOT_FOUND;
+    while ((c = fgetc(fp)) != '\n' && c != EOF);
+}
+
+/*
  * running the first iteration over the input file to build the basic skeleton of the output, skipping any blank lines
  * or comment lines
  */
 void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, CMD *listOfCommands, dataTable *listOfSymbols,
-                    dataNode *dataImageHead, codeNode *codeImageHead, entriesList *entriesOrExternHead, int *hasExtern,
+                    dataNode *dataImageHead, codeNode *codeImageHead, entriesList *entriesHead, int *hasExtern,
                     int *hasEntry) {
     dataNode *dataImageTail = dataImageHead;
     codeNode *codeImageTail = codeImageHead;
-    entriesList *entriesOrExternTail = entriesOrExternHead;
+    entriesList *entriesTail = entriesHead;
     long currentLine = 1;
     char inputLine[MAX_LINE_LENGTH + 1];
     while (fgets(inputLine, MAX_LINE_LENGTH + 1, fp)) {
-        int pos = 0;
+        int pos = 0, c;
         if (isValidLineLength(inputLine))
             advanceToStartOfValidInput(&pos, inputLine, currentLine, error);
         else {
-            printInputError(ERROR_LINE_LENGTH_EXCEEDS_LIMIT, "", currentLine, 0);
-            *error = ERROR_LINE_LENGTH_EXCEEDS_LIMIT;
+            handleLineLengthError(&pos, currentLine, error, fp);
         }
         if (pos >= 0) {
             readLine(&pos, inputLine, DC, IC, currentLine, listOfCommands, listOfSymbols, error,
-                     &dataImageTail, &codeImageTail, &entriesOrExternTail, hasExtern, hasEntry, entriesOrExternHead);
+                     &dataImageTail, &codeImageTail, &entriesTail, hasExtern, hasEntry, entriesHead);
         }
         currentLine++;
     }

@@ -57,7 +57,7 @@ void printInputError(errorCodes errorCode, char * errorCause, long line, int pos
             printf("Line %ld in position %d: Error, expected a whitespace\n", line, pos);
             break;
         case ERROR_MAX_LABEL_LENGTH:
-            printf("Line %ld in position %d: Error, the given label name is too long.\n", line, pos);
+            printf("Line %ld in position %d: Error, the given label/command name is too long.\n", line, pos);
             break;
         case ERROR_INTEGER_OUT_OF_RANGE:
             printf("Line %ld in position %d: Error, given number is out of range\n", line, pos);
@@ -84,7 +84,7 @@ void printInputError(errorCodes errorCode, char * errorCause, long line, int pos
             printf("Line %ld: Error, the symbol \"%s\" doesn't exist.\n", line, errorCause);
             break;
         case WARNING_LABEL_IGNORED:
-            printf("Line %ld: Warning, a label \"%s\" before an entry/extern directive will be ignored.\n", line, errorCause);
+            printf("Line %ld: Warning, the label \"%s\" before an entry/extern directive will be ignored.\n", line, errorCause);
             break;
         case ERROR_EXTERN_IS_ENTRY:
             printf("Line %ld: Error, the label \"%s\" can't be both an external value and an entry.\n", line, errorCause);
