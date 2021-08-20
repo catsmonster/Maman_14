@@ -193,12 +193,10 @@ void handleDirectiveExecution(int *pos, const char inputLine[], errorCodes *erro
                 printInputError(WARNING_LABEL_IGNORED, labelName, currentLine, *pos);
                 free(labelName);
             }
-            if (selectedDirectiveCMD == EXTERNAL_DIRECTIVE) {
+            if (selectedDirectiveCMD == EXTERNAL_DIRECTIVE)
                 external(pos, inputLine, listOfSymbols, error, currentLine);
-            }
-            else {
+            else
                 entry(pos, inputLine, error, currentLine, entriesTail, entriesHead);
-            }
         }
         else
             directiveFuncArr[selectedDirectiveCMD](pos, inputLine, DC, error, dataImageTail, currentLine);
@@ -254,9 +252,9 @@ void readLine(int *pos, const char inputLine[], long * DC, long * IC, long curre
     if (!isFileError(validLabel)) {
         readCommand(pos, inputLine, currentLine, listOfCommands, &selectedDirectiveCMD, &selectedCMD, error);
         if (!isFileError(selectedDirectiveCMD) && !isFileError(selectedCMD)) {
-            addLabelAndExecuteCommand(selectedDirectiveCMD, validLabel ? labelName : NULL, validLabel, selectedCMD, pos, inputLine, DC, IC,
-                                      currentLine, listOfCommands, listOfSymbols, error, dataImageTail,
-                                      codeImageTail, entriesTail, entriesHead);
+            addLabelAndExecuteCommand(selectedDirectiveCMD, validLabel ? labelName : NULL, validLabel,
+                                      selectedCMD, pos, inputLine, DC, IC, currentLine, listOfCommands, listOfSymbols,
+                                      error, dataImageTail, codeImageTail, entriesTail, entriesHead);
         }
         else {
             if (validLabel) {

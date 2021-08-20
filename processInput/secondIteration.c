@@ -93,6 +93,7 @@ void handlePrintEntry(FILE **entFile, errorCodes *error, char *name, char *fileN
     else {
         *error = ERROR_EXTERN_IS_ENTRY;
         printInputError(ERROR_EXTERN_IS_ENTRY, name, currentLine, 0);
+        free(name);
     }
 }
 
