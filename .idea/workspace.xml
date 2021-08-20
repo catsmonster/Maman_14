@@ -15,12 +15,14 @@
       <change afterPath="$PROJECT_DIR$/cmake-build-debug/checkFirstPass.as" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/cmake-build-debug/checkSecondPass.as" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/cmake-build-debug/errors-test.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorHandling/fileErrors.c" beforeDir="false" afterPath="$PROJECT_DIR$/errorHandling/fileErrors.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/firstIteration.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/firstIteration.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/secondIteration.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/secondIteration.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processInput/fileContentProcessing.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/fileContentProcessing.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/processInput/firstIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/firstIteration.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processInput/secondIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/secondIteration.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +114,7 @@
       <workItem from="1625936061906" duration="139581000" />
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
-      <workItem from="1628359595675" duration="87554000" />
+      <workItem from="1628359595675" duration="92693000" />
     </task>
     <task id="LOCAL-00001" summary="first commit - project is working with valid input, before testing for invalid inputs and before optimizing dataTable.c deleted bloat">
       <created>1627043778177</created>
@@ -450,7 +452,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629065880533</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="fixed another memory leak regarding labelName when label is used before entry/extern. refactored the 80 characters limit error handling, and now no information from the last line is left.">
+      <created>1629212525370</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1629212525370</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,7 +479,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fixed memory leak in dataTable.c and entriesOrExternList.c (via secondIteration.c)" />
     <MESSAGE value="fixed all memory leaks in the program, this time in firstIteration.c" />
     <MESSAGE value="minor refactor in firstIteration.c" />
     <MESSAGE value="added functionality for creating either just extern or just entry" />
@@ -495,6 +503,7 @@
     <MESSAGE value="changed the name of a function in secondIteration.c" />
     <MESSAGE value="removed double error reporting in case memory isn't allocated successfully when initializing the data structures" />
     <MESSAGE value="some refactoring to shorten functions which were too long" />
-    <option name="LAST_COMMIT_MESSAGE" value="some refactoring to shorten functions which were too long" />
+    <MESSAGE value="fixed another memory leak regarding labelName when label is used before entry/extern. refactored the 80 characters limit error handling, and now no information from the last line is left." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed another memory leak regarding labelName when label is used before entry/extern. refactored the 80 characters limit error handling, and now no information from the last line is left." />
   </component>
 </project>

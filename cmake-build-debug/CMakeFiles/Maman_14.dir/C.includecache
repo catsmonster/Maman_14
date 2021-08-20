@@ -18,14 +18,6 @@ fileErrors.h
 fileErrors.h
 /home/user/CLionProjects/Maman14/includes/fileErrors.h
 
-/home/user/CLionProjects/Maman14/includes/directiveFunctions.h
-dataImage.h
-/home/user/CLionProjects/Maman14/includes/dataImage.h
-dataTable.h
-/home/user/CLionProjects/Maman14/includes/dataTable.h
-entriesList.h
-/home/user/CLionProjects/Maman14/includes/entriesList.h
-
 /home/user/CLionProjects/Maman14/includes/entriesList.h
 fileErrors.h
 /home/user/CLionProjects/Maman14/includes/fileErrors.h
@@ -34,39 +26,31 @@ dataTable.h
 
 /home/user/CLionProjects/Maman14/includes/fileErrors.h
 
-/home/user/CLionProjects/Maman14/includes/firstIteration.h
-stdio.h
--
-listOfCommands.h
-/home/user/CLionProjects/Maman14/includes/listOfCommands.h
-dataTable.h
-/home/user/CLionProjects/Maman14/includes/dataTable.h
-dataImage.h
-/home/user/CLionProjects/Maman14/includes/dataImage.h
-entriesList.h
-/home/user/CLionProjects/Maman14/includes/entriesList.h
-fileErrors.h
-/home/user/CLionProjects/Maman14/includes/fileErrors.h
-
-/home/user/CLionProjects/Maman14/includes/inputUtils.h
-fileErrors.h
-/home/user/CLionProjects/Maman14/includes/fileErrors.h
-
-/home/user/CLionProjects/Maman14/includes/listOfCommands.h
+/home/user/CLionProjects/Maman14/includes/printOutput.h
 codeImage.h
 /home/user/CLionProjects/Maman14/includes/codeImage.h
+dataImage.h
+/home/user/CLionProjects/Maman14/includes/dataImage.h
+entriesList.h
+/home/user/CLionProjects/Maman14/includes/entriesList.h
+stdio.h
+-
 
-/home/user/CLionProjects/Maman14/processInput/firstIteration.c
-../includes/firstIteration.h
-/home/user/CLionProjects/Maman14/includes/firstIteration.h
-../includes/inputUtils.h
-/home/user/CLionProjects/Maman14/includes/inputUtils.h
-../includes/directiveFunctions.h
-/home/user/CLionProjects/Maman14/includes/directiveFunctions.h
-ctype.h
--
-string.h
--
+/home/user/CLionProjects/Maman14/includes/secondIteration.h
+dataTable.h
+/home/user/CLionProjects/Maman14/includes/dataTable.h
+codeImage.h
+/home/user/CLionProjects/Maman14/includes/codeImage.h
+entriesList.h
+/home/user/CLionProjects/Maman14/includes/entriesList.h
+printOutput.h
+/home/user/CLionProjects/Maman14/includes/printOutput.h
+fileErrors.h
+/home/user/CLionProjects/Maman14/includes/fileErrors.h
+
+/home/user/CLionProjects/Maman14/processInput/secondIteration.c
+../includes/secondIteration.h
+/home/user/CLionProjects/Maman14/includes/secondIteration.h
 stdlib.h
 -
 

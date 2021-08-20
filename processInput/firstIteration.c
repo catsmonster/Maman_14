@@ -181,8 +181,7 @@ void handleNameConflict(int itemExists, char *labelName, long currentLine, int p
  */
 void handleDirectiveExecution(int *pos, const char inputLine[], errorCodes *error, int validLabel, int selectedDirectiveCMD,
                               int itemExists, char labelName[], long currentLine, long *DC, dataTable *listOfSymbols,
-                              entriesList **entriesTail, dataNode **dataImageTail, int *hasExtern, int *hasEntry,
-                              entriesList *entriesHead) {
+                              entriesList **entriesTail, dataNode **dataImageTail, entriesList *entriesHead) {
     void (*directiveFuncArr[NUM_OF_DIRECTIVE_CMDS - 2])(int *, const char[], long *, errorCodes *, dataNode**, long) = {db, dw, dh, asciz};
     if (validLabel && selectedDirectiveCMD != ENTRY_DIRECTIVE && selectedDirectiveCMD != EXTERNAL_DIRECTIVE) {
         itemExists = addItemToDataTable(labelName, *DC, DATA, listOfSymbols);
@@ -196,11 +195,9 @@ void handleDirectiveExecution(int *pos, const char inputLine[], errorCodes *erro
             }
             if (selectedDirectiveCMD == EXTERNAL_DIRECTIVE) {
                 external(pos, inputLine, listOfSymbols, error, currentLine);
-                *hasExtern = 1;
             }
             else {
                 entry(pos, inputLine, error, currentLine, entriesTail, entriesHead);
-                *hasEntry = 1;
             }
         }
         else
@@ -229,12 +226,11 @@ void handleCommandExecution(int *pos, const char inputLine[], int validLabel, in
 void addLabelAndExecuteCommand(int selectedDirectiveCMD, char labelName[], int validLabel, int selectedCMD, int *pos,
                                const char inputLine[], long * DC, long * IC, long currentLine,
                                CMD *listOfCommands, dataTable *listOfSymbols, errorCodes *error, dataNode **dataImageTail,
-                               codeNode **codeImageTail, entriesList **entriesTail, int *hasExtern, int *hasEntry,
-                               entriesList *entriesHead) {
+                               codeNode **codeImageTail, entriesList **entriesTail, entriesList *entriesHead) {
     int itemExists = 0;
     if (selectedDirectiveCMD != NOT_FOUND) {
         handleDirectiveExecution(pos, inputLine, error, validLabel, selectedDirectiveCMD, itemExists, labelName,
-                                 currentLine, DC, listOfSymbols, entriesTail, dataImageTail, hasExtern, hasEntry, entriesHead);
+                                 currentLine, DC, listOfSymbols, entriesTail, dataImageTail, entriesHead);
     }
     else if (selectedCMD != NOT_FOUND) {
        handleCommandExecution(pos, inputLine, validLabel, itemExists, labelName, IC, listOfSymbols, currentLine, error,
@@ -247,7 +243,7 @@ void addLabelAndExecuteCommand(int selectedDirectiveCMD, char labelName[], int v
  */
 void readLine(int *pos, const char inputLine[], long * DC, long * IC, long currentLine, CMD *listOfCommands,
               dataTable *listOfSymbols, errorCodes *error, dataNode **dataImageTail, codeNode **codeImageTail,
-              entriesList **entriesTail, int *hasExtern, int *hasEntry, entriesList *entriesHead) {
+              entriesList **entriesTail, entriesList *entriesHead) {
     int selectedDirectiveCMD = NOT_FOUND, selectedCMD = NOT_FOUND;
     char *labelName = calloc(MAX_LABEL_LENGTH, sizeof(char));
     int validLabel = isValidLabel(pos, inputLine, currentLine, listOfCommands, labelName, error);
@@ -260,7 +256,7 @@ void readLine(int *pos, const char inputLine[], long * DC, long * IC, long curre
         if (!isFileError(selectedDirectiveCMD) && !isFileError(selectedCMD)) {
             addLabelAndExecuteCommand(selectedDirectiveCMD, validLabel ? labelName : NULL, validLabel, selectedCMD, pos, inputLine, DC, IC,
                                       currentLine, listOfCommands, listOfSymbols, error, dataImageTail,
-                                      codeImageTail, entriesTail, hasExtern, hasEntry, entriesHead);
+                                      codeImageTail, entriesTail, entriesHead);
         }
         else {
             if (validLabel) {
@@ -304,8 +300,7 @@ void handleLineLengthError(int *pos, long currentLine, errorCodes *error, FILE *
  * or comment lines
  */
 void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, CMD *listOfCommands, dataTable *listOfSymbols,
-                    dataNode *dataImageHead, codeNode *codeImageHead, entriesList *entriesHead, int *hasExtern,
-                    int *hasEntry) {
+                    dataNode *dataImageHead, codeNode *codeImageHead, entriesList *entriesHead) {
     dataNode *dataImageTail = dataImageHead;
     codeNode *codeImageTail = codeImageHead;
     entriesList *entriesTail = entriesHead;
@@ -320,7 +315,7 @@ void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, CMD *list
         }
         if (pos >= 0) {
             readLine(&pos, inputLine, DC, IC, currentLine, listOfCommands, listOfSymbols, error,
-                     &dataImageTail, &codeImageTail, &entriesTail, hasExtern, hasEntry, entriesHead);
+                     &dataImageTail, &codeImageTail, &entriesTail, entriesHead);
         }
         currentLine++;
     }

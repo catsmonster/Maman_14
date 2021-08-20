@@ -15,6 +15,6 @@
  * data image, code image, entries list
  */
 void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, CMD *, dataTable*, dataNode *, codeNode *,
-                    entriesList *, int *, int *);
+                    entriesList *);
 
 #endif

@@ -11,7 +11,6 @@
  * accepts the table of symbols, an error code pointer, the image head, the ICF value, the entries list, the address
  * of an .ext file pointer and the address of an .ent file pointer.
  */
-void secondIteration(dataTable *listOfSymbols, errorCodes *error, codeNode *, long ICF, entriesList *entriesHead,
-                     FILE **extFile, FILE **entFile);
+void secondIteration(dataTable *listOfSymbols, errorCodes *error, codeNode *, long ICF, entriesList *entriesHead, char *fileName);
 
 #endif
