@@ -2,19 +2,21 @@
 #include "../includes/inputUtils.h"
 #include <stdlib.h>
 #include <ctype.h>
-#include <string.h>
+#include <errno.h>
 #define MAX_NUM_LENGTH 12
 #define LIST_MAX_LENGTH 80
 #define DW_MAX_STRING_LENGTH 11
 #define DH_MAX_STRING_LENGTH 6
 #define DB_MAX_STRING_LENGTH 4
-#define MIN_SIZE_32_BITS "2147483648"
-#define MAX_SIZE_32_BITS "2147483647"
-#define MIN_SIZE_16_BITS "32768"
-#define MAX_SIZE_16_BITS "32767"
-#define MIN_SIZE_8_BITS "128"
-#define MAX_SIZE_8_BITS "127"
+#define MIN_SIZE_16_BITS (-32768)
+#define MAX_SIZE_16_BITS 32767
+#define MIN_SIZE_8_BITS (-128)
+#define MAX_SIZE_8_BITS 127
 #define MAX_LABEL_LENGTH 32
+#define MAX_SIZE_32_BITS 2147483647l
+#define MIN_SIZE_32_BITS (-2147483648l)
+
+extern int errno;
 
 /*
  * creates a list of type long to store the information for later conversion to the data image
@@ -46,28 +48,29 @@ int determineMaxLength(typeOfData type) {
     return maxLength;
 }
 
-/*
- * determines if the number is too big for the data type, checking whether the string is at
- * max length, and if so, performing a string comparison with the known limits of each data type.
- */
-int isNumTooBig(int numArrIndex, int maxLength, const int *pos, const char input[], char num[], typeOfData type) {
-    int tooBig = 0;
-    int compareToLimitations = num[0] == '-' ? strcmp(num + 1, type == DB_ASCIZ ? MIN_SIZE_8_BITS
-            : type == DH ? MIN_SIZE_16_BITS : MIN_SIZE_32_BITS)
-            : strcmp(num[0] == '+' ? num + 1 : num, type == DB_ASCIZ ? MAX_SIZE_8_BITS : type == DH ? MAX_SIZE_16_BITS
-            : MAX_SIZE_32_BITS);
-    if ((numArrIndex > maxLength && isdigit(input[*pos])) || (numArrIndex >= maxLength - 1 && compareToLimitations == 1)) {
-        tooBig = 1;
-    }
 
-    return tooBig;
+/*
+ * determines if the number is too big for the data type (or in general for any type using errno)
+ */
+int isNumTooBig(long givenNum, typeOfData type){
+    int isTooBig = 0;
+    if (errno == ERANGE || givenNum > MAX_SIZE_32_BITS || givenNum < MIN_SIZE_32_BITS)
+        isTooBig = 1;
+    else {
+        if (type == DB_ASCIZ && (givenNum > MAX_SIZE_8_BITS || givenNum < MIN_SIZE_8_BITS))
+            isTooBig = 1;
+        if (type == DH && (givenNum > MAX_SIZE_16_BITS || givenNum < MIN_SIZE_16_BITS))
+            isTooBig = 1;
+    }
+    return isTooBig;
 }
 
 /*
  * converts the string representation of the number to a long, and if no errors are found, adds it to the list and updates
  * the index. returns 0 if successful or a LOCAL_ERROR code in case of failure.
  */
-errorCodes convertToLongAndInsertToList(int *pos, char num[], long currentLine, errorCodes *error, long *list, int *listIndex) {
+errorCodes convertToLongAndInsertToList(int *pos, char num[], long currentLine, errorCodes *error, long *list,
+                                        int *listIndex, typeOfData type) {
     char *end;
     long givenNum;
     errorCodes foundError = 0;
@@ -75,6 +78,11 @@ errorCodes convertToLongAndInsertToList(int *pos, char num[], long currentLine, 
     if (end[0]) {
         handleNANError(end[0], currentLine, error, pos);
         *error = ERROR_NOT_AN_INTEGER;
+        foundError = LOCAL_ERROR;
+    }
+    else if (isNumTooBig(givenNum, type)) {
+        *error = ERROR_INTEGER_OUT_OF_RANGE;
+        printInputError(ERROR_INTEGER_OUT_OF_RANGE, "", currentLine, *pos);
         foundError = LOCAL_ERROR;
     } else
         list[(*listIndex)++] = givenNum;
@@ -97,14 +105,7 @@ int readNum(int *pos, const char input[],errorCodes *error, long currentLine, ty
             num[numArrIndex++] = input[(*pos)++];
         }
         while (isdigit(input[*pos]) && numArrIndex <= maxLength);
-        if (isNumTooBig(numArrIndex, maxLength, pos, input, num, type)) {
-            *error = ERROR_INTEGER_OUT_OF_RANGE;
-            printInputError(ERROR_INTEGER_OUT_OF_RANGE, "", currentLine, *pos);
-            foundError = LOCAL_ERROR;
-        }
-        else {
-            foundError = convertToLongAndInsertToList(pos, num, currentLine, error, list, listIndex);
-        }
+        foundError = convertToLongAndInsertToList(pos, num, currentLine, error, list, listIndex, type);
     }
     return foundError;
 }

@@ -305,7 +305,7 @@ void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, CMD *list
     long currentLine = 1;
     char inputLine[MAX_LINE_LENGTH + 1];
     while (fgets(inputLine, MAX_LINE_LENGTH + 1, fp)) {
-        int pos = 0, c;
+        int pos = 0;
         if (isValidLineLength(inputLine))
             advanceToStartOfValidInput(&pos, inputLine, currentLine, error);
         else {
