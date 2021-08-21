@@ -52,16 +52,10 @@ int determineMaxLength(typeOfData type) {
 /*
  * determines if the number is too big for the data type (or in general for any type using errno)
  */
-int isNumTooBig(long givenNum, typeOfData type){
+int isNumTooBig(long givenNum, long min, long max){
     int isTooBig = 0;
-    if (errno == ERANGE || givenNum > MAX_SIZE_32_BITS || givenNum < MIN_SIZE_32_BITS)
+    if (errno == ERANGE || givenNum > max || givenNum < min)
         isTooBig = 1;
-    else {
-        if (type == DB_ASCIZ && (givenNum > MAX_SIZE_8_BITS || givenNum < MIN_SIZE_8_BITS))
-            isTooBig = 1;
-        if (type == DH && (givenNum > MAX_SIZE_16_BITS || givenNum < MIN_SIZE_16_BITS))
-            isTooBig = 1;
-    }
     return isTooBig;
 }
 
@@ -80,7 +74,8 @@ errorCodes convertToLongAndInsertToList(int *pos, char num[], long currentLine, 
         *error = ERROR_NOT_AN_INTEGER;
         foundError = LOCAL_ERROR;
     }
-    else if (isNumTooBig(givenNum, type)) {
+    else if (isNumTooBig(givenNum, type == DB_ASCIZ ? MIN_SIZE_8_BITS : type == DH ? MIN_SIZE_16_BITS : MIN_SIZE_32_BITS,
+                         type == DB_ASCIZ ? MAX_SIZE_8_BITS : type == DH ? MAX_SIZE_16_BITS : MAX_SIZE_32_BITS)) {
         *error = ERROR_INTEGER_OUT_OF_RANGE;
         printInputError(ERROR_INTEGER_OUT_OF_RANGE, "", currentLine, *pos);
         foundError = LOCAL_ERROR;

@@ -43,8 +43,6 @@ stdlib.h
 -
 ctype.h
 -
-string.h
--
 errno.h
 -
 
