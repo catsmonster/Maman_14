@@ -98,6 +98,7 @@ void handleConflict(symbol **entries, long posInTable, int *itemExists, symbol *
             }
             else {
                 *itemExists = 1;
+                free(newSymbol);
             }
         }
         if (!(*itemExists)) {
@@ -133,15 +134,17 @@ void redistributeEntriesToNewTable(symbol **entries, dataTable *table, long prev
     for (i = 0; i < previousTableSize; i++) {
         symbol *currentSymbol = table -> entries[i];
         if (currentSymbol) {
-            if (currentSymbol -> next) {
+            while (currentSymbol) {
                 symbol *nextSymbol = currentSymbol -> next;
-                while (nextSymbol) {
+                if (nextSymbol) {
                     currentSymbol -> next = NULL;
-                    insertSymbol(nextSymbol, entries, table);
-                    nextSymbol = nextSymbol -> next;
+                    insertSymbol(currentSymbol, entries, table);
                 }
+                else {
+                    insertSymbol(currentSymbol, entries, table);
+                }
+                currentSymbol = nextSymbol;
             }
-            insertSymbol(currentSymbol, entries, table);
         }
     }
 }

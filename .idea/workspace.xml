@@ -19,9 +19,10 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/secondIteration.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/secondIteration.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataStructures/dataTable.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataStructures/dataTable.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processInput/directiveFunctions.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/directiveFunctions.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/processInput/firstIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/firstIteration.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processInput/secondIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/secondIteration.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processInput/inputUtils.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/inputUtils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +80,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Maman_14" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="externIsEntry.as noSuchSymbol.as externInConditional.as 1.as 2 3.as 4.as 5.as as.as checkFirstPass.as checkSecondPass.as errors-test.as k5.as" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Maman_14" TARGET_NAME="Maman_14" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Maman_14" RUN_TARGET_NAME="Maman_14">
+    <configuration name="Maman_14" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="1.as 2 3.as 4.as 5.as as.as k5.as checkFirstPass.as checkSecondPass.as encodingTester.as errorTester1.as errorTester2.as externInConditional.as externIsEntry.as" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Maman_14" TARGET_NAME="Maman_14" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Maman_14" RUN_TARGET_NAME="Maman_14">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -113,14 +114,7 @@
       <workItem from="1625936061906" duration="139581000" />
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
-      <workItem from="1628359595675" duration="95190000" />
-    </task>
-    <task id="LOCAL-00002" summary="first commit - project is working with valid input, before testing for invalid inputs and before optimizing dataTable.c deleted bloat">
-      <created>1627232077188</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1627232077188</updated>
+      <workItem from="1628359595675" duration="110880000" />
     </task>
     <task id="LOCAL-00003" summary="fixed a few minor input error related bugs and added a new error. fixed bug with the &quot;advance to next argument&quot; function.">
       <created>1627302826556</created>
@@ -458,7 +452,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629496707695</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="fixed a memory leak regarding entries, in the secondIteration.c">
+      <created>1629499216449</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1629499216449</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,7 +479,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="minor refactor in firstIteration.c" />
     <MESSAGE value="added functionality for creating either just extern or just entry" />
     <MESSAGE value="added back deleted files" />
     <MESSAGE value="if the last data entry starts a new line, doesn't add the next address" />
@@ -503,15 +503,26 @@
     <MESSAGE value="some refactoring to shorten functions which were too long" />
     <MESSAGE value="fixed another memory leak regarding labelName when label is used before entry/extern. refactored the 80 characters limit error handling, and now no information from the last line is left." />
     <MESSAGE value="refactored printing ent and ext files from secondIteration.c" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored printing ent and ext files from secondIteration.c" />
+    <MESSAGE value="fixed a memory leak regarding entries, in the secondIteration.c" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed a memory leak regarding entries, in the secondIteration.c" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/processInput/secondIteration.c</url>
-          <line>125</line>
-          <option name="timeStamp" value="181" />
+          <url>file://$PROJECT_DIR$/dataStructures/dataTable.c</url>
+          <line>131</line>
+          <option name="timeStamp" value="191" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/processInput/directiveFunctions.c</url>
+          <line>195</line>
+          <option name="timeStamp" value="194" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/dataStructures/dataTable.c</url>
+          <line>69</line>
+          <option name="timeStamp" value="195" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

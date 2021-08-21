@@ -251,7 +251,7 @@ void readLine(int *pos, const char inputLine[], long * DC, long * IC, long curre
     }
     if (!isFileError(validLabel)) {
         readCommand(pos, inputLine, currentLine, listOfCommands, &selectedDirectiveCMD, &selectedCMD, error);
-        if (!isFileError(selectedDirectiveCMD) && !isFileError(selectedCMD)) {
+        if (!isFileError(selectedDirectiveCMD) && !isFileError(selectedCMD) && (selectedCMD != NOT_FOUND || selectedDirectiveCMD != NOT_FOUND)) {
             addLabelAndExecuteCommand(selectedDirectiveCMD, validLabel ? labelName : NULL, validLabel,
                                       selectedCMD, pos, inputLine, DC, IC, currentLine, listOfCommands, listOfSymbols,
                                       error, dataImageTail, codeImageTail, entriesTail, entriesHead);

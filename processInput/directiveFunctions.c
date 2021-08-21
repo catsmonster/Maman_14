@@ -227,6 +227,8 @@ void entry(int *pos, const char input[], errorCodes *error, long currentLine, en
     if (readInputLabel(pos, input, currentLine, error, labelName) != LOCAL_ERROR) {
         if (!entryExists(labelName, entriesHead))
             *entriesTail = setEntryListTail(labelName, *entriesTail, error, currentLine);
+        else
+            free(labelName);
     }
     else
         free(labelName);
@@ -241,9 +243,12 @@ void external(int *pos, const char input[], dataTable *table, errorCodes *error,
     int labelExists;
     if (readInputLabel(pos, input, currentLine, error, labelName) != LOCAL_ERROR) {
         labelExists = addItemToDataTable(labelName, 0, EXTERN, table);
-        if (labelExists && getSymbolType(labelName, table, error, currentLine) != EXTERN) {
-            *error = ERROR_LABEL_NAME_CONFLICT;
-            printInputError(ERROR_LABEL_NAME_CONFLICT, labelName, currentLine, *pos);
+        if (labelExists) {
+            if (getSymbolType(labelName, table, error, currentLine) != EXTERN) {
+                *error = ERROR_LABEL_NAME_CONFLICT;
+                printInputError(ERROR_LABEL_NAME_CONFLICT, labelName, currentLine, *pos);
+            }
+            free(labelName);
         }
     }
     else
