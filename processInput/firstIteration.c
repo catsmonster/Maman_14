@@ -285,12 +285,10 @@ int isValidLineLength(const char input[]) {
  * in case a line is longer than 80 characters, prints out an error, sets the position counter to -1 and moves the file
  * pointer to the end of the line (so that it doesn't interfere with the next line).
  */
-void handleLineLengthError(int *pos, long currentLine, errorCodes *error, FILE *fp) {
-    int c;
+void handleLineLengthError(int *pos, long currentLine, errorCodes *error) {
     printInputError(ERROR_LINE_LENGTH_EXCEEDS_LIMIT, "", currentLine, 0);
     *error = ERROR_LINE_LENGTH_EXCEEDS_LIMIT;
     *pos = NOT_FOUND;
-    while ((c = fgetc(fp)) != '\n' && c != EOF);
 }
 
 /*
@@ -305,11 +303,12 @@ void firstIteration(FILE *fp, long * DC, long * IC, errorCodes *error, CMD *list
     long currentLine = 1;
     char inputLine[MAX_LINE_LENGTH + 1];
     while (fgets(inputLine, MAX_LINE_LENGTH + 1, fp)) {
-        int pos = 0;
-        if (isValidLineLength(inputLine))
-            advanceToStartOfValidInput(&pos, inputLine, currentLine, error);
-        else {
-            handleLineLengthError(&pos, currentLine, error, fp);
+        int pos = 0, c;
+        advanceToStartOfValidInput(&pos, inputLine, currentLine, error);
+        if (!isValidLineLength(inputLine)) {
+            if (pos >= 0)
+                handleLineLengthError(&pos, currentLine, error);
+            while ((c = fgetc(fp)) != '\n' && c != EOF);
         }
         if (pos >= 0) {
             readLine(&pos, inputLine, DC, IC, currentLine, listOfCommands, listOfSymbols, error,

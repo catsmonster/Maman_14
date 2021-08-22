@@ -20,6 +20,7 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/processInput/directiveFunctions.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/directiveFunctions.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processInput/firstIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/firstIteration.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +83,7 @@
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Maman_14" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="1.as 2 3.as 4.as 5.as as.as k5.as checkFirstPass.as checkSecondPass.as encodingTester.as errorsPerCommandType.as errorTester1.as errorTester2.as externIsEntry.as externInConditional.as noSuchSymbol.as" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Maman_14" TARGET_NAME="Maman_14" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Maman_14" RUN_TARGET_NAME="Maman_14">
+    <configuration name="Maman_14" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="errorsPerCommandType.as" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Maman_14" TARGET_NAME="Maman_14" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Maman_14" RUN_TARGET_NAME="Maman_14">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -112,14 +113,7 @@
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
       <workItem from="1628359595675" duration="110880000" />
-      <workItem from="1629571204416" duration="7475000" />
-    </task>
-    <task id="LOCAL-00004" summary="added support for '+' in front of an integer">
-      <created>1627303710627</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1627303710627</updated>
+      <workItem from="1629571204416" duration="10643000" />
     </task>
     <task id="LOCAL-00005" summary="removed &quot;magic number&quot; from codeImage">
       <created>1627735621511</created>
@@ -457,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629586876825</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="made some minor refactoring to the isTooBig function in directiveFunctions.c">
+      <created>1629587602854</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1629587602854</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,7 +478,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="added back deleted files" />
     <MESSAGE value="if the last data entry starts a new line, doesn't add the next address" />
     <MESSAGE value="documented entriesOrExternList.h" />
     <MESSAGE value="added some more documentation and minor refactoring for names" />
@@ -502,7 +502,8 @@
     <MESSAGE value="refactored printing ent and ext files from secondIteration.c" />
     <MESSAGE value="fixed a memory leak regarding entries, in the secondIteration.c" />
     <MESSAGE value="now using errno to determine if number is too large" />
-    <option name="LAST_COMMIT_MESSAGE" value="now using errno to determine if number is too large" />
+    <MESSAGE value="made some minor refactoring to the isTooBig function in directiveFunctions.c" />
+    <option name="LAST_COMMIT_MESSAGE" value="made some minor refactoring to the isTooBig function in directiveFunctions.c" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -514,8 +515,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/processInput/directiveFunctions.c</url>
-          <line>191</line>
-          <option name="timeStamp" value="194" />
+          <line>54</line>
+          <option name="timeStamp" value="198" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

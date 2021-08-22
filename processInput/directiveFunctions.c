@@ -14,7 +14,7 @@
 #define MAX_SIZE_8_BITS 127
 #define MAX_LABEL_LENGTH 32
 #define MAX_SIZE_32_BITS 2147483647l
-#define MIN_SIZE_32_BITS (-2147483648l)
+#define MIN_SIZE_32_BITS (-2147483647l - 1l)
 
 extern int errno;
 
