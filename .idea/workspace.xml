@@ -19,8 +19,7 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Maman_14.dir/C.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Maman_14" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Maman_14" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processInput/directiveFunctions.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/directiveFunctions.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processInput/firstIteration.c" beforeDir="false" afterPath="$PROJECT_DIR$/processInput/firstIteration.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataStructures/dataTable.c" beforeDir="false" afterPath="$PROJECT_DIR$/dataStructures/dataTable.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +82,7 @@
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Maman_14" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="errorsPerCommandType.as" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Maman_14" TARGET_NAME="Maman_14" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Maman_14" RUN_TARGET_NAME="Maman_14">
+    <configuration name="Maman_14" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="errorsPerCommandType.as 1.as 2 3.as 4.as 5.as k5.as as.as checkFirstPass.as checkSecondPass.as encodingTester.as errors-test.as errorTester1.as errorTester2.as extensiveValidInput.as externInConditional.as externIsEntry.as noSuchSymbol.as" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Maman_14" TARGET_NAME="Maman_14" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Maman_14" RUN_TARGET_NAME="Maman_14">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -113,14 +112,7 @@
       <workItem from="1626967086501" duration="42255000" />
       <workItem from="1627742540140" duration="28819000" />
       <workItem from="1628359595675" duration="110880000" />
-      <workItem from="1629571204416" duration="10643000" />
-    </task>
-    <task id="LOCAL-00005" summary="removed &quot;magic number&quot; from codeImage">
-      <created>1627735621511</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1627735621511</updated>
+      <workItem from="1629571204416" duration="13231000" />
     </task>
     <task id="LOCAL-00006" summary="updated all functions to use errorCodes enum typedef instead of int, and removed the general printError function to now use specific functions instead. Additionally, removed from listOfCommands the type field and its functionality, as it was redundant.">
       <created>1627741309202</created>
@@ -458,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629587602854</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="fixed some issues with c90 compatibility and added support for comments longer than 80 characters.">
+      <created>1629642106483</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1629642106483</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,7 +477,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="if the last data entry starts a new line, doesn't add the next address" />
     <MESSAGE value="documented entriesOrExternList.h" />
     <MESSAGE value="added some more documentation and minor refactoring for names" />
     <MESSAGE value="minor documentation fix" />
@@ -503,7 +501,8 @@
     <MESSAGE value="fixed a memory leak regarding entries, in the secondIteration.c" />
     <MESSAGE value="now using errno to determine if number is too large" />
     <MESSAGE value="made some minor refactoring to the isTooBig function in directiveFunctions.c" />
-    <option name="LAST_COMMIT_MESSAGE" value="made some minor refactoring to the isTooBig function in directiveFunctions.c" />
+    <MESSAGE value="fixed some issues with c90 compatibility and added support for comments longer than 80 characters." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some issues with c90 compatibility and added support for comments longer than 80 characters." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -517,6 +516,11 @@
           <url>file://$PROJECT_DIR$/processInput/directiveFunctions.c</url>
           <line>54</line>
           <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/dataStructures/dataTable.c</url>
+          <line>56</line>
+          <option name="timeStamp" value="201" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

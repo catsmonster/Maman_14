@@ -2,8 +2,7 @@
 #include "../includes/dataTable.h"
 #include <stdlib.h>
 #include <string.h>
-#define HASH_COEFFICIENT_ODD 37
-#define HASH_COEFFICIENT_EVEN 101
+#define HASH_PRIMARY_NUM 5381
 #define INITIAL_SYMBOLS_TABLE_SIZE 32
 
 
@@ -54,11 +53,11 @@ dataTable *initializeDataTable() {
 /*
  * generates an easy to reproduce hash based on the name of the symbol and the position of each character in the name
  */
-long generateHash(const char *name, dataTable *table) {
+unsigned long generateHash(const char *name, dataTable *table) {
     int i;
-    long res = 0;
+    unsigned long res = HASH_PRIMARY_NUM;
     for (i = 0; name[i] ; ++i) {
-        res += name[i] * (i % 2 ? HASH_COEFFICIENT_ODD : HASH_COEFFICIENT_EVEN);
+        res = ((res << 5) + res) + name[i];
     }
     res %= table -> currentTableSize;
     return res;
@@ -158,7 +157,7 @@ void handlePossibleTableExtension(dataTable *table, int *itemExists) {
         symbol **tempEntries = table -> entries;
         symbol **entries;
         long previousTableSize = table -> currentTableSize;
-        (table -> currentTableSize) *= (table -> currentTableSize);
+        (table -> currentTableSize) *= 2;
         entries = calloc(table -> currentTableSize, sizeof(symbol *));
         if (!entries) {
             printMemoryError(ERROR_MEMORY_ALLOCATION);
